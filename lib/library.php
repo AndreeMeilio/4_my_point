@@ -4,7 +4,7 @@
     $host = 'localhost';
     $user = 'root';
     $pass = '';
-    $db = 'mypoint';
+    $db = '4_my_point';
 
     $mysqli = mysqli_connect($host, $user, $pass, $db)
             or die('Tidak dapat koneksi ke Database');

@@ -2,21 +2,19 @@
     session_start();
 
     function cekLogin() {
-        $username = @$_SESSION['username'];
-        $level    = @$_SESSION['level'];
-        $role    = @$_SESSION['role'];
+        $email = @$_SESSION['email'];
+        $id_hak_akses = @$_SESSION['id_hak_akses'];
 
-        if (empty($username) AND empty($level) AND empty($role)) {
+        if (empty($email) AND empty($id_hak_akses)) {
             header("location:login.php");
         }
     }
 
     function sudahLogin() {
-        $username = @$_SESSION['username'];
-        $level    = @$_SESSION['level'];
-        $role    = @$_SESSION['role'];
+        $email = @$_SESSION['email'];
+        $id_hak_akses = @$_SESSION['id_hak_akses'];
 
-        if (!empty($username) AND !empty($level) AND !empty($role)) {
+        if (!empty($email) AND !empty($id_hak_akses)) {
             header("location:login.php");
         }
     }

@@ -11,7 +11,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Username</label>
             <div class="col-sm-10">
-                <input type="text" name="username" class="form-control">
+                <input type="text" name="email" class="form-control">
             </div>
         </div>
 
@@ -25,9 +25,10 @@
         <div class="form-group">
             <label>Login sebagai:</label>
             <div class="col-sm-10">
-                <select name="role" id="role">
-                    <option value="admin">Admin</option>
-                    <option value="user" selected>User</option>
+                <select name="id_hak_akses" id="id_hak_akses">
+                    <option value="1" selected>Siswa</option>
+                    <option value="2">Guru</option>
+                    <option value="3">Admin</option>
                 </select>
             </div>
         </div>

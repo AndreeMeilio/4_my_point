@@ -3,9 +3,9 @@
 
     cekLogin();
 
-    if($_SESSION['role'] == 'admin') {
+    if($_SESSION['id_hak_akses'] == '3') {
         include 'views/v_index.php';
-    } elseif ($_SESSION['role'] == 'user') {
+    } elseif ($_SESSION['id_hak_akses'] == '1') {
         include 'views/v_index_user.php';
     }
 ?>

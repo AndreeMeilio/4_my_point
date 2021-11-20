@@ -5,20 +5,19 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        $username = $_POST['username'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
-        $role     = $_POST['role'];
+        $id_hak_akses     = $_POST['id_hak_akses'];
 
-        $sql = " SELECT *  FROM login WHERE username = '$username' AND password = SHA1('$password') AND role = '$role'";
+        $sql = " SELECT *  FROM akun WHERE email = '$email' AND password = SHA1('$password') AND id_hak_akses = '$id_hak_akses'";
 
         $data = $mysqli -> query($sql) or die($mysqli->error);
 
         if ($data->num_rows != 0)
         {
             $row = mysqli_fetch_object($data);
-            $_SESSION['username'] = $row -> username;
-            $_SESSION['role'] = $row -> role;
-            $_SESSION['level'] = $row -> level;
+            $_SESSION['email'] = $row -> email;
+            $_SESSION['id_hak_akses'] = $row -> id_hak_akses;
             header('location:index.php');
         }
         else
