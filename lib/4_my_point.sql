@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 15, 2021 at 04:14 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.25
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 20 Nov 2021 pada 12.30
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -48,7 +48,7 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `akun`
+-- Struktur dari tabel `akun`
 --
 
 CREATE TABLE `akun` (
@@ -61,10 +61,19 @@ CREATE TABLE `akun` (
   `date_update` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `akun`
+--
+
+INSERT INTO `akun` (`id_akun`, `id_entity`, `id_hak_akses`, `email`, `password`, `date_create`, `date_update`) VALUES
+('1', '', '1', 'siswa@gmail.com', '543fcb41d38745e7858ad4f1f13a68f25abfa0dc', '2021-11-20 17:50:58', '2021-11-20 17:50:58'),
+('2', '', '2', 'guru@gmail.com', '543fcb41d38745e7858ad4f1f13a68f25abfa0dc', '2021-11-20 17:50:09', '2021-11-20 17:50:09'),
+('3', '', '3', 'admin@gmail.com', '543fcb41d38745e7858ad4f1f13a68f25abfa0dc', '2021-11-20 17:46:18', '2021-11-20 17:46:18');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chronology`
+-- Struktur dari tabel `chronology`
 --
 
 CREATE TABLE `chronology` (
@@ -78,7 +87,7 @@ CREATE TABLE `chronology` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `guru`
+-- Struktur dari tabel `guru`
 --
 
 CREATE TABLE `guru` (
@@ -102,7 +111,7 @@ CREATE TABLE `guru` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hak_akses`
+-- Struktur dari tabel `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -112,10 +121,19 @@ CREATE TABLE `hak_akses` (
   `date_update` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `hak_akses`
+--
+
+INSERT INTO `hak_akses` (`id_hak_akses`, `nama_hak_akses`, `date_create`, `date_update`) VALUES
+('1', 'siswa', '2021-11-20 17:47:09', '2021-11-20 17:47:09'),
+('2', 'guru', '2021-11-20 17:47:45', '2021-11-20 17:47:45'),
+('3', 'admin', '2021-11-20 17:47:52', '2021-11-20 17:47:52');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_pelanggaran`
+-- Struktur dari tabel `jenis_pelanggaran`
 --
 
 CREATE TABLE `jenis_pelanggaran` (
@@ -129,7 +147,7 @@ CREATE TABLE `jenis_pelanggaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kabupaten`
+-- Struktur dari tabel `kabupaten`
 --
 
 CREATE TABLE `kabupaten` (
@@ -139,7 +157,7 @@ CREATE TABLE `kabupaten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `kabupaten`
+-- Dumping data untuk tabel `kabupaten`
 --
 
 INSERT INTO `kabupaten` (`id`, `provinsi_id`, `name`) VALUES
@@ -661,7 +679,7 @@ INSERT INTO `kabupaten` (`id`, `provinsi_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kecamatan`
+-- Struktur dari tabel `kecamatan`
 --
 
 CREATE TABLE `kecamatan` (
@@ -671,7 +689,7 @@ CREATE TABLE `kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `kecamatan`
+-- Dumping data untuk tabel `kecamatan`
 --
 
 INSERT INTO `kecamatan` (`id`, `kabupaten_id`, `name`) VALUES
@@ -7898,7 +7916,7 @@ INSERT INTO `kecamatan` (`id`, `kabupaten_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas`
+-- Struktur dari tabel `kelas`
 --
 
 CREATE TABLE `kelas` (
@@ -7914,7 +7932,7 @@ CREATE TABLE `kelas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelurahan`
+-- Struktur dari tabel `kelurahan`
 --
 
 CREATE TABLE `kelurahan` (
@@ -7924,7 +7942,7 @@ CREATE TABLE `kelurahan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `kelurahan`
+-- Dumping data untuk tabel `kelurahan`
 --
 
 INSERT INTO `kelurahan` (`id`, `kecamatan_id`, `name`) VALUES
@@ -87327,7 +87345,7 @@ INSERT INTO `kelurahan` (`id`, `kecamatan_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `media`
+-- Struktur dari tabel `media`
 --
 
 CREATE TABLE `media` (
@@ -87342,7 +87360,7 @@ CREATE TABLE `media` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggaran`
+-- Struktur dari tabel `pelanggaran`
 --
 
 CREATE TABLE `pelanggaran` (
@@ -87360,7 +87378,7 @@ CREATE TABLE `pelanggaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penghargaan`
+-- Struktur dari tabel `penghargaan`
 --
 
 CREATE TABLE `penghargaan` (
@@ -87379,7 +87397,7 @@ CREATE TABLE `penghargaan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `provinsi`
+-- Struktur dari tabel `provinsi`
 --
 
 CREATE TABLE `provinsi` (
@@ -87388,7 +87406,7 @@ CREATE TABLE `provinsi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `provinsi`
+-- Dumping data untuk tabel `provinsi`
 --
 
 INSERT INTO `provinsi` (`id`, `name`) VALUES
@@ -87430,11 +87448,11 @@ INSERT INTO `provinsi` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siswa`
+-- Struktur dari tabel `siswa`
 --
 
 CREATE TABLE `siswa` (
-  `id_siswa` varchar(255) NOT NULL,
+  `nis` varchar(255) NOT NULL,
   `id_kelas` varchar(255) NOT NULL,
   `nama_siswa` varchar(255) NOT NULL,
   `tempat_lahir` varchar(255) NOT NULL,
@@ -87455,104 +87473,104 @@ CREATE TABLE `siswa` (
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `akun`
+-- Indeks untuk tabel `akun`
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`id_akun`);
 
 --
--- Indexes for table `guru`
+-- Indeks untuk tabel `guru`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`id_guru`);
 
 --
--- Indexes for table `hak_akses`
+-- Indeks untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id_hak_akses`);
 
 --
--- Indexes for table `jenis_pelanggaran`
+-- Indeks untuk tabel `jenis_pelanggaran`
 --
 ALTER TABLE `jenis_pelanggaran`
   ADD PRIMARY KEY (`id_jenis_pelanggaran`);
 
 --
--- Indexes for table `kabupaten`
+-- Indeks untuk tabel `kabupaten`
 --
 ALTER TABLE `kabupaten`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `regencies_province_id_index` (`provinsi_id`) USING BTREE;
 
 --
--- Indexes for table `kecamatan`
+-- Indeks untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `districts_id_index` (`kabupaten_id`) USING BTREE;
 
 --
--- Indexes for table `kelurahan`
+-- Indeks untuk tabel `kelurahan`
 --
 ALTER TABLE `kelurahan`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `villages_district_id_index` (`kecamatan_id`) USING BTREE;
 
 --
--- Indexes for table `media`
+-- Indeks untuk tabel `media`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id_media`);
 
 --
--- Indexes for table `pelanggaran`
+-- Indeks untuk tabel `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
   ADD PRIMARY KEY (`id_pelanggaran`);
 
 --
--- Indexes for table `penghargaan`
+-- Indeks untuk tabel `penghargaan`
 --
 ALTER TABLE `penghargaan`
   ADD PRIMARY KEY (`id_penghargaan`);
 
 --
--- Indexes for table `provinsi`
+-- Indeks untuk tabel `provinsi`
 --
 ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `siswa`
+-- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id_siswa`);
+  ADD PRIMARY KEY (`nis`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `kabupaten`
+-- Ketidakleluasaan untuk tabel `kabupaten`
 --
 ALTER TABLE `kabupaten`
   ADD CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`provinsi_id`) REFERENCES `provinsi` (`id`);
 
 --
--- Constraints for table `kecamatan`
+-- Ketidakleluasaan untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`kabupaten_id`) REFERENCES `kabupaten` (`id`);
 
 --
--- Constraints for table `kelurahan`
+-- Ketidakleluasaan untuk tabel `kelurahan`
 --
 ALTER TABLE `kelurahan`
   ADD CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`kecamatan_id`) REFERENCES `kecamatan` (`id`);
