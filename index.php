@@ -3,9 +3,9 @@
 
     cekLogin();
 
-    if($_SESSION['id_hak_akses'] == '3' || $_SESSION['id_hak_akses'] == '2') {
+    if($_SESSION['nama_hak_akses'] == 'admin' || $_SESSION['nama_hak_akses'] == 'guru') {
         include 'views/v_index.php';
-    } elseif ($_SESSION['id_hak_akses'] == '1') {
+    } elseif ($_SESSION['nama_hak_akses'] == 'siswa') {
         include 'views/v_index_user.php';
     }
 ?>

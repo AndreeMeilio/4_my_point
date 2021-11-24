@@ -1,0 +1,23 @@
+.nav-link:hover {
+    background-color: gray;
+}
+.display-10 {
+    font-weight: bold;
+}
+.card-body-icon {
+    position: absolute;
+    z-index: 0;
+    top: 0.4px;
+    right: 10px;
+    opacity: 0.4;
+    font-size: 70px;
+}
+.card-body {
+    font-weight: bold; 
+    font-size: 15px;
+}
+
+.fa-circle {
+
+    font-size: 60px;
+}

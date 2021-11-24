@@ -6,7 +6,7 @@
         $id_hak_akses = @$_SESSION['id_hak_akses'];
 
         if (empty($email) AND empty($id_hak_akses)) {
-            header("location:login.php");
+            header("location:auth/login.php");
         }
     }
 
@@ -15,7 +15,7 @@
         $id_hak_akses = @$_SESSION['id_hak_akses'];
 
         if (!empty($email) AND !empty($id_hak_akses)) {
-            header("location:login.php");
+            header("location:auth/login.php");
         }
     }
 ?>

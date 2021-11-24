@@ -1,5 +1,5 @@
 <?php
-    include 'lib/helper.php';
+    include 'helper.php';
 
     $host = 'localhost';
     $user = 'root';
