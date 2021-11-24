@@ -3,7 +3,7 @@
 
     cekLogin();
 
-    if($_SESSION['id_hak_akses'] == '3') {
+    if($_SESSION['id_hak_akses'] == '3' || $_SESSION['id_hak_akses'] == '2') {
         include 'views/v_index.php';
     } elseif ($_SESSION['id_hak_akses'] == '1') {
         include 'views/v_index_user.php';
