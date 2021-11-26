@@ -12,7 +12,7 @@
     Ini halaman user
     <form action="logout.php">
         <button type="submit" class="btn-btm">
-            <a href="auth/logout.php" class="out">Logout</a>
+            <a href="/4_my_point/auth/logout.php" class="out">Logout</a>
         </button>
     </form>
 </body>
