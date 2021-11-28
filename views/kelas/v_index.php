@@ -35,6 +35,7 @@
                         <th scope="col">Tingkatan </th>
                         <th scope="col">Nama Kelas</th>
                         <th scope="col">Tahun Ajaran</th>
+                        <th scope="col">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,12 @@
                             <td><?php echo $item['tingkatan'] ?></td>
                             <td><?php echo $item['nama_kelas'] ?></td>
                             <td><?php echo $item['awal_tahun_ajaran'] . '/' . $item['akhir_tahun_ajaran'] ?></td>
+                            <td>
+                                <a class="btn btn-primary" href="edit.php?id_kelas=<?php echo $item['id_kelas'] ?>"><i class="fa fa-pencil"></i> Edit</a>
+                                <form action="delete.php" method="POST">
+                                    <button type="submit" class="btn btn-danger" name="id_kelas" value="<?php echo $item['id_kelas'] ?>"><i class="fa fa-trash"></i> Delete</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
