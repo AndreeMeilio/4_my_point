@@ -49,7 +49,7 @@
                             <td>
                                 <a class="btn btn-primary" href="edit.php?id_kelas=<?php echo $item['id_kelas'] ?>"><i class="fa fa-pencil"></i> Edit</a>
                                 <form action="delete.php" method="POST">
-                                    <button type="submit" class="btn btn-danger" name="id_kelas" value="<?php echo $item['id_kelas'] ?>"><i class="fa fa-trash"></i> Delete</button>
+                                <button type="button" class="btn btn-danger deleteData" value="<?php echo $item['id_kelas']?>"><i class="fa fa-trash"></i> Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -58,9 +58,33 @@
             </table>
         </div>
     </div>
+    <!-- FORM YANG DIPAKAI UNTUK DELETE DATA -->
+    <div class="d-none">
+        <form action="delete.php" method="POST">
+            <input type="text" id="id_kelas" name="id_kelas">
+            <button type="submit" id="submit_hapus"></button>
+        </form>
+    </div>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/addmin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(() => {
+            $('.deleteData').click(deleteData);
+
+            function deleteData(){
+                let id_kelas = $(this).val();
+                let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
+
+                console.log(id_kelas, yakin_hapus);
+                if (yakin_hapus){
+                    $('#id_kelas').val(id_kelas);
+                    $('#submit_hapus').click();
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
