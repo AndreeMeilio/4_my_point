@@ -26,7 +26,7 @@
 
         <div class="col-md-10 p-5 pt-3">
 
-            <a href="tambah.php" class="btn btn-primary mb-4 mt-4" style="float:right;"><i class="fas fa-plus me-2"></i> Tambah Data Siswa</a>
+            <a href="tambah.php" class="btn btn-primary mb-4 mt-4" style="float:right;"><i class="fas fa-plus me-2"></i> Tambah Data Guru</a>
             <table class="table table-striped table-bordered mt-5" id="myTable">
                 <thead>
                     <tr>
@@ -47,9 +47,8 @@
                                 <a class="btn btn-primary" href="edit.php?id_guru=<?php echo $item['id_guru'] ?>">Detail</a>
                                 <a class="btn btn-success" href="edit.php?id_guru=<?php echo $item['id_guru'] ?>">Edit</a>
                                 <form action="delete.php" method="POST">
-                                    <button type="submit" class="btn btn-danger" name="id_guru" value="<?php echo $item['id_guru'] ?>">Delete</button>
+                                    <button type="button" class="btn btn-danger deleteData" value="<?php echo $item['id_guru'] ?>">Delete</button>
                                 </form>
-                                <!-- <button type="button" class="btn btn-danger deleteData" value="<?php $item['id_siswa'] ?>">Delete</button> -->
                             </td>
                         </tr>
                     <?php } ?>
@@ -57,21 +56,33 @@
             </table>
         </div>
     </div>
+    <!-- FORM YANG DIPAKAI UNTUK DELETE DATA -->
+    <div class="d-none">
+        <form action="delete.php" method="POST">
+            <input type="text" id="id_guru" name="id_guru">
+            <button type="submit" id="submit_hapus"></button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(() => {
+            $('.deleteData').click(deleteData);
+
+            function deleteData() {
+                let id_guru = $(this).val();
+                let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
+
+                console.log(id_guru, yakin_hapus);
+                if (yakin_hapus) {
+                    $('#id_guru').val(id_guru);
+                    $('#submit_hapus').click();
+                }
+            }
+        });
+    </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="../assets/vendor/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="../assets/js/addmin.js"></script>
-    <!-- <script>
-        $(document).ready(() => {
-            $('.deleteData').on('click', () => {
-                const id_siswa = $(this).val();
-                const yakin_hapus = confirm("Menghapus data ini juga menghapus akun yang terkait, yakin??");
-
-                if (yakin_hapus){
-                    window.localtion.href = "delete.php?id_siswa=" + id_siswa;
-                }
-            });
-        });
-    </script> -->
 </body>
 
 </html>

@@ -4,19 +4,19 @@ session_start();
 include '../lib/library.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $id_siswa = @$_POST['id_siswa'];
+    $id_guru = @$_POST['id_guru'];
 
-    $id_siswa = $mysqli->escape_string($id_siswa);
+    $id_guru = $mysqli->escape_string($id_guru);
 
-    $sql_siswa = "SELECT * FROM siswa WHERE id_siswa = '$id_siswa'";
-    $query_siswa = $mysqli->query($sql_siswa) or die();
+    $sql_guru = "SELECT * FROM guru WHERE id_guru = '$id_guru'";
+    $query_guru = $mysqli->query($sql_guru) or die();
 
-    if ($query_siswa->num_rows != 0){
-        $sql_hapus_siswa        = "DELETE FROM siswa WHERE id_siswa = '$id_siswa'";
-        $sql_hapus_akun_siswa   = "DELETE FROM akun WHERE id_entity = '$id_siswa'";
+    if ($query_guru->num_rows != 0){
+        $sql_hapus_guru        = "DELETE FROM guru WHERE id_guru = '$id_guru'";
+        $sql_hapus_akun_guru   = "DELETE FROM akun WHERE id_entity = '$id_guru'";
 
-        $query_siswa            = $mysqli->query($sql_hapus_siswa) or die();
-        $query_akun_siswa       = $mysqli->query($sql_hapus_akun_siswa) or die();
+        $query_guru            = $mysqli->query($sql_hapus_guru) or die();
+        $query_akun_guru       = $mysqli->query($sql_hapus_akun_guru) or die();
 
         header("location:index.php");
     } else {
