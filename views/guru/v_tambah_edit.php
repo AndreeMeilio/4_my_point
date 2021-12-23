@@ -35,7 +35,7 @@ if (!empty($id_guru)) $action = 'edit.php'
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include '../views/sidebar.html' ?>
+        <?php include '../views/sidebar.php' ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->

@@ -2,6 +2,12 @@
 session_start();
 
 include '../lib/library.php';
+cekLogin();
+
+if($_SESSION["nama_hak_akses"] === "guru" || $_SESSION["nama_hak_akses"] === "siswa"){
+    header("location:index.php");
+}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_guru = @$_POST['id_guru'];

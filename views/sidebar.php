@@ -1,12 +1,6 @@
-<ul
-  class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion"
-  id="accordionSidebar"
->
+<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
   <!-- Sidebar - Brand -->
-  <a
-    class="sidebar-brand d-flex align-items-center justify-content-center"
-    href="index.html"
-  >
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="fas fa-truck-monster"></i>
     </div>
@@ -20,8 +14,7 @@
   <li class="nav-item">
     <a class="nav-link" href="index.html">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard</span></a
-    >
+      <span>Dashboard</span></a>
   </li>
 
   <!-- Divider -->
@@ -54,26 +47,27 @@
   </li>
 
   <!-- Nav Item - Tables -->
-  <li class="nav-item">
-    <a class="nav-link" href="/4_my_point/siswa/index.php">
-      <i class="fas fa-fw fa-user-graduate"></i>
-      <span>Siswa</span></a
-    >
-  </li>
+  <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+    <li class="nav-item">
+      <a class="nav-link" href="/4_my_point/siswa/index.php">
+        <i class="fas fa-fw fa-user-graduate"></i>
+        <span>Siswa</span></a>
+    </li>
+  <?php } ?>
 
   <li class="nav-item">
     <a class="nav-link" href="/4_my_point/kelas/index.php">
       <i class="fas fa-fw fa-house-user"></i>
-      <span>Kelas</span></a
-    >
+      <span>Kelas</span></a>
   </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="/4_my_point/guru/index.php">
-      <i class="fas fa-fw fa-chalkboard-teacher"></i>
-      <span>Guru</span></a
-    >
-  </li>
+  <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+    <li class="nav-item">
+      <a class="nav-link" href="/4_my_point/guru/index.php">
+        <i class="fas fa-fw fa-chalkboard-teacher"></i>
+        <span>Guru</span></a>
+    </li>
+  <?php } ?>
 
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block" />

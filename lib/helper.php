@@ -3,19 +3,19 @@
 
     function cekLogin() {
         $email = @$_SESSION['email'];
-        $id_hak_akses = @$_SESSION['id_hak_akses'];
+        $nama_hak_akses = @$_SESSION['nama_hak_akses'];
 
-        if (empty($email) AND empty($id_hak_akses)) {
-            header("location:auth/login.php");
+        if (empty($email) AND empty($nama_hak_akses)) {
+            header("location:/4_my_point/auth/login.php");
         }
     }
 
     function sudahLogin() {
         $email = @$_SESSION['email'];
-        $id_hak_akses = @$_SESSION['id_hak_akses'];
+        $nama_hak_akses = @$_SESSION['nama_hak_akses'];
 
-        if (!empty($email) AND !empty($id_hak_akses)) {
-            header("location:auth/login.php");
+        if (!empty($email) AND !empty($nama_hak_akses)) {
+            header("location:/4_my_point/index.php");
         }
     }
 ?>

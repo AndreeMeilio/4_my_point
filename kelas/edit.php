@@ -1,6 +1,9 @@
 <?php
 
 include '../lib/library.php';
+cekLogin();
+
+include '../auth/authorization.php';
 
 $id_kelas = @$_GET['id_kelas'];
 

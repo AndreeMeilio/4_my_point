@@ -1,6 +1,11 @@
 <?php
 
 include '../lib/library.php';
+cekLogin();
+
+if ($_SESSION["nama_hak_akses"] === "siswa"){
+    header("location:/4_my_point/index.php");
+}
 
 $sql = " SELECT guru.*
             FROM guru

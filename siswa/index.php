@@ -1,6 +1,8 @@
 <?php
 
 include '../lib/library.php';
+cekLogin();
+
 
 $sql = " SELECT siswa.*, kelas.*
                 FROM siswa INNER JOIN kelas 

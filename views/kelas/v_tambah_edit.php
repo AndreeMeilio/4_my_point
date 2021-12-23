@@ -37,7 +37,7 @@ if (!empty($id_kelas)) $action = 'edit.php?id_kelas='.$id_kelas;
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include '../views/sidebar.html' ?>
+        <?php include '../views/sidebar.php' ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->

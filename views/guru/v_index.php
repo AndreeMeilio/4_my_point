@@ -33,7 +33,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include '../views/sidebar.html' ?>
+        <?php include '../views/sidebar.php' ?>
         <!-- End of Sidebar -->
 
 
@@ -58,18 +58,22 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Data Guru</h6>
-                                <a href="tambah.php" class="btn btn-primary mb-1 mt-1" style="float:right;"><i class="fas fa-plus me-2"></i>Tambah Guru</a>
+                                <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
+                                    <a href="tambah.php" class="btn btn-primary mb-1 mt-1" style="float:right;"><i class="fas fa-plus me-2"></i>Tambah Guru</a>
+                                <?php } ?>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    
+
                                         <thead>
                                             <tr>
                                                 <th>NO</th>
                                                 <th>NIK</th>
                                                 <th>NAMA GURU</th>
-                                                <th>OPSI</th>
+                                                <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
+                                                    <th>OPSI</th>
+                                                <?php } ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -80,19 +84,21 @@
                                                     <td class="col-1"><?php echo ++$i ?></td>
                                                     <td class="col-3"><?php echo $item['id_guru'] ?></td>
                                                     <td class="col-4"><?php echo $item['nama'] ?></td>
-                                                    <td class="col-3">
-                                                        <a href="edit.php?id_guru=<?php echo $item['id_guru'] ?>" class="btn btn-success m-1 px-4">
-                                                            <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
-                                                                <path fill="#fff" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" />
-                                                            </svg> Edit</a>
-                                                        <form class="d-inline">
-                                                            <button type="button" class="btn btn-danger m1 deleteData" value="<?php echo $item['id_guru'] ?>">
+                                                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
+                                                        <td class="col-3">
+                                                            <a href="edit.php?id_guru=<?php echo $item['id_guru'] ?>" class="btn btn-success m-1 px-4">
                                                                 <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
-                                                                    <path fill="#fff" d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19Z" />
-                                                                </svg> Delete</button>
+                                                                    <path fill="#fff" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" />
+                                                                </svg> Edit</a>
+                                                            <form class="d-inline">
+                                                                <button type="button" class="btn btn-danger m1 deleteData" value="<?php echo $item['id_guru'] ?>">
+                                                                    <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
+                                                                        <path fill="#fff" d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19Z" />
+                                                                    </svg> Delete</button>
 
-                                                        </form>
-                                                    </td>
+                                                            </form>
+                                                        </td>
+                                                    <?php } ?>
                                                 </tr>
 
                                             <?php } ?>
@@ -121,23 +127,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include '../views/logout_modal.html';?>
 
     <!-- FORM YANG DIPAKAI UNTUK DELETE DATA -->
     <div class="d-none">

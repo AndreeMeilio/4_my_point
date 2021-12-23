@@ -38,7 +38,7 @@ if (!empty($id_siswa)) $action = "edit.php?nis=". $id_siswa;
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include '../views/sidebar.html' ?>
+        <?php include '../views/sidebar.php' ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->

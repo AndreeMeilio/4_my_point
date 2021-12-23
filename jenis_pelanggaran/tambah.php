@@ -1,5 +1,9 @@
 <?php
 include '../lib/library.php';
+cekLogin();
+
+include '../auth/authorization.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $id_jenis_pelanggaran   = uniqid('jplgrn');

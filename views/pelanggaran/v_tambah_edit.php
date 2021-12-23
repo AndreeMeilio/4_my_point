@@ -1,8 +1,10 @@
 <?php
+
 $action = "tambah.php";
-if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_jenis_pelanggaran;
+if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelanggaran;
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +15,7 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tata Tertib Siswa</title>
+    <title>Pelanggaran</title>
 
     <!-- Custom fonts for this template -->
     <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -51,27 +53,54 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i> Data Tata Tertib </h3>
+                    <h3><i class="far fa-address-book me-2"></i> Data Pelanggaran </h3>
                     <hr>
                     <div class="col-md-15 p-5 pt-3">
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Form Tambah Tata Tertib</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Form Pelanggaran</h5>
 
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-
-                                    <form action="tambah.php" method="POST">
-                                        <div class="mb-3">
-                                            <label for="desc_pelanggaran" class="form-label">Deskripsi Pelanggaran</label>
-                                            <textarea class="form-control" name="desc_pelanggaran" id="desc_pelanggaran" cols="30" rows="15" required><?= @$data_jenis_pelanggaran['desc_pelanggaran']?></textarea>
-                                        </div>
-                                        <a class="btn btn-danger float-start px-3" href="./">Back</a>
-                                        <button type="submit" class="btn btn-primary float-right">Submit</button>
-                                    </form>
+                                    <div class="container-fluid">
+                                        <form action="<?= @$action ?>" method="POST">
+                                            <div class="mb-3">
+                                                <label for="tgl_pelanggaran" class="form-label">Tanggal Pelanggaran</label>
+                                                <input type="date" class="form-control" id="tgl_pelanggaran" aria-describedby="tgl_pelanggaranHelp" name="tgl_pelanggaran" value="<?php //@$data_siswa['email'] ?>" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="id_siswa" class="form-label">Nama Siswa</label>
+                                                <select class="form-control" name="id_siswa" id="id_siswa">
+                                                    <?php while ($item = $data_siswa->fetch_assoc()) { ?>
+                                                        <option <?php //@$item['id_siswa'] == @$data_siswa['id_kelas'] ? 'selected' : '' 
+                                                                ?> value="<?= @$item['id_siswa'] ?>"><?= @$item['nama'] ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="id_jenis_pelanggaran" class="form-label">Pelanggaran</label>
+                                                <select class="form-control" name="id_jenis_pelanggaran" id="id_jenis_pelanggaran">
+                                                    <?php while ($item = $data_jenis_pelanggaran->fetch_assoc()) { ?>
+                                                        <option <?php //@$item['id_siswa'] == @$data_siswa['id_kelas'] ? 'selected' : '' 
+                                                                ?> value="<?= @$item['id_jenis_pelanggaran'] ?>"><?= @$item['desc_pelanggaran'] ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="kategori_pelanggaran" class="form-label">Kategori Pelanggaran</label>
+                                                <select class="form-control" name="kategori_pelanggaran" id="kategori_pelanggaran">
+                                                    <option value="ringan">Ringan</option>
+                                                    <option value="sedang">Sedang</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <a class="btn btn-danger px-3" href="./">Back</a>
+                                            <button type="submit" class="btn btn-primary float-right">Submit</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -123,3 +152,7 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
 </body>
 
 </html>
+<?php
+$action = 'tambah.php';
+if (!empty($id_guru)) $action = 'edit.php'
+?>
