@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql_kelas  = "SELECT * FROM kelas";
     $data_kelas      = $mysqli->query($sql_kelas) or die($mysqli->error);
 
-    include '../views/siswa/v_edit.php';
+    include '../views/siswa/v_tambah_edit.php';
 }
 
 ?>

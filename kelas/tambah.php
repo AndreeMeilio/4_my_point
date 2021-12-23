@@ -23,4 +23,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("location:index.php");
 }
 
-include '../views/kelas/v_tambah.php';
+include '../views/kelas/v_tambah_edit.php';

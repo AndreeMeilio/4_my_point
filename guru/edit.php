@@ -72,4 +72,4 @@ $guru = $query->fetch_array();
 
 if (empty($guru)) header('location: index.php');
 
-include '../views/guru/v_tambah.php';
+include '../views/guru/v_tambah_edit.php';

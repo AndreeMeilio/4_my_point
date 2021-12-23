@@ -33,12 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     // $id_kelurahan   = $mysqli->escape_string($id_kelurahan);
     $alamat = $mysqli->escape_string($alamat);
     $datetime       = date('Y-m-d H:i:s');
+    $poin           = 100;
 
 
     //Store data siswa ke dalam table siswa
     $sql_siswa = "INSERT INTO siswa VALUES(
         '$id_siswa', '$id_kelas', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin',
-        '$agama', '$id_provinsi', '$id_kabupaten', '$id_kecamatan', '$id_kelurahan', '$alamat', '$datetime', '$datetime'
+        '$agama', '$id_provinsi', '$id_kabupaten', '$id_kecamatan', '$id_kelurahan', '$alamat', '$poin', '$datetime', '$datetime'
     )";
 
     $query_siswa = $mysqli->query($sql_siswa) or die($mysqli->error);
@@ -65,6 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 $sql_kelas = "SELECT * FROM kelas";
 $data_kelas = $mysqli->query($sql_kelas) or die($mysqli->error);
 
-include '../views/siswa/v_tambah.php';
+include '../views/siswa/v_tambah_edit.php';
 
 ?>

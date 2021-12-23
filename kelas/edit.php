@@ -5,7 +5,7 @@ include '../lib/library.php';
 $id_kelas = @$_GET['id_kelas'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $id_kelas           = @$_POST['id_kelas'];
+    // $id_kelas      = @$_POST['id_kelas'];
     $tingkatan          = @$_POST['tingkatan'];
     $nama_kelas         = @$_POST['nama_kelas'];
     $awal_tahun_ajaran  = @$_POST['awal_tahun_ajaran'];
@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $akhir_tahun_ajaran = $mysqli->escape_string($akhir_tahun_ajaran);
 
     $sql_update_kelas = "UPDATE kelas SET
-        id_kelas           = '$id_kelas',
         tingkatan          = '$tingkatan',
         nama_kelas         = '$nama_kelas',
         awal_tahun_ajaran  = '$awal_tahun_ajaran',
@@ -38,4 +37,4 @@ $kelas = $query_kelas->fetch_array();
 
 if (empty($kelas)) header('location: index.php');
 
-include '../views/kelas/v_tambah.php';
+include '../views/kelas/v_tambah_edit.php';

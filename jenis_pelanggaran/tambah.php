@@ -20,6 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     header("location:index.php");
 }
 
-include '../views/jenis_pelanggaran/v_tambah.php';
+include '../views/jenis_pelanggaran/v_tambah_edit.php';
 
 ?>

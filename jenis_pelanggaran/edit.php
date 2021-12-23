@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $query_jenis_pelanggaran = $mysqli->query($sql_jenis_pelanggaran) or die($mysqli->error);
 
     $data_jenis_pelanggaran = $query_jenis_pelanggaran->fetch_assoc();
-    include '../views/jenis_pelanggaran/v_edit.php';
+    include '../views/jenis_pelanggaran/v_tambah_edit.php';
 }
 
 ?>

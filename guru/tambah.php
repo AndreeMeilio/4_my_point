@@ -65,6 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 $sql_guru = "SELECT * FROM guru";
 $data_guru = $mysqli->query($sql_guru) or die($mysqli->error);
 
-include '../views/guru/v_tambah.php';
+include '../views/guru/v_tambah_edit.php';
 
 ?>
