@@ -6,7 +6,7 @@ cekLogin();
 include '../auth/authorization.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    $id_siswa       = @$_POST['nis'];
+    $id       = @$_POST['nis'];
     $email          = @$_POST['email'];
     $id_kelas       = @$_POST['id_kelas'];
     $nama           = @$_POST['nama'];
@@ -14,15 +14,29 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tanggal_lahir  = @$_POST['tanggal_lahir'];
     $jenis_kelamin  = @$_POST['jenis_kelamin'];
     $agama          = @$_POST['agama'];
+    $no_telepon     = @$_POST['no_telepon'];
     $id_provinsi    = '-';
     $id_kabupaten   = '-';
     $id_kecamatan   = '-';
     $id_kelurahan   = '-';
     $alamat         = @$_POST['alamat'];
 
+    // var_dump(
+    //     $id,
+    //     $email,
+    //     $id_kelas,
+    //     $nama,
+    //     $tempat_lahir,
+    //     $tanggal_lahir,
+    //     $jenis_kelamin,
+    //     $agama,
+    //     $alamat,
+    // );
+    // die();
+
 
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
-    $id_siswa       = $mysqli->escape_string($id_siswa);
+    $id       = $mysqli->escape_string($id);
     $email          = $mysqli->escape_string($email);
     $id_kelas       = $mysqli->escape_string($id_kelas);
     $nama           = strtoupper($mysqli->escape_string($nama));
@@ -30,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tanggal_lahir  = $mysqli->escape_string($tanggal_lahir);
     $jenis_kelamin  = $mysqli->escape_string($jenis_kelamin);
     $agama          = $mysqli->escape_string($agama);
+    $no_telepon          = $mysqli->escape_string($no_telepon);
     // $id_provinsi    = $mysqli->escape_string($id_provinsi);
     // $id_kabupaten   = $mysqli->escape_string($id_kabupaten);
     // $id_kecamatan   = $mysqli->escape_string($id_kecamatan);
@@ -41,8 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     //Store data siswa ke dalam table siswa
     $sql_siswa = "INSERT INTO siswa VALUES(
-        '$id_siswa', '$id_kelas', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin',
-        '$agama', '$id_provinsi', '$id_kabupaten', '$id_kecamatan', '$id_kelurahan', '$alamat', '$poin', '$datetime', '$datetime'
+        '$id', '$id_kelas', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin',
+        '$agama', '$no_telepon','$id_provinsi', '$id_kabupaten', '$id_kecamatan', '$id_kelurahan', '$alamat', '$poin', '$datetime', '$datetime'
     )";
 
     $query_siswa = $mysqli->query($sql_siswa) or die($mysqli->error);
@@ -52,12 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $query_hak_akses    = $mysqli->query($sql_hak_akses) or die();
     $data_hak_akses     = $query_hak_akses->fetch_assoc();
     $id_hak_akses       = $data_hak_akses['id_hak_akses'];
-    $password_default   = password_hash($id_siswa, PASSWORD_DEFAULT);
+    $password_default   = password_hash($id, PASSWORD_DEFAULT);
     
     //store data email dan nis(password default) siswa kedalam tabel akun
     $id_akun    = uniqid('akn');
     $sql_akun   = "INSERT INTO akun VALUES(
-        '$id_akun', '$id_siswa', '$id_hak_akses', '$email', '$password_default', NULL, '$datetime', '$datetime'
+        '$id_akun', '$id', '$id_hak_akses', '$email', '$password_default', NULL, '$datetime', '$datetime'
     )";
 
     $query_akun = $mysqli->query($sql_akun) or die($mysqli->error);

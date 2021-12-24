@@ -1,6 +1,6 @@
 <?php
 $action = 'tambah.php';
-if (!empty($id_guru)) $action = 'edit.php'
+if (!empty($id)) $action = 'edit.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@ if (!empty($id_guru)) $action = 'edit.php'
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include '../views/navbar.html' ?>
+                <?php include '../views/navbar.php' ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -64,10 +64,11 @@ if (!empty($id_guru)) $action = 'edit.php'
                                 <div class="table-responsive">
                                     <div class="container-fluid">
                                         <form action="<?= $action ?>" method="POST">
+                                            <h5 class="text-gray-800 my-3">Required Form </h5>
                                             <div class="mb-3">
-                                                <label for="id_guru" class="form-label">NIP/NUPTK Guru</label>
-                                                <input type="text" class="form-control" id="id_guru" aria-describedby="id_guruHelp" name="id_guru" value="<?= @$guru['id_guru'] ?>" required>
-                                                <div id="id_guruHelp" class="form-text">NIP/NUPTK dipakai sebagai password default untuk akun guru</div>
+                                                <label for="id" class="form-label">NIP/NUPTK Guru</label>
+                                                <input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id" value="<?= @$guru['id'] ?>" required>
+                                                <div id="idHelp" class="form-text">NIP/NUPTK dipakai sebagai password default untuk akun guru</div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email Guru</label>
@@ -78,24 +79,26 @@ if (!empty($id_guru)) $action = 'edit.php'
                                                 <label for="nama" class="form-label">Nama Guru</label>
                                                 <input type="text" class="form-control" id="nama" name="nama" value="<?= @$guru['nama'] ?>" required>
                                             </div>
+                                            <hr class="my-4">
+                                            <h5 class="text-gray-800 my-3">Optional Form </h5>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                                                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= @$guru['tempat_lahir'] ?>" required>
+                                                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" value="<?= @$guru['tempat_lahir'] ?>" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
                                                         <label for="tanggal_lahir" class="form-label">Tanggal_lahir</label>
-                                                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= @$guru['tanggal_lahir'] ?>" required>
+                                                        <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= !empty(@$guru['tanggal_lahir']) ? date("Y-m-d", strtotime(@$guru['tanggal_lahir'])) : date("Y-m-d", strtotime("2021-01-01")) ?>" >
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="jenis_kelamin1" class="form-label d-block">Jenis Kelamin</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1" value="L" <?= @$guru['jenis_kelamin'] == 'L' ? 'checked' : '' ?> required>
+                                                    <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin1" value="L" <?= @$guru['jenis_kelamin'] == 'L' ? 'checked' : '' ?> >
                                                     <label class="form-check-label" for="jenis_kelamin1">
                                                         Laki-laki
                                                     </label>
@@ -109,7 +112,7 @@ if (!empty($id_guru)) $action = 'edit.php'
                                             </div>
                                             <div class="mb-3">
                                                 <label for="agama" class="form-label">Agama</label>
-                                                <select name="agama" id="agama" class="form-control" required>
+                                                <select name="agama" id="agama" class="form-control" >
                                                     <option value="" selected disabled>Pilih Agama</option>
                                                     <option value="islam" <?= @$guru['agama'] == 'islam' ? 'selected' : '' ?>>Islam</option>
                                                     <option value="kristen_protestan" <?= @$guru['agama'] == 'kristen_protestan' ? 'selected' : '' ?>>Kristen Protestan</option>
@@ -121,11 +124,11 @@ if (!empty($id_guru)) $action = 'edit.php'
                                             </div>
                                             <div class="mb-3">
                                                 <label for="no_telepon" class="form-label">No. Telepon</label>
-                                                <input type="text" class="form-control" id="no_telepon" name="no_telepon" min="0" value="<?= @$guru['no_telepon'] ?>" required>
+                                                <input type="text" class="form-control" id="no_telepon" name="no_telepon" min="0" value="<?= @$guru['no_telepon'] ?>" >
                                             </div>
                                             <div class="mb-3">
                                                 <label for="alamat" class="form-label">Alamat</label>
-                                                <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" required><?= @$guru['alamat'] ?></textarea>
+                                                <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" ><?= @$guru['alamat'] ?></textarea>
                                             </div>
                                             <a class="btn btn-danger px-3" href="./">Back</a>
                                             <button type="submit" class="btn btn-primary float-right">Submit</button>

@@ -44,7 +44,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include '../views/navbar.html' ?>
+                <?php include '../views/navbar.php' ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -57,7 +57,7 @@
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Data Pelanggaran</h6>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Pelanggaran</h5>
                                 <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
                                     <a href="tambah.php" class="btn btn-primary mb-1 mt-1" style="float:right;"><i class="fas fa-plus me-2"></i>Tambah Pelanggaran</a>
                                 <?php } ?>
@@ -83,10 +83,10 @@
                                                     <td class="col-1"><?php echo $item['poin'] ?></td>
                                                     <td class="col-3"><?php echo $item['total_pelanggaran'] ?> pelanggaran</td>
                                                     <td class="col-2">
-                                                        <a href="detail.php?nis=<?php echo $item['id_siswa'] ?>" class="btn btn-info m-1">
+                                                        <a href="detail.php?nis=<?php echo $item['id'] ?>" class="btn btn-info m-1">
                                                             <i class="far fa-fw fa-eye"></i> Lihat Detail</a>
                                                         <!-- <form class="d-inline">
-                                                            <button type="button" class="btn btn-danger m1 deleteData"  value="<?php // echo $item['id_siswa'] 
+                                                            <button type="button" class="btn btn-danger m1 deleteData"  value="<?php // echo $item['id'] 
                                                                                                                                 ?>">
                                                                 <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
                                                                     <path fill="#fff" d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19Z" />
@@ -127,7 +127,7 @@
     <!-- FORM YANG DIPAKAI UNTUK DELETE DATA -->
     <div class="d-none">
         <form action="delete.php" method="POST">
-            <input type="text" id="id_siswa" name="id_siswa">
+            <input type="text" id="id" name="id">
             <button type="submit" id="submit_hapus"></button>
         </form>
     </div>
@@ -157,12 +157,12 @@
             $(document).on("click", ".deleteData",deleteData);
 
             function deleteData() {
-                let id_siswa = $(this).val();
+                let id = $(this).val();
                 let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
 
-                console.log(id_siswa, yakin_hapus);
+                console.log(id, yakin_hapus);
                 if (yakin_hapus) {
-                    $('#id_siswa').val(id_siswa);
+                    $('#id').val(id);
                     $('#submit_hapus').click();
                 }
             }

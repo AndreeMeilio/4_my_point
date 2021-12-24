@@ -15,7 +15,7 @@
         $id_hak_akses   = $mysqli->escape_string($id_hak_akses);
 
         $sql = "SELECT akun.*, hak_akses.nama_hak_akses 
-                FROM akun INNER JOIN hak_akses 
+                FROM akun LEFT JOIN hak_akses 
                 ON akun.id_hak_akses = hak_akses.id_hak_akses
                 WHERE akun.email = '$email'
                 AND akun.id_hak_akses = '$id_hak_akses'";
@@ -31,6 +31,28 @@
                 $_SESSION['email'] = $row -> email;
                 $_SESSION['id_entity'] = $row->id_entity;
                 $_SESSION['nama_hak_akses'] = $row -> nama_hak_akses;
+                
+                $session_nama = "";
+
+                if ($_SESSION['nama_hak_akses'] === "admin"){
+                    $sql_admin = "SELECT nama FROM admin WHERE id = '". $_SESSION['id_entity']. "';";
+
+                    $query = $mysqli->query($sql_admin) or die($mysqli->error);
+                    $session_nama = $query->fetch_assoc()["nama"];
+                } else if ($_SESSION['nama_hak_akses'] === "guru"){
+                    $sql_guru = "SELECT nama FROM guru WHERE id = '". $_SESSION['id_entity']. "';";
+
+                    $query = $mysqli->query($sql_guru) or die($mysqli->error);
+                    $session_nama = $query->fetch_assoc()["nama"];
+                } else if ($_SESSION['nama_hak_akses'] === "siswa"){
+                    $sql_guru = "SELECT nama FROM siswa WHERE id = '". $_SESSION['id_entity']. "';";
+
+                    $query = $mysqli->query($sql_guru) or die($mysqli->error);
+                    $session_nama = $query->fetch_assoc()["nama"];
+                }
+
+                $_SESSION["nama"] = $session_nama;
+
                 header('location:../index.php');
             } else {
                 $error ="Credentials Does Not Match Any Record";

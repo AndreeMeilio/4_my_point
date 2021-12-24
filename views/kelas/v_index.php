@@ -38,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include '../views/navbar.html' ?>
+                <?php include '../views/navbar.php' ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -49,7 +49,7 @@
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Data Kelas</h6>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Kelas</h5>
                                 <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
                                     <a href="tambah.php" class="btn btn-primary mb-1 mt-1" style="float: right"><i class="fas fa-plus me-2"></i>Tambah Kelas</a>
                                 <?php } ?>

@@ -42,7 +42,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include '../views/navbar.html' ?>
+                <?php include '../views/navbar.php' ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->

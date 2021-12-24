@@ -5,7 +5,7 @@ cekLogin();
 
 include '../auth/authorization.php';
 
-$id_siswa = @$_GET['nis'];
+$id = @$_GET['nis'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $nis            = @$_POST['nis'];
@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tanggal_lahir  = @$_POST['tanggal_lahir'];
     $jenis_kelamin  = @$_POST['jenis_kelamin'];
     $agama          = @$_POST['agama'];
+    $no_telepon          = @$_POST['no_telepon'];
     $id_provinsi    = '-';
     $id_kabupaten   = '-';
     $id_kecamatan   = '-';
@@ -32,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tanggal_lahir  = $mysqli->escape_string($tanggal_lahir);
     $jenis_kelamin  = $mysqli->escape_string($jenis_kelamin);
     $agama          = $mysqli->escape_string($agama);
+    $no_telepon          = $mysqli->escape_string($no_telepon);
     // $id_provinsi    = $mysqli->escape_string($id_provinsi);
     // $id_kabupaten   = $mysqli->escape_string($id_kabupaten);
     // $id_kecamatan   = $mysqli->escape_string($id_kecamatan);
@@ -41,16 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $password       = password_hash($nis, PASSWORD_DEFAULT);
 
     $sql_update_siswa = "UPDATE siswa SET 
-        id_siswa        = '$nis',
+        id        = '$nis',
         id_kelas        = '$id_kelas',
         nama            = '$nama',
         tempat_lahir    = '$tempat_lahir',
         tanggal_lahir   = '$tanggal_lahir',
         jenis_kelamin   = '$jenis_kelamin',
         agama           = '$agama',
+        no_telepon      = '$no_telepon',
         alamat          = '$alamat',
         date_update     = '$datetime'
-        WHERE id_siswa  = '$id_siswa'
+        WHERE id  = '$id'
     ";
 
     $query_update_siswa = $mysqli->query($sql_update_siswa) or die($mysqli->error);
@@ -59,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         id_entity   = '$nis',
         email       = '$email',
         password    = '$password'
-        WHERE id_entity = '$id_siswa'
+        WHERE id_entity = '$id'
     ";
 
     $query_update_akun_siswa = $mysqli->query($sql_update_akun_siswa) or die($mysqli->error);
@@ -68,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
 } else {
     $sql = "SELECT siswa.*, akun.* FROM siswa
-            INNER JOIN akun ON siswa.id_siswa = akun.id_entity
-            WHERE siswa.id_siswa = '$id_siswa'";
+            LEFT JOIN akun ON siswa.id = akun.id_entity
+            WHERE siswa.id = '$id'";
 
     $query      = $mysqli->query($sql) or die($mysqli->error);
 

@@ -7,77 +7,48 @@ include '../auth/authorization.php';
 $id_pelanggaran = @$_GET['id_pelanggaran'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
-    $nis            = @$_POST['nis'];
-    $email          = @$_POST['email'];
-    $id_kelas       = @$_POST['id_kelas'];
-    $nama           = @$_POST['nama'];
-    $tempat_lahir   = @$_POST['tempat_lahir'];
-    $tanggal_lahir  = @$_POST['tanggal_lahir'];
-    $jenis_kelamin  = @$_POST['jenis_kelamin'];
-    $agama          = @$_POST['agama'];
-    $id_provinsi    = '-';
-    $id_kabupaten   = '-';
-    $id_kecamatan   = '-';
-    $id_kelurahan   = '-';
-    $alamat         = @$_POST['alamat'];
-
+    $tgl_pelanggaran = @$_POST['tgl_pelanggaran'];
+    $id = @$_POST['id'];
+    $kategori_pelanggaran = @$_POST['kategori_pelanggaran'];
+    $id_jenis_pelanggaran   = @$_POST['id_jenis_pelanggaran'];
 
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
-    $nis            = $mysqli->escape_string($nis);
-    $email          = $mysqli->escape_string($email);
-    $id_kelas       = $mysqli->escape_string($id_kelas);
-    $nama           = strtoupper($mysqli->escape_string($nama));
-    $tempat_lahir   = $mysqli->escape_string($tempat_lahir);
-    $tanggal_lahir  = $mysqli->escape_string($tanggal_lahir);
-    $jenis_kelamin  = $mysqli->escape_string($jenis_kelamin);
-    $agama          = $mysqli->escape_string($agama);
-    // $id_provinsi    = $mysqli->escape_string($id_provinsi);
-    // $id_kabupaten   = $mysqli->escape_string($id_kabupaten);
-    // $id_kecamatan   = $mysqli->escape_string($id_kecamatan);
-    // $id_kelurahan   = $mysqli->escape_string($id_kelurahan);
-    $alamat = $mysqli->escape_string($alamat);
-    $datetime       = date('Y-m-d H:i:s');
-    $password       = password_hash($nis, PASSWORD_DEFAULT);
+    $tgl_pelanggaran = $mysqli->escape_string($tgl_pelanggaran);
+    $id = $mysqli->escape_string($id);
+    $id_jenis_pelanggaran = $mysqli->escape_string($id_jenis_pelanggaran);
+    $kategori_pelanggaran = $mysqli->escape_string($kategori_pelanggaran);
+    $poin_pengurangan = $kategori_pelanggaran === "ringan" ? 5 : 8;
 
-    $sql_update_siswa = "UPDATE siswa SET 
-        id_pelanggaran        = '$nis',
-        id_kelas        = '$id_kelas',
-        nama            = '$nama',
-        tempat_lahir    = '$tempat_lahir',
-        tanggal_lahir   = '$tanggal_lahir',
-        jenis_kelamin   = '$jenis_kelamin',
-        agama           = '$agama',
-        alamat          = '$alamat',
-        date_update     = '$datetime'
-        WHERE id_pelanggaran  = '$id_pelanggaran'
-    ";
+    $sql_pelanggaran = "SELECT * FROM pelanggaran WHERE id_pelanggaran = '". $id_pelanggaran. "'";
+    $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error);
+    $data_pelanggaran = $query_pelanggaran->fetch_assoc();
 
-    $query_update_siswa = $mysqli->query($sql_update_siswa) or die($mysqli->error);
+    $sql_update_poin_siswa = "UPDATE siswa SET poin = ((SELECT poin FROM siswa WHERE id = '". $data_pelanggaran["id_siswa"] ."') + ". $data_pelanggaran["poin_pengurangan"]. ") - " . $poin_pengurangan ." WHERE id = '". $data_pelanggaran["id_siswa"] ."';";
 
-    $sql_update_akun_siswa = "UPDATE akun SET 
-        id_entity   = '$nis',
-        email       = '$email',
-        password    = '$password'
-        WHERE id_entity = '$id_pelanggaran'
-    ";
-
-    $query_update_akun_siswa = $mysqli->query($sql_update_akun_siswa) or die($mysqli->error);
+    $sql_update_pelanggaran = "UPDATE pelanggaran SET 
+                                tgl_pelanggaran = '". $tgl_pelanggaran. "',
+                                kategori_pelanggaran = '". $kategori_pelanggaran. "',
+                                poin_pengurangan = '". $poin_pengurangan. "',
+                                id_jenis_pelanggaran = '". $id_jenis_pelanggaran."'
+                                WHERE id_pelanggaran = '". $id_pelanggaran. "'";
+    
+    $query_update_poin_siswa = $mysqli->query($sql_update_poin_siswa) or die($mysqli->error);
+    $query_update_pelanggaran = $mysqli->query($sql_update_pelanggaran) or die($mysqli->error);
 
     header("location:index.php");
 
 } else {
-    $sql = "SELECT siswa.*, akun.* FROM siswa
-            INNER JOIN akun ON siswa.id_pelanggaran = akun.id_entity
-            WHERE siswa.id_pelanggaran = '$id_pelanggaran'";
 
-    $query      = $mysqli->query($sql) or die($mysqli->error);
+    $sql_siswa = "SELECT * FROM siswa";
+    $data_siswa = $mysqli->query($sql_siswa) or die($mysqli->error);
 
-    $data_siswa = $query->fetch_assoc();
+    $sql_jenis_pelanggaran = "SELECT * FROM jenis_pelanggaran";
+    $data_jenis_pelanggaran = $mysqli->query($sql_jenis_pelanggaran) or die($mysqli->error);
 
-    $sql_kelas  = "SELECT * FROM kelas";
-    $data_kelas      = $mysqli->query($sql_kelas) or die($mysqli->error);
+    $sql_pelanggaran = "SELECT * FROM pelanggaran WHERE id_pelanggaran = '". $id_pelanggaran. "'";
+    $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error); 
 
-    include '../views/siswa/v_tambah_edit.php';
+    $data_pelanggaran = $query_pelanggaran->fetch_assoc();
+
+    include '../views/pelanggaran/v_tambah_edit.php';
 }
-
-?>

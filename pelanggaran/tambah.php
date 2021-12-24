@@ -7,7 +7,7 @@ include '../auth/authorization.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tgl_pelanggaran = @$_POST['tgl_pelanggaran'];
-    $id_siswa = @$_POST['id_siswa'];
+    $id = @$_POST['id'];
     $kategori_pelanggaran = @$_POST['kategori_pelanggaran'];
     $id_jenis_pelanggaran   = @$_POST['id_jenis_pelanggaran'];
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
     $id_pelanggaran = uniqid("plgrn");
     $tgl_pelanggaran = $mysqli->escape_string($tgl_pelanggaran);
-    $id_siswa = $mysqli->escape_string($id_siswa);
+    $id = $mysqli->escape_string($id);
     $id_jenis_pelanggaran = $mysqli->escape_string($id_jenis_pelanggaran);
     $kategori_pelanggaran = $mysqli->escape_string($kategori_pelanggaran);
     $poin_pengurangan = $kategori_pelanggaran === "ringan" ? 5 : 8;
@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     //Store data siswa ke dalam table siswa
     $sql_pelanggaran = "INSERT INTO pelanggaran VALUES(
-        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id_siswa', '$id_entity_penambah', '$kategori_pelanggaran', '$poin_pengurangan',
+        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$kategori_pelanggaran', '$poin_pengurangan',
         '$tgl_pelanggaran', '$datetime', '$datetime'
     )";
 
     $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error);
 
-    $sql_update_poin_siswa = "UPDATE siswa SET poin = (SELECT poin FROM siswa WHERE id_siswa = '". $id_siswa ."') - ". $poin_pengurangan ." WHERE id_siswa = '". $id_siswa ."';";
+    $sql_update_poin_siswa = "UPDATE siswa SET poin = (SELECT poin FROM siswa WHERE id = '". $id ."') - ". $poin_pengurangan ." WHERE id = '". $id ."';";
 
     $query_update_poin_siswa = $mysqli->query($sql_update_poin_siswa) or die($mysqli->error);
 

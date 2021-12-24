@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 23, 2021 at 03:11 PM
+-- Generation Time: Dec 24, 2021 at 05:58 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id_admin` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `tempat_lahir` varchar(255) NOT NULL,
   `tanggal_lahir` date DEFAULT NULL,
@@ -48,8 +48,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `date_create`, `date_update`) VALUES
-('3275696001952857', 'Elma Usyi Nurdiyanti', 'Bandar Lampung', '2008-12-14', 'P', 'islam', '0699 5475 7976', '-', '-', '-', '-', 'Kpg. Labu No. 317, Administrasi Jakarta Barat 93791, Sulbar', '2021-11-24 15:12:00', '2021-11-24 15:12:00');
+INSERT INTO `admin` (`id`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `date_create`, `date_update`) VALUES
+('37198281900200001', 'ELMA USYI NURDIYANTI', 'Bali', '1988-12-14', 'P', 'hindu', '089322898765', '-', '-', '-', '-', 'Jalan Sukajadi', '2021-11-24 15:12:00', '2021-12-24 17:42:38');
 
 -- --------------------------------------------------------
 
@@ -73,10 +73,8 @@ CREATE TABLE `akun` (
 --
 
 INSERT INTO `akun` (`id_akun`, `id_entity`, `id_hak_akses`, `email`, `password`, `remember_token`, `date_create`, `date_update`) VALUES
-('akn619e5640ac2f9', '3275696001952857', 'hks619e56401c0c9', 'hasanah.darmanto@gmail.com', '$2y$10$HdqRMw5aUNPlmLy4z./C3u95O8IFoy13C80O1x76NwqGTvx9z7U5S', NULL, '2021-11-24 15:12:01', '2021-11-24 15:12:01'),
-('akn619e56418399a', '6403395803038653', 'hks619e5641713c2', 'kemal30@gmail.co.id', '$2y$10$Q6/NYkqzBNKpjDHrBEqvG.nXIIjnkiLi2xHvCHZarp3lnMAjiwmYW', NULL, '2021-11-24 15:12:01', '2021-11-24 15:12:01'),
+('akn619e5640ac2f9', '37198281900200001', 'hks619e56401c0c9', '37198281900200001.admin@smkn4bdg.sch.id', '$2y$10$axwZMvCkm51.GNTN4iBNBO3kFj3UkH98G3CfBnKyidtlbrj0l5NCK', NULL, '2021-11-24 15:12:01', '2021-11-24 15:12:01'),
 ('akn619e5641f3091', '7372874104941893', 'hks619e5641713c2', 'luhung.januar@gmail.co.id', '$2y$10$REq7A9q7r73C9yKDX0XExe47oXwsgPG1mP2mtl6HpjqLCe5huUWIK', NULL, '2021-11-24 15:12:02', '2021-11-24 15:12:02'),
-('akn619e5642a1b82', '8104864709049426', 'hks619e5641713c2', 'harimurti02@yahoo.com', '$2y$10$Pug4JTsgl770r2EUwyEO/.n69qRyymp5m5mWusZENMNZFy/dvCszO', NULL, '2021-11-24 15:12:02', '2021-11-24 15:12:02'),
 ('akn619e564335cd1', '3319201602114293', 'hks619e5641713c2', 'hutasoit.cinthia@yahoo.co.id', '$2y$10$zrJmfOMbxLYDSL9HWTB3S.xOh4VLPZOYdTIrNesJoEcTigTLEpoFW', NULL, '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
 ('akn619e564377045', '3308194704163908', 'hks619e5641713c2', 'ega05@yahoo.com', '$2y$10$J3ClTOX3XLQHlMrLfXzRcO5/TdpLK6tFpvAxvSlM22N4Y1mQf4OdC', NULL, '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
 ('akn619e5644029f5', '7402396103989099', 'hks619e5641713c2', 'zelaya38@gmail.co.id', '$2y$10$W8XF4xofGXM393/.i.pkEOrNcCyGYjxSiqoyBEZqomLH.cSpbZpGe', NULL, '2021-11-24 15:12:04', '2021-11-24 15:12:04'),
@@ -93,7 +91,6 @@ INSERT INTO `akun` (`id_akun`, `id_entity`, `id_hak_akses`, `email`, `password`,
 ('akn619e56477f7fe', '7210356808947268', 'hks619e56461c8a8', 'daruna.jailani@yahoo.co.id', '$2y$10$hoyyYvyCfujFuroNg8/Nr.F5UrtBpznrgeeYFMidl3ozUH1pfKvO.', NULL, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
 ('akn619e5647cf84b', '1410320902032979', 'hks619e56461c8a8', 'zyulianti@yahoo.co.id', '$2y$10$0z8zMqRrXrz6kHU6H.jeIubf2vGO7ZrEftGRBe8B2Z711gbqiboAy', NULL, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
 ('akn619e56483d258', '6103122208083700', 'hks619e56461c8a8', 'ayu.kusumo@gmail.com', '$2y$10$030AduwWIYQ4y.g3FlEAK.BpU1U23/vfvEBy4sFmdhqRnJtGPJl.i', NULL, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
-('akn619e56486b464', '5319295408990018', 'hks619e56461c8a8', 'carub23@gmail.com', '$2y$10$lj70z9JTT1CsbEiivURXDucog3JW2gmwbaioBN.Op.HrPOvDU7KNm', NULL, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
 ('akn619e5648cfb03', '6371444101035246', 'hks619e56461c8a8', 'egunarto@yahoo.co.id', '$2y$10$urXD8D/ejnWyZnHJzBC1NOKhMQFO42Vc9akTxoaB4BpMR55lvQQQe', NULL, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
 ('akn619e56490c654', '7207540503068027', 'hks619e56461c8a8', 'rachel.kurniawan@yahoo.co.id', '$2y$10$iD.J8071eRq6e9vD8QFPruc2ErELIwx/N1qvgqlP3YgQqa0DQsKga', NULL, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
 ('akn619e564960828', '3672756706150625', 'hks619e56461c8a8', 'jabal.firmansyah@gmail.com', '$2y$10$AHISHIOFGGh4ph19E2gBEuMlcL9xqAG/TZ36uod7jZPIGYqX5aIym', NULL, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
@@ -113,15 +110,20 @@ INSERT INTO `akun` (`id_akun`, `id_entity`, `id_hak_akses`, `email`, `password`,
 ('akn619e564d7f2b9', '7505023011093231', 'hks619e56461c8a8', 'oktaviani.farah@gmail.co.id', '$2y$10$RjPCbi/fTSzKfD4kOgN6JuSIJMvmIVx29veN4SF5RRW1yhFf/jdyW', NULL, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
 ('akn619e564de0d93', '6107522009926426', 'hks619e56461c8a8', 'wacana.jati@yahoo.com', '$2y$10$m5ScN/1m.rZCtLfFiyo8fuia7ulU4EKWJ2cGa7gXhfiXcn/V3PWp2', NULL, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
 ('akn619e564e2df10', '6308230506135226', 'hks619e56461c8a8', 'perkasa.budiyanto@gmail.com', '$2y$10$0lOe2cmSRsCPvWpkMQJlBOns2jXwSPri7ssheYapHt9VGU.UVzsVS', NULL, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
-('akn619e564e748c0', '5272344502151290', 'hks619e56461c8a8', 'maya.melani@yahoo.com', '$2y$10$173FdybIvr.Nm9zbw/6K7.rPjltiDq5yrwRjIA49z19OrZKybmGhy', NULL, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
 ('akn619e564eb5d83', '7407905911938865', 'hks619e56461c8a8', 'manah90@gmail.co.id', '$2y$10$2chaPIoUDb7hTYLzyLwEf.RdonX4uxSdMMgGtZrDHCOYP/fQDy4ja', NULL, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
 ('akn619e564eebfbe', '7110816905108560', 'hks619e56461c8a8', 'doktaviani@gmail.co.id', '$2y$10$zkHibxd5OWnxCE4ByvIhV./nfgN0B0oh/wdyW6Odsczu9Y8aJILK6', NULL, '2021-11-24 15:12:15', '2021-11-24 15:12:15'),
 ('akn619f8035a290d', '1920118139', 'hks619e56461c8a8', '1920118139.siswa@smkn4bdg.sch.id', '$2y$10$1Uf0o8YyQxfXPLDfdxwj0eMLQc.zLM9hm5GGZwEWECKScxof98eie', NULL, '2021-11-25 13:23:17', '2021-11-25 13:23:17'),
 ('akn61b9652c0804b', '1920118137', 'hks619e56461c8a8', 'meilioandree27@gmail.com', '$2y$10$7z9mfFRTe6BbD/fnscm5PuqAkGzoXCzoZGEF14RWo.igE2tELueqK', NULL, '2021-12-15 04:46:51', '2021-12-15 04:46:51'),
 ('akn61b9655cf181a', '1920116118', 'hks619e56461c8a8', 'meilioandreeee27@gmail.com', '$2y$10$Oc6tdJ5L5jZj5n5inrpTtutwd5LpJBMCJ6GANx1kWp7ul2cZ8IKhm', NULL, '2021-12-15 04:47:40', '2021-12-15 04:47:40'),
 ('akn61c2c7d25de51', '1920110001', 'hks619e56461c8a8', 'ndcoder27@gmail.com', '$2y$10$lPWm0YDJl.heJ0zfFIzF3.HGVMWX9CUdLYOfLJAjX.I5V6LJJIMyC', NULL, '2021-12-22 07:38:10', '2021-12-22 07:38:10'),
-('akn61c2d8f1607a9', '1900000000', 'hks619e56461c8a8', 'vipmaster@gmail.com', '$2y$10$hOkOGoaOiAZtLF6lA4C.deWYe1V9AkOInc852WEM9orq4ECXzruNW', NULL, '2021-12-22 08:51:13', '2021-12-22 08:51:13'),
-('akn61c48043dd58d', '3000030000300000', 'hks619e5641713c2', '123@gmail.com', '$2y$10$xG65nzzycsLznFpwlOllMOVLzKt6QKXEOfRhFk77zE4I/CPP5ehpC', NULL, '2021-12-23 14:57:23', '2021-12-23 14:57:23');
+('akn61c2d8f1607a9', '1900000000', 'hks619e56461c8a8', 'vipmaster@gmail.com', '$2y$10$NMkepSCGlH5ijrTtiG48OuzRJpbKkgeJxZQ/dgdwsFpSc3DWqWnPG', NULL, '2021-12-22 08:51:13', '2021-12-22 08:51:13'),
+('akn61c48043dd58d', '3000030000300000', 'hks619e5641713c2', '123@gmail.com', '$2y$10$xG65nzzycsLznFpwlOllMOVLzKt6QKXEOfRhFk77zE4I/CPP5ehpC', NULL, '2021-12-23 14:57:23', '2021-12-23 14:57:23'),
+('akn61c5e08125d2f', '1920110110', 'hks619e56461c8a8', '1920110110@smkn4bdg.sch.id', '$2y$10$F/C2H9PuJRWJ4Y5hC/YYSuLt.iB4tbBEj2hx1Sf0sLmKt0/oL47g.', NULL, '2021-12-24 16:00:16', '2021-12-24 16:00:16'),
+('akn61c5e2bbdc7b9', '1920001001', 'hks619e56461c8a8', '1920001001@smkn4bdg.sch.id', '$2y$10$sgUHw9nPGwK.vTGqRel4Dek7ty5HylkUA6Ib29t1pxj.AFtF1225K', NULL, '2021-12-24 16:09:47', '2021-12-24 16:09:47'),
+('akn61c5e30a96c2c', '1920999111', 'hks619e56461c8a8', '1920999111@smkn4bdg.sch.id', '$2y$10$PpILTevzP3UIGff8DAaXR.I9wNJh2G09iXBKYcu0BuxfAJmKYYlGi', NULL, '2021-12-24 16:11:06', '2021-12-24 16:11:06'),
+('akn61c5e52266ca1', '357913579135791', 'hks619e5641713c2', '357913579135791@smkn4bdg.sch.id', '$2y$10$dw2Sl8ARNgBE8GcZvE.FN.aLK.Qe298ANb9EhhhDivl9hC7zdCsoe', NULL, '2021-12-24 16:20:02', '2021-12-24 16:20:02'),
+('akn61c5ed9193e10', '1921001001', 'hks619e56461c8a8', '1921001001.siswa@smkn4bdg.sch.id', '$2y$10$3vZn/hOQyZSU4cfi2lEd7OHf7wYN4PJ4CuLdSjgSmsBfyzn0hDPFa', NULL, '2021-12-24 16:56:01', '2021-12-24 16:56:01'),
+('akn61c5ee3faf89f', '3456789012345678', 'hks619e5641713c2', '3456789012345678.guru@smkn4bdg.sch.id', '$2y$10$nJeuIAmpP6ZDD9OcEE4ruuUKjh3SuZBs6WbBfpwaJw4pSJBQ4xUCa', NULL, '2021-12-24 16:58:55', '2021-12-24 16:58:55');
 
 -- --------------------------------------------------------
 
@@ -144,18 +146,18 @@ CREATE TABLE `chronology` (
 --
 
 CREATE TABLE `guru` (
-  `id_guru` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `tempat_lahir` varchar(255) NOT NULL,
+  `tempat_lahir` varchar(255) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') NOT NULL,
-  `agama` varchar(255) NOT NULL,
-  `no_telepon` varchar(255) NOT NULL,
-  `id_provinsi` char(2) NOT NULL,
-  `id_kabupaten` char(4) NOT NULL,
-  `id_kecamatan` char(7) NOT NULL,
-  `id_kelurahan` char(10) NOT NULL,
-  `alamat` text NOT NULL,
+  `jenis_kelamin` enum('L','P','') DEFAULT NULL,
+  `agama` varchar(255) DEFAULT NULL,
+  `no_telepon` varchar(255) DEFAULT NULL,
+  `id_provinsi` char(2) DEFAULT NULL,
+  `id_kabupaten` char(4) DEFAULT NULL,
+  `id_kecamatan` char(7) DEFAULT NULL,
+  `id_kelurahan` char(10) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
   `date_create` datetime NOT NULL DEFAULT current_timestamp(),
   `date_update` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -164,18 +166,18 @@ CREATE TABLE `guru` (
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id_guru`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `date_create`, `date_update`) VALUES
+INSERT INTO `guru` (`id`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `date_create`, `date_update`) VALUES
 ('1205061603177833', 'Jamil Putra S.H.', 'Tebing Tinggi', '2009-04-08', 'L', 'kristen', '0825 7068 8156', '-', '-', '-', '-', 'Psr. Moch. Yamin No. 895, Serang 59761, Babel', '2021-11-24 15:12:05', '2021-11-24 15:12:05'),
 ('3000030000300000', 'NUMBER 123', 'Bandung', '2021-12-15', 'P', 'islam', '089138199928', '-', '-', '-', '-', 'Jalan Buah Batu No 123', '2021-12-23 14:57:23', '2021-12-23 14:57:23'),
 ('3308194704163908', 'Estiawan Anom Utama', 'Pekanbaru', '1974-07-17', 'P', 'katolik', '0874 5260 963', '-', '-', '-', '-', 'Jr. Yos No. 328, Pangkal Pinang 32871, Pabar', '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
 ('3309780509086474', 'Wardi Ramadan', 'Bengkulu', '1972-02-22', 'L', 'katolik', '(+62) 383 2761 5137', '-', '-', '-', '-', 'Dk. Raya Ujungberung No. 62, Bima 19772, Kalbar', '2021-11-24 15:12:04', '2021-11-24 15:12:04'),
 ('3319201602114293', 'Prabowo Wahyudin', 'Bukittinggi', '2007-07-20', 'L', 'budha', '(+62) 205 0461 908', '-', '-', '-', '-', 'Gg. Jakarta No. 348, Singkawang 50711, Babel', '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
-('6403395803038653', 'Wisnu Tamba', 'Tomohon', '2014-07-27', 'P', 'kristen', '(+62) 215 7860 601', '-', '-', '-', '-', 'Ds. Baja No. 119, Cimahi 45239, Papua', '2021-11-24 15:12:01', '2021-11-24 15:12:01'),
+('3456789012345678', 'BOREAS', 'Jakarta', '1989-01-17', 'L', 'islam', '089122819876', '-', '-', '-', '-', 'Jalan Soekarno Hatta', '2021-12-24 16:58:55', '2021-12-24 16:59:38'),
+('357913579135791', 'IHSAN', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-24 16:20:02', '2021-12-24 16:20:02'),
 ('6502004606103062', 'Irsad Widodo', 'Makassar', '2017-10-04', 'P', 'kristen', '(+62) 508 2003 6673', '-', '-', '-', '-', 'Jln. Banda No. 550, Ternate 35601, Sulut', '2021-11-24 15:12:05', '2021-11-24 15:12:05'),
 ('7372874104941893', 'Lili Riyanti', 'Palangka Raya', '1986-11-16', 'L', 'budha', '(+62) 21 9189 587', '-', '-', '-', '-', 'Psr. Agus Salim No. 358, Tual 20319, Bengkulu', '2021-11-24 15:12:01', '2021-11-24 15:12:01'),
 ('7402396103989099', 'Cinta Prastuti', 'Probolinggo', '2009-03-11', 'P', 'hindu', '025 6875 7716', '-', '-', '-', '-', 'Psr. Supono No. 938, Lhokseumawe 79887, NTT', '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
 ('7409711511947042', 'Dinda Zulaika', 'Medan', '1997-03-22', 'L', 'budha', '(+62) 890 721 353', '-', '-', '-', '-', 'Jr. PHH. Mustofa No. 264, Pagar Alam 58557, Sumut', '2021-11-24 15:12:05', '2021-11-24 15:12:05'),
-('8104864709049426', 'Cakrajiya Uda Natsir M.M.', 'Tual', '2018-12-19', 'P', 'budha', '0749 2273 529', '-', '-', '-', '-', 'Jr. Surapati No. 691, Sawahlunto 74550, Sulsel', '2021-11-24 15:12:02', '2021-11-24 15:12:02'),
 ('8272345203040466', 'Kala Uwais', 'Padangsidempuan', '1995-06-07', 'L', 'kristen', '0254 4526 1927', '-', '-', '-', '-', 'Ki. Baladewa No. 823, Singkawang 22686, Sumbar', '2021-11-24 15:12:04', '2021-11-24 15:12:04'),
 ('9115110505040131', 'Ratih Palastri M.Ak', 'Palu', '1998-11-14', 'L', 'katolik', '0587 6555 503', '-', '-', '-', '-', 'Jln. Sampangan No. 644, Banjarmasin 11934, Aceh', '2021-11-24 15:12:04', '2021-11-24 15:12:04');
 
@@ -222,7 +224,9 @@ CREATE TABLE `jenis_pelanggaran` (
 INSERT INTO `jenis_pelanggaran` (`id_jenis_pelanggaran`, `id_entity_penambah`, `desc_pelanggaran`, `date_create`, `date_update`) VALUES
 ('jplgrn61c4686fc4a9b', '3275696001952857', 'Datang Terlambat', '2021-12-23 13:15:43', '2021-12-23 13:15:43'),
 ('jplgrn61c4689086e4e', '3275696001952857', 'Atribut tidak lengkap ketika mengikuti upacara', '2021-12-23 13:16:16', '2021-12-23 13:16:16'),
-('jplgrn61c4689aa1aff', '3275696001952857', 'Merokok di lingkungan sekolah', '2021-12-23 13:16:26', '2021-12-23 13:16:26');
+('jplgrn61c4689aa1aff', '3275696001952857', 'Merokok di lingkungan sekolah', '2021-12-23 13:16:26', '2021-12-23 13:16:26'),
+('jplgrn61c5ec58a2d9c', '3275696001952857', 'Memakai sepatu yang warnanya tidak hitam', '2021-12-24 16:50:48', '2021-12-24 16:50:48'),
+('jplgrn61c5ec661df77', '3275696001952857', 'Memakai sepatu dengan warna selain hitam', '2021-12-24 16:51:02', '2021-12-24 16:51:02');
 
 -- --------------------------------------------------------
 
@@ -87472,11 +87476,10 @@ CREATE TABLE `pelanggaran` (
 --
 
 INSERT INTO `pelanggaran` (`id_pelanggaran`, `id_jenis_pelanggaran`, `id_siswa`, `id_entity_penambah`, `kategori_pelanggaran`, `poin_pengurangan`, `tgl_pelanggaran`, `date_create`, `date_update`) VALUES
-('plgrn61c46c32004db', 'jplgrn61c4689086e4e', '1900000000', '3275696001952857', 'sedang', 8, '2021-12-14', '2021-12-23 13:31:46', '2021-12-23 13:31:46'),
-('plgrn61c46c7e8ec70', 'jplgrn61c4686fc4a9b', '1920110001', '3275696001952857', 'ringan', 5, '2021-12-14', '2021-12-23 13:33:02', '2021-12-23 13:33:02'),
-('plgrn61c46f75cac73', 'jplgrn61c4689aa1aff', '1900000000', '3275696001952857', 'sedang', 8, '2021-12-14', '2021-12-23 13:45:41', '2021-12-23 13:45:41'),
 ('plgrn61c47646835fd', 'jplgrn61c4689086e4e', '1920110001', '3275696001952857', 'sedang', 8, '2021-12-13', '2021-12-23 14:14:46', '2021-12-23 14:14:46'),
-('plgrn61c47651a0df5', 'jplgrn61c4686fc4a9b', '1920116118', '3275696001952857', 'ringan', 5, '2021-11-29', '2021-12-23 14:14:57', '2021-12-23 14:14:57');
+('plgrn61c47651a0df5', 'jplgrn61c4686fc4a9b', '1920116118', '3275696001952857', 'ringan', 5, '2021-11-29', '2021-12-23 14:14:57', '2021-12-23 14:14:57'),
+('plgrn61c5c4fb4f582', 'jplgrn61c4686fc4a9b', '1920110001', '3275696001952857', 'sedang', 8, '2021-12-19', '2021-12-24 14:02:51', '2021-12-24 14:02:51'),
+('plgrn61c5efa9c23c0', 'jplgrn61c4689aa1aff', '1920110110', '3275696001952857', 'sedang', 8, '2021-12-10', '2021-12-24 17:04:57', '2021-12-24 17:04:57');
 
 -- --------------------------------------------------------
 
@@ -87555,18 +87558,19 @@ INSERT INTO `provinsi` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `siswa` (
-  `id_siswa` varchar(255) NOT NULL,
-  `id_kelas` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
+  `id_kelas` varchar(255) DEFAULT NULL,
   `nama` varchar(255) NOT NULL,
-  `tempat_lahir` varchar(255) NOT NULL,
+  `tempat_lahir` varchar(255) DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
-  `jenis_kelamin` enum('L','P') NOT NULL,
-  `agama` varchar(255) NOT NULL,
-  `id_provinsi` char(2) NOT NULL,
-  `id_kabupaten` char(4) NOT NULL,
-  `id_kecamatan` char(7) NOT NULL,
-  `id_kelurahan` char(10) NOT NULL,
-  `alamat` text NOT NULL,
+  `jenis_kelamin` enum('L','P','') DEFAULT NULL,
+  `agama` varchar(255) DEFAULT NULL,
+  `no_telepon` varchar(13) DEFAULT NULL,
+  `id_provinsi` char(2) DEFAULT NULL,
+  `id_kabupaten` char(4) DEFAULT NULL,
+  `id_kecamatan` char(7) DEFAULT NULL,
+  `id_kelurahan` char(10) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
   `poin` int(11) DEFAULT 100,
   `date_create` datetime NOT NULL DEFAULT current_timestamp(),
   `date_update` datetime NOT NULL DEFAULT current_timestamp()
@@ -87576,42 +87580,43 @@ CREATE TABLE `siswa` (
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `poin`, `date_create`, `date_update`) VALUES
-('1111450109042731', 'kls619e56460a4a8', 'Gangsa Jumadi Januar', 'Surabaya', '2003-04-11', 'P', 'hindu', '-', '-', '-', '-', 'Ds. Yos No. 100, Bitung 16918, DIY', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
-('1410320902032979', 'kls619e56460a4a8', 'Paulin Ana Rahayu S.T.', 'Cimahi', '2015-09-15', 'P', 'budha', '-', '-', '-', '-', 'Ki. Ronggowarsito No. 826, Bengkulu 91591, Sulteng', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
-('1900000000', 'kls61c2d3d30a321', 'THEWHO', 'Karawang', '2002-01-16', 'L', 'islam', '-', '-', '-', '-', '?????', 92, '2021-12-22 08:51:13', '2021-12-22 08:51:32'),
-('1920110001', 'kls619e6e5813376', 'NDCODER', 'Jakarta', '2021-01-15', 'L', 'islam', '-', '-', '-', '-', 'ajlsdlkasjdf', 87, '2021-12-22 07:38:10', '2021-12-22 07:44:50'),
-('1920116118', 'kls619e56460a4a8', 'ANDREE MEILIO CANIAGO', 'Bandung', '2021-12-13', 'L', 'islam', '-', '-', '-', '-', 'fasdfasdf', 95, '2021-12-15 04:47:40', '2021-12-15 04:48:34'),
-('1920118137', 'kls61b9647be74e0', 'ANDREE MEILIO CANIAGO', 'Bandung', '2009-01-20', 'L', 'islam', '-', '-', '-', '-', 'jkasdklfjashdjklfhasd', 100, '2021-12-15 04:46:51', '2021-12-15 04:46:51'),
-('1920118139', 'kls619e7c8b81368', 'ANDREE MEILIO', 'Bandung', '2004-05-27', 'L', 'islam', '-', '-', '-', '-', 'Jalan Cibaduyut Raya Gang Eteh Umi RT 02 RW 01', 100, '2021-11-25 13:23:17', '2021-11-25 15:29:20'),
-('3508874709130529', 'kls619e56460a4a8', 'Bagus Adriansyah', 'Magelang', '1979-03-15', 'L', 'katolik', '-', '-', '-', '-', 'Jr. Ir. H. Juanda No. 375, Subulussalam 33164, Sulsel', 100, '2021-11-24 15:12:12', '2021-11-24 15:12:12'),
-('3512562005211616', 'kls619e56460a4a8', 'Ilsa Victoria Usamah', 'Sawahlunto', '1970-08-11', 'L', 'budha', '-', '-', '-', '-', 'Dk. Bagonwoto  No. 562, Pagar Alam 65319, Jateng', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
-('3672756706150625', 'kls619e56460a4a8', 'Hardana Maulana', 'Sawahlunto', '2014-03-08', 'L', 'budha', '-', '-', '-', '-', 'Dk. Villa No. 673, Solok 53275, Kaltim', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
-('5202803011942458', 'kls619e56460a4a8', 'Praba Budiman', 'Serang', '2002-11-26', 'P', 'islam', '-', '-', '-', '-', 'Ki. Asia Afrika No. 651, Solok 69427, Kaltim', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
-('5208340611017046', 'kls619e56460a4a8', 'Lidya Wulandari', 'Sukabumi', '1973-11-28', 'L', 'hindu', '-', '-', '-', '-', 'Kpg. Bappenas No. 724, Palangka Raya 88330, Sumut', 100, '2021-11-24 15:12:12', '2021-11-24 15:12:12'),
-('5272344502151290', 'kls619e56460a4a8', 'Wirda Purwanti', 'Sorong', '1972-12-03', 'L', 'hindu', '-', '-', '-', '-', 'Kpg. Madiun No. 729, Cirebon 87081, Kaltim', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
-('5319295408990018', 'kls619e56460a4a8', 'Wahyu Najib Saragih S.H.', 'Singkawang', '2015-09-17', 'P', 'budha', '-', '-', '-', '-', 'Kpg. Sampangan No. 255, Probolinggo 15271, DIY', 100, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
-('6103122208083700', 'kls619e56460a4a8', 'Banawi Jaya Waluyo', 'Surakarta', '1980-03-28', 'P', 'kristen', '-', '-', '-', '-', 'Jr. Flores No. 424, Cirebon 31794, Kalsel', 100, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
-('6107522009926426', 'kls619e56460a4a8', 'Najam Marbun S.Farm', 'Bima', '1988-05-18', 'P', 'budha', '-', '-', '-', '-', 'Ds. Kalimalang No. 355, Probolinggo 26233, DKI', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
-('6108505810057351', 'kls619e56460a4a8', 'Rafid Cawisadi Mahendra M.Ak', 'Bau-Bau', '2020-08-26', 'L', 'kristen', '-', '-', '-', '-', 'Dk. Baha No. 94, Mataram 47126, Kalbar', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
-('6201694208982156', 'kls619e56460a4a8', 'Eva Handayani', 'Tomohon', '2007-04-07', 'L', 'kristen', '-', '-', '-', '-', 'Kpg. Yos Sudarso No. 968, Bukittinggi 69159, NTT', 100, '2021-11-24 15:12:06', '2021-11-24 15:12:06'),
-('6210995809167074', 'kls619e56460a4a8', 'Tami Purnawati', 'Salatiga', '2014-07-17', 'P', 'hindu', '-', '-', '-', '-', 'Psr. Ujung No. 678, Pasuruan 96206, DIY', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
-('6211606408190184', 'kls619e56460a4a8', 'Michelle Pratiwi S.IP', 'Sabang', '1990-08-09', 'L', 'hindu', '-', '-', '-', '-', 'Psr. Gotong Royong No. 233, Gunungsitoli 62761, Bengkulu', 100, '2021-11-24 15:12:06', '2021-11-24 15:12:06'),
-('6301344612059797', 'kls619e56460a4a8', 'Dian Maryati', 'Samarinda', '1976-03-05', 'P', 'katolik', '-', '-', '-', '-', 'Jln. Pasirkoja No. 607, Kendari 21693, Malut', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
-('6305632612107919', 'kls619e56460a4a8', 'Luhung Pratama', 'Payakumbuh', '1979-08-09', 'P', 'katolik', '-', '-', '-', '-', 'Psr. Zamrud No. 588, Ambon 29496, Jatim', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
-('6308230506135226', 'kls619e56460a4a8', 'Purwanto Marwata Wijaya', 'Probolinggo', '1970-06-04', 'P', 'budha', '-', '-', '-', '-', 'Jr. Wahidin Sudirohusodo No. 508, Pematangsiantar 93165, Malut', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
-('6371444101035246', 'kls619e56460a4a8', 'Bahuwirya Gunawan', 'Surakarta', '2000-03-09', 'P', 'kristen', '-', '-', '-', '-', 'Kpg. Hang No. 964, Makassar 20723, Sulteng', 100, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
-('7110816905108560', 'kls619e56460a4a8', 'Rosman Latupono', 'Pontianak', '1980-12-11', 'P', 'islam', '-', '-', '-', '-', 'Ki. PHH. Mustofa No. 378, Bima 26313, Sultra', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
-('7207540503068027', 'kls619e56460a4a8', 'Taufan Jindra Gunawan', 'Banda Aceh', '2019-03-31', 'P', 'budha', '-', '-', '-', '-', 'Jln. Rajawali No. 431, Administrasi Jakarta Barat 30024, Sumbar', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
-('7209860809087748', 'kls619e56460a4a8', 'Aisyah Pertiwi', 'Sorong', '2018-12-31', 'P', 'kristen', '-', '-', '-', '-', 'Kpg. Suryo Pranoto No. 530, Tebing Tinggi 85141, Sulsel', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
-('7210356808947268', 'kls619e56460a4a8', 'Panji Suwarno', 'Banda Aceh', '2006-07-14', 'L', 'kristen', '-', '-', '-', '-', 'Gg. Hang No. 971, Gunungsitoli 33730, Maluku', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
-('7306412610093865', 'kls619e56460a4a8', 'Lala Gina Rahmawati S.Gz', 'Pangkal Pinang', '1973-09-06', 'L', 'kristen', '-', '-', '-', '-', 'Jr. PHH. Mustofa No. 694, Bima 33446, Bali', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
-('7407905911938865', 'kls619e56460a4a8', 'Tania Hartati', 'Padangpanjang', '1971-04-01', 'L', 'budha', '-', '-', '-', '-', 'Gg. Madrasah No. 756, Tanjungbalai 80807, Aceh', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
-('7407912903178928', 'kls619e56460a4a8', 'Ismail Saefullah S.Psi', 'Bengkulu', '2021-06-12', 'P', 'budha', '-', '-', '-', '-', 'Psr. Rajawali No. 33, Banjar 45665, Riau', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
-('7408141604142406', 'kls619e56460a4a8', 'Kalim Lamar Halim', 'Malang', '2017-05-29', 'P', 'islam', '-', '-', '-', '-', 'Jln. Bakin No. 726, Madiun 43657, Jateng', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
-('7505023011093231', 'kls619e56460a4a8', 'Opan Mustofa S.Ked', 'Tidore Kepulauan', '1980-07-16', 'P', 'budha', '-', '-', '-', '-', 'Jr. Rumah Sakit No. 786, Administrasi Jakarta Timur 84747, Kaltara', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
-('7603450804060195', 'kls619e56460a4a8', 'Rudi Nashiruddin', 'Singkawang', '2013-02-02', 'L', 'katolik', '-', '-', '-', '-', 'Ki. Basoka Raya No. 838, Kediri 21330, Bali', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
-('8103515506134385', 'kls619e56460a4a8', 'Jaga Sitompul', 'Jayapura', '2004-11-20', 'L', 'islam', '-', '-', '-', '-', 'Kpg. Babadak No. 354, Salatiga 49285, Kalbar', 100, '2021-11-24 15:12:06', '2021-11-24 15:12:06');
+INSERT INTO `siswa` (`id`, `id_kelas`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `poin`, `date_create`, `date_update`) VALUES
+('1111450109042731', 'kls619e56460a4a8', 'Gangsa Jumadi Januar', 'Surabaya', '2003-04-11', 'P', 'hindu', '', '-', '-', '-', '-', 'Ds. Yos No. 100, Bitung 16918, DIY', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
+('1410320902032979', 'kls619e56460a4a8', 'Paulin Ana Rahayu S.T.', 'Cimahi', '2015-09-15', 'P', 'budha', '', '-', '-', '-', '-', 'Ki. Ronggowarsito No. 826, Bengkulu 91591, Sulteng', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
+('1920001001', '', 'AGNES', '', '2000-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-24 16:09:47', '2021-12-24 16:09:47'),
+('1920110001', 'kls619e6e5813376', 'NDCODER', 'Jakarta', '2021-01-15', 'L', 'islam', '', '-', '-', '-', '-', 'ajlsdlkasjdf', 84, '2021-12-22 07:38:10', '2021-12-22 07:44:50'),
+('1920110110', 'kls61c2cebf09e01', 'ELENOIR', 'Solo', '2004-05-19', 'P', 'islam', '089661498686', '-', '-', '-', '-', 'Jalan Supratman', 92, '2021-12-24 16:00:16', '2021-12-24 17:49:14'),
+('1920116118', 'kls619e56460a4a8', 'ANDREE MEILIO CANIAGO', 'Bandung', '2021-12-13', 'L', 'islam', '', '-', '-', '-', '-', 'fasdfasdf', 95, '2021-12-15 04:47:40', '2021-12-15 04:48:34'),
+('1920118137', 'kls61b9647be74e0', 'ANDREE MEILIO CANIAGO', 'Bandung', '2009-01-20', 'L', 'islam', '', '-', '-', '-', '-', 'jkasdklfjashdjklfhasd', 100, '2021-12-15 04:46:51', '2021-12-15 04:46:51'),
+('1920118139', 'kls619e7c8b81368', 'ANDREE MEILIO', 'Bandung', '2004-05-27', 'L', 'islam', '', '-', '-', '-', '-', 'Jalan Cibaduyut Raya Gang Eteh Umi RT 02 RW 01', 100, '2021-11-25 13:23:17', '2021-11-25 15:29:20'),
+('1920999111', '', 'ALEX BONDOC', '', '2000-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-24 16:11:06', '2021-12-24 16:11:06'),
+('1921001001', 'kls61c2d3d30a321', 'LISA', 'Bekasi', '2004-02-02', 'P', 'kristen_protestan', '083722799981', '-', '-', '-', '-', 'Jalan Cibaduyut Raya', 100, '2021-12-24 16:56:01', '2021-12-24 16:57:09'),
+('3508874709130529', 'kls619e56460a4a8', 'Bagus Adriansyah', 'Magelang', '1979-03-15', 'L', 'katolik', '', '-', '-', '-', '-', 'Jr. Ir. H. Juanda No. 375, Subulussalam 33164, Sulsel', 100, '2021-11-24 15:12:12', '2021-11-24 15:12:12'),
+('3512562005211616', 'kls619e56460a4a8', 'Ilsa Victoria Usamah', 'Sawahlunto', '1970-08-11', 'L', 'budha', '', '-', '-', '-', '-', 'Dk. Bagonwoto  No. 562, Pagar Alam 65319, Jateng', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
+('3672756706150625', 'kls619e56460a4a8', 'Hardana Maulana', 'Sawahlunto', '2014-03-08', 'L', 'budha', '', '-', '-', '-', '-', 'Dk. Villa No. 673, Solok 53275, Kaltim', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
+('5202803011942458', 'kls619e56460a4a8', 'Praba Budiman', 'Serang', '2002-11-26', 'P', 'islam', '', '-', '-', '-', '-', 'Ki. Asia Afrika No. 651, Solok 69427, Kaltim', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
+('5208340611017046', 'kls619e56460a4a8', 'Lidya Wulandari', 'Sukabumi', '1973-11-28', 'L', 'hindu', '', '-', '-', '-', '-', 'Kpg. Bappenas No. 724, Palangka Raya 88330, Sumut', 100, '2021-11-24 15:12:12', '2021-11-24 15:12:12'),
+('6103122208083700', 'kls619e56460a4a8', 'Banawi Jaya Waluyo', 'Surakarta', '1980-03-28', 'P', 'kristen', '', '-', '-', '-', '-', 'Jr. Flores No. 424, Cirebon 31794, Kalsel', 100, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
+('6107522009926426', 'kls619e56460a4a8', 'Najam Marbun S.Farm', 'Bima', '1988-05-18', 'P', 'budha', '', '-', '-', '-', '-', 'Ds. Kalimalang No. 355, Probolinggo 26233, DKI', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
+('6108505810057351', 'kls619e56460a4a8', 'Rafid Cawisadi Mahendra M.Ak', 'Bau-Bau', '2020-08-26', 'L', 'kristen', '', '-', '-', '-', '-', 'Dk. Baha No. 94, Mataram 47126, Kalbar', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
+('6201694208982156', 'kls619e56460a4a8', 'Eva Handayani', 'Tomohon', '2007-04-07', 'L', 'kristen', '', '-', '-', '-', '-', 'Kpg. Yos Sudarso No. 968, Bukittinggi 69159, NTT', 100, '2021-11-24 15:12:06', '2021-11-24 15:12:06'),
+('6210995809167074', 'kls619e56460a4a8', 'Tami Purnawati', 'Salatiga', '2014-07-17', 'P', 'hindu', '', '-', '-', '-', '-', 'Psr. Ujung No. 678, Pasuruan 96206, DIY', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
+('6211606408190184', 'kls619e56460a4a8', 'Michelle Pratiwi S.IP', 'Sabang', '1990-08-09', 'L', 'hindu', '', '-', '-', '-', '-', 'Psr. Gotong Royong No. 233, Gunungsitoli 62761, Bengkulu', 100, '2021-11-24 15:12:06', '2021-11-24 15:12:06'),
+('6301344612059797', 'kls619e56460a4a8', 'Dian Maryati', 'Samarinda', '1976-03-05', 'P', 'katolik', '', '-', '-', '-', '-', 'Jln. Pasirkoja No. 607, Kendari 21693, Malut', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
+('6305632612107919', 'kls619e56460a4a8', 'Luhung Pratama', 'Payakumbuh', '1979-08-09', 'P', 'katolik', '', '-', '-', '-', '-', 'Psr. Zamrud No. 588, Ambon 29496, Jatim', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
+('6308230506135226', 'kls619e56460a4a8', 'Purwanto Marwata Wijaya', 'Probolinggo', '1970-06-04', 'P', 'budha', '', '-', '-', '-', '-', 'Jr. Wahidin Sudirohusodo No. 508, Pematangsiantar 93165, Malut', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
+('6371444101035246', 'kls619e56460a4a8', 'Bahuwirya Gunawan', 'Surakarta', '2000-03-09', 'P', 'kristen', '', '-', '-', '-', '-', 'Kpg. Hang No. 964, Makassar 20723, Sulteng', 100, '2021-11-24 15:12:08', '2021-11-24 15:12:08'),
+('7110816905108560', 'kls619e56460a4a8', 'Rosman Latupono', 'Pontianak', '1980-12-11', 'P', 'islam', '', '-', '-', '-', '-', 'Ki. PHH. Mustofa No. 378, Bima 26313, Sultra', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
+('7207540503068027', 'kls619e56460a4a8', 'Taufan Jindra Gunawan', 'Banda Aceh', '2019-03-31', 'P', 'budha', '', '-', '-', '-', '-', 'Jln. Rajawali No. 431, Administrasi Jakarta Barat 30024, Sumbar', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
+('7209860809087748', 'kls619e56460a4a8', 'Aisyah Pertiwi', 'Sorong', '2018-12-31', 'P', 'kristen', '', '-', '-', '-', '-', 'Kpg. Suryo Pranoto No. 530, Tebing Tinggi 85141, Sulsel', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
+('7210356808947268', 'kls619e56460a4a8', 'Panji Suwarno', 'Banda Aceh', '2006-07-14', 'L', 'kristen', '', '-', '-', '-', '-', 'Gg. Hang No. 971, Gunungsitoli 33730, Maluku', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
+('7306412610093865', 'kls619e56460a4a8', 'Lala Gina Rahmawati S.Gz', 'Pangkal Pinang', '1973-09-06', 'L', 'kristen', '', '-', '-', '-', '-', 'Jr. PHH. Mustofa No. 694, Bima 33446, Bali', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
+('7407905911938865', 'kls619e56460a4a8', 'Tania Hartati', 'Padangpanjang', '1971-04-01', 'L', 'budha', '', '-', '-', '-', '-', 'Gg. Madrasah No. 756, Tanjungbalai 80807, Aceh', 100, '2021-11-24 15:12:14', '2021-11-24 15:12:14'),
+('7407912903178928', 'kls619e56460a4a8', 'Ismail Saefullah S.Psi', 'Bengkulu', '2021-06-12', 'P', 'budha', '', '-', '-', '-', '-', 'Psr. Rajawali No. 33, Banjar 45665, Riau', 100, '2021-11-24 15:12:10', '2021-11-24 15:12:10'),
+('7408141604142406', 'kls619e56460a4a8', 'Kalim Lamar Halim', 'Malang', '2017-05-29', 'P', 'islam', '', '-', '-', '-', '-', 'Jln. Bakin No. 726, Madiun 43657, Jateng', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
+('7505023011093231', 'kls619e56460a4a8', 'Opan Mustofa S.Ked', 'Tidore Kepulauan', '1980-07-16', 'P', 'budha', '', '-', '-', '-', '-', 'Jr. Rumah Sakit No. 786, Administrasi Jakarta Timur 84747, Kaltara', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
+('7603450804060195', 'kls619e56460a4a8', 'Rudi Nashiruddin', 'Singkawang', '2013-02-02', 'L', 'katolik', '', '-', '-', '-', '-', 'Ki. Basoka Raya No. 838, Kediri 21330, Bali', 100, '2021-11-24 15:12:11', '2021-11-24 15:12:11'),
+('8103515506134385', 'kls619e56460a4a8', 'Jaga Sitompul', 'Jayapura', '2004-11-20', 'L', 'islam', '', '-', '-', '-', '-', 'Kpg. Babadak No. 354, Salatiga 49285, Kalbar', 100, '2021-11-24 15:12:06', '2021-11-24 15:12:06');
 
 --
 -- Indexes for dumped tables
@@ -87621,7 +87626,7 @@ INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `nama`, `tempat_lahir`, `tanggal_la
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `akun`
@@ -87633,7 +87638,7 @@ ALTER TABLE `akun`
 -- Indexes for table `guru`
 --
 ALTER TABLE `guru`
-  ADD PRIMARY KEY (`id_guru`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `hak_akses`
@@ -87696,7 +87701,7 @@ ALTER TABLE `provinsi`
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id_siswa`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Constraints for dumped tables

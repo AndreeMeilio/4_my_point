@@ -48,7 +48,7 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include '../views/navbar.html' ?>
+                <?php include '../views/navbar.php' ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -69,14 +69,14 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                         <form action="<?= @$action ?>" method="POST">
                                             <div class="mb-3">
                                                 <label for="tgl_pelanggaran" class="form-label">Tanggal Pelanggaran</label>
-                                                <input type="date" class="form-control" id="tgl_pelanggaran" aria-describedby="tgl_pelanggaranHelp" name="tgl_pelanggaran" value="<?php //@$data_siswa['email'] ?>" required>
+                                                <input type="date" class="form-control" id="tgl_pelanggaran" aria-describedby="tgl_pelanggaranHelp" name="tgl_pelanggaran" value="<?= @$data_pelanggaran['tgl_pelanggaran'] ?>" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="id_siswa" class="form-label">Nama Siswa</label>
-                                                <select class="form-control" name="id_siswa" id="id_siswa">
-                                                    <?php while ($item = $data_siswa->fetch_assoc()) { ?>
-                                                        <option <?php //@$item['id_siswa'] == @$data_siswa['id_kelas'] ? 'selected' : '' 
-                                                                ?> value="<?= @$item['id_siswa'] ?>"><?= @$item['nama'] ?></option>
+                                                <label for="id" class="form-label">Nama Siswa</label>
+                                                <select class="form-control" name="id" id="id" <?= !empty(@$id_pelanggaran) ? "disabled" : ""?>>
+                                                    <?php while ($item = @$data_siswa->fetch_assoc()) { ?>
+                                                        <option <?= @$item['id'] == @$data_pelanggaran['id_siswa'] ? 'selected' : '' 
+                                                                ?> value="<?= @$item['id'] ?>"><?= @$item['nama'] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -84,7 +84,7 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                                 <label for="id_jenis_pelanggaran" class="form-label">Pelanggaran</label>
                                                 <select class="form-control" name="id_jenis_pelanggaran" id="id_jenis_pelanggaran">
                                                     <?php while ($item = $data_jenis_pelanggaran->fetch_assoc()) { ?>
-                                                        <option <?php //@$item['id_siswa'] == @$data_siswa['id_kelas'] ? 'selected' : '' 
+                                                        <option <?= @$item['id_jenis_pelanggaran'] == @$data_pelanggaran['id_jenis_pelanggaran'] ? 'selected' : '' 
                                                                 ?> value="<?= @$item['id_jenis_pelanggaran'] ?>"><?= @$item['desc_pelanggaran'] ?></option>
                                                     <?php } ?>
                                                 </select>
@@ -92,8 +92,8 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                             <div class="mb-3">
                                                 <label for="kategori_pelanggaran" class="form-label">Kategori Pelanggaran</label>
                                                 <select class="form-control" name="kategori_pelanggaran" id="kategori_pelanggaran">
-                                                    <option value="ringan">Ringan</option>
-                                                    <option value="sedang">Sedang</option>
+                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "ringan" ? "selected" : ""?> value="ringan">Ringan</option>
+                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "sedang" ? "selected" : ""?> value="sedang">Sedang</option>
                                                 </select>
                                             </div>
                                             
@@ -154,5 +154,5 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
 </html>
 <?php
 $action = 'tambah.php';
-if (!empty($id_guru)) $action = 'edit.php'
+if (!empty($id)) $action = 'edit.php'
 ?>

@@ -1,8 +1,3 @@
-<?php
-$action = "tambah.php";
-if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_jenis_pelanggaran;
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +8,7 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tata Tertib Siswa</title>
+    <title>Profile</title>
 
     <!-- Custom fonts for this template -->
     <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -51,31 +46,48 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i> Data Tata Tertib </h3>
+                    <h3><i class="far fa-address-book me-2"></i> Profile </h3>
                     <hr>
                     <div class="col-md-15 p-5 pt-3">
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Form Tata Tertib</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Form Ganti Password</h5>
 
                             </div>
                             <div class="card-body">
+                                <?php if (!empty($error)) { ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong><?= @$error?></strong> 
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php } ?>
                                 <div class="table-responsive">
+                                    <div class="container-fluid">
+                                        <form action="change_password.php?id_entity=<?= @$id_entity ?>" method="POST">
+                                            <div class="mb-3">
+                                                <label for="current_password" class="form-label">Current Password</label>
+                                                <input type="password" class="form-control" id="current_password" name="current_password" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="new_passoword" class="form-label">New Password</label>
+                                                <input type="password" class="form-control" id="new_password" name="new_password" required>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="confirm_password" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                            </div>
 
-                                    <form action="<?= @$action?>" method="POST">
-                                        <div class="mb-3">
-                                            <label for="desc_pelanggaran" class="form-label">Deskripsi Pelanggaran</label>
-                                            <textarea class="form-control" name="desc_pelanggaran" id="desc_pelanggaran" cols="30" rows="15" required><?= @$data_jenis_pelanggaran['desc_pelanggaran']?></textarea>
-                                        </div>
-                                        <a class="btn btn-danger float-start px-3" href="./">Back</a>
-                                        <button type="submit" class="btn btn-primary float-right">Submit</button>
-                                    </form>
+                                            <a class="btn btn-danger px-3" href="./">Back</a>
+                                            <button type="submit" class="btn btn-primary float-right">Submit</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

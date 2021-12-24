@@ -6,7 +6,7 @@ cekLogin();
 $sql = " SELECT siswa.*, 
 COUNT(pelanggaran.id_pelanggaran) as total_pelanggaran
 FROM siswa, pelanggaran
-WHERE siswa.id_siswa = pelanggaran.id_siswa GROUP BY id_siswa;";
+WHERE siswa.id = pelanggaran.id_siswa GROUP BY id;";
 
 $data_pelanggaran_siswa = $mysqli->query($sql) or die($mysqli->error);
 

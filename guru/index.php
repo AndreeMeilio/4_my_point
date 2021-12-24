@@ -9,7 +9,7 @@ if ($_SESSION["nama_hak_akses"] === "siswa"){
 
 $sql = " SELECT guru.*
             FROM guru
-            ORDER BY nama";
+            ORDER BY nama ASC";
 
 $data_guru = $mysqli->query($sql) or die($mysqli->error);
 
