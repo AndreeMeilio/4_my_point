@@ -77,6 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query_akun = $mysqli->query($sql_akun) or die($mysqli->error);
 
+    // //Upload Foto
+    // $target_dir = "../assets/media/";
+    // $target_file = $target_dir. basename($_FILES["foto"]["name"]);
+
     header("location:index.php");
     
 }
