@@ -69,6 +69,12 @@
     </li>
   <?php } ?>
 
+  <li class="nav-item">
+    <a class="nav-link" href="/4_my_point/laporan/index.php">
+    <i class="fas fa-fw fa-download"></i>
+      <span>Laporan</span></a>
+  </li>
+
   <!-- Divider -->
   <hr class="sidebar-divider d-none d-md-block" />
 
