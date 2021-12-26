@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 24, 2021 at 05:58 PM
+-- Generation Time: Dec 26, 2021 at 05:13 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -119,11 +119,20 @@ INSERT INTO `akun` (`id_akun`, `id_entity`, `id_hak_akses`, `email`, `password`,
 ('akn61c2d8f1607a9', '1900000000', 'hks619e56461c8a8', 'vipmaster@gmail.com', '$2y$10$NMkepSCGlH5ijrTtiG48OuzRJpbKkgeJxZQ/dgdwsFpSc3DWqWnPG', NULL, '2021-12-22 08:51:13', '2021-12-22 08:51:13'),
 ('akn61c48043dd58d', '3000030000300000', 'hks619e5641713c2', '123@gmail.com', '$2y$10$xG65nzzycsLznFpwlOllMOVLzKt6QKXEOfRhFk77zE4I/CPP5ehpC', NULL, '2021-12-23 14:57:23', '2021-12-23 14:57:23'),
 ('akn61c5e08125d2f', '1920110110', 'hks619e56461c8a8', '1920110110@smkn4bdg.sch.id', '$2y$10$F/C2H9PuJRWJ4Y5hC/YYSuLt.iB4tbBEj2hx1Sf0sLmKt0/oL47g.', NULL, '2021-12-24 16:00:16', '2021-12-24 16:00:16'),
-('akn61c5e2bbdc7b9', '1920001001', 'hks619e56461c8a8', '1920001001@smkn4bdg.sch.id', '$2y$10$sgUHw9nPGwK.vTGqRel4Dek7ty5HylkUA6Ib29t1pxj.AFtF1225K', NULL, '2021-12-24 16:09:47', '2021-12-24 16:09:47'),
-('akn61c5e30a96c2c', '1920999111', 'hks619e56461c8a8', '1920999111@smkn4bdg.sch.id', '$2y$10$PpILTevzP3UIGff8DAaXR.I9wNJh2G09iXBKYcu0BuxfAJmKYYlGi', NULL, '2021-12-24 16:11:06', '2021-12-24 16:11:06'),
+('akn61c5e2bbdc7b9', '1920001001', 'hks619e56461c8a8', '1920001001@smkn4bdg.sch.id', '$2y$10$8P4kH3nIP6K4nmdLKUjl0uSixrF56msftIkbMVaL7eBwLpXOe09V6', NULL, '2021-12-24 16:09:47', '2021-12-24 16:09:47'),
+('akn61c5e30a96c2c', '1920999111', 'hks619e56461c8a8', '1920999111@smkn4bdg.sch.id', '$2y$10$8ajfei/gEXGJIKQdWrp3ieNmh/frn5cNPHPtPhHLacgAP56/YrGxW', NULL, '2021-12-24 16:11:06', '2021-12-24 16:11:06'),
 ('akn61c5e52266ca1', '357913579135791', 'hks619e5641713c2', '357913579135791@smkn4bdg.sch.id', '$2y$10$dw2Sl8ARNgBE8GcZvE.FN.aLK.Qe298ANb9EhhhDivl9hC7zdCsoe', NULL, '2021-12-24 16:20:02', '2021-12-24 16:20:02'),
 ('akn61c5ed9193e10', '1921001001', 'hks619e56461c8a8', '1921001001.siswa@smkn4bdg.sch.id', '$2y$10$3vZn/hOQyZSU4cfi2lEd7OHf7wYN4PJ4CuLdSjgSmsBfyzn0hDPFa', NULL, '2021-12-24 16:56:01', '2021-12-24 16:56:01'),
-('akn61c5ee3faf89f', '3456789012345678', 'hks619e5641713c2', '3456789012345678.guru@smkn4bdg.sch.id', '$2y$10$nJeuIAmpP6ZDD9OcEE4ruuUKjh3SuZBs6WbBfpwaJw4pSJBQ4xUCa', NULL, '2021-12-24 16:58:55', '2021-12-24 16:58:55');
+('akn61c5ee3faf89f', '3456789012345678', 'hks619e5641713c2', '3456789012345678.guru@smkn4bdg.sch.id', '$2y$10$nJeuIAmpP6ZDD9OcEE4ruuUKjh3SuZBs6WbBfpwaJw4pSJBQ4xUCa', NULL, '2021-12-24 16:58:55', '2021-12-24 16:58:55'),
+('akn61c8898cd1110', '1920123321', 'hks619e56461c8a8', '1920123321.siswa@smkn4bdg.sch.id', '$2y$10$Sa2ogA8aDueA4WtCOaxyG.sRaEXXydPHYYu4gm5SMO93A/gWfDTQu', NULL, '2021-12-26 16:26:04', '2021-12-26 16:26:04'),
+('akn61c88f36daa09', '3700000000000000', 'hks619e5641713c2', 'firdaus@gmail.com', '$2y$10$Dg44hDCzw6iXu2qthKCCq.CEwB3DCdUkpx1W7ry5HvxHPOmxmtlZq', NULL, '2021-12-26 16:50:14', '2021-12-26 16:50:14'),
+('akn61c89094527b6', '123456789', 'hks619e5641713c2', 'badrul@gmail.com', '$2y$10$9/ynbziNnZV0aClFvCeiV.PkHmW4Q0UB63TovT8Y9I7mB6h0AEdV2', NULL, '2021-12-26 16:56:04', '2021-12-26 16:56:04'),
+('akn61c892579e931', '54321', 'hks619e5641713c2', 'fernanda@gmail.com', '$2y$10$y3N59a.e6blVbA2/g15deeeOX3T/5qhgh.nPl08q6l04DurcpsdhG', NULL, '2021-12-26 17:03:35', '2021-12-26 17:03:35'),
+('akn61c892e70bd07', '1234509876', 'hks619e5641713c2', 'fernanda@gmail.com', '$2y$10$NydsuQMRmfILb9lUMWPWDOIFrj8hBA0MjPssYZzpaVrFanfj71wOW', NULL, '2021-12-26 17:05:58', '2021-12-26 17:05:58'),
+('akn61c8935e9a9e3', '123123123', 'hks619e5641713c2', '123123123@gmail.com', '$2y$10$O1J02qZQ.4KMKpKS6S.G/OROco65erwXeNBzi4hQTWRaLq0lAmff.', NULL, '2021-12-26 17:07:58', '2021-12-26 17:07:58'),
+('akn61c893cf4a6b7', '1234554321', 'hks619e5641713c2', 'ananda@gmail.com', '$2y$10$87sXquFDW1enzSsMMDU1H.uNMMjNmY4Z5su0/Sl6jMU56SOH9/Vfe', NULL, '2021-12-26 17:09:51', '2021-12-26 17:09:51'),
+('akn61c8940c77295', '234234234', 'hks619e56461c8a8', '2432erfwdf@gmail.com', '$2y$10$V0KiKPJ.J0RP7S9bbl6elOGo60Fix8qDbrYHsKl.Jy4q..jF.Nui.', NULL, '2021-12-26 17:10:52', '2021-12-26 17:10:52'),
+('akn61c89441256f5', '334234', 'hks619e56461c8a8', 'asldfkjsldj@gmail.com', '$2y$10$SMekIykkgi0SoH4RbNlWteXX8PMKFjPZbI09GTNUw2WwbWrn07iA.', NULL, '2021-12-26 17:11:44', '2021-12-26 17:11:44');
 
 -- --------------------------------------------------------
 
@@ -168,12 +177,18 @@ CREATE TABLE `guru` (
 
 INSERT INTO `guru` (`id`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `date_create`, `date_update`) VALUES
 ('1205061603177833', 'Jamil Putra S.H.', 'Tebing Tinggi', '2009-04-08', 'L', 'kristen', '0825 7068 8156', '-', '-', '-', '-', 'Psr. Moch. Yamin No. 895, Serang 59761, Babel', '2021-11-24 15:12:05', '2021-11-24 15:12:05'),
+('123123123', 'ABCDE', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-26 17:07:58', '2021-12-26 17:07:58'),
+('1234509876', 'FERNANDA', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-26 17:05:58', '2021-12-26 17:05:58'),
+('1234554321', 'ANANDA ZAHIRA', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-26 17:09:51', '2021-12-26 17:09:51'),
+('123456789', 'BADRUL ROHMAN', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-26 16:56:04', '2021-12-26 16:56:04'),
 ('3000030000300000', 'NUMBER 123', 'Bandung', '2021-12-15', 'P', 'islam', '089138199928', '-', '-', '-', '-', 'Jalan Buah Batu No 123', '2021-12-23 14:57:23', '2021-12-23 14:57:23'),
 ('3308194704163908', 'Estiawan Anom Utama', 'Pekanbaru', '1974-07-17', 'P', 'katolik', '0874 5260 963', '-', '-', '-', '-', 'Jr. Yos No. 328, Pangkal Pinang 32871, Pabar', '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
 ('3309780509086474', 'Wardi Ramadan', 'Bengkulu', '1972-02-22', 'L', 'katolik', '(+62) 383 2761 5137', '-', '-', '-', '-', 'Dk. Raya Ujungberung No. 62, Bima 19772, Kalbar', '2021-11-24 15:12:04', '2021-11-24 15:12:04'),
 ('3319201602114293', 'Prabowo Wahyudin', 'Bukittinggi', '2007-07-20', 'L', 'budha', '(+62) 205 0461 908', '-', '-', '-', '-', 'Gg. Jakarta No. 348, Singkawang 50711, Babel', '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
 ('3456789012345678', 'BOREAS', 'Jakarta', '1989-01-17', 'L', 'islam', '089122819876', '-', '-', '-', '-', 'Jalan Soekarno Hatta', '2021-12-24 16:58:55', '2021-12-24 16:59:38'),
 ('357913579135791', 'IHSAN', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-24 16:20:02', '2021-12-24 16:20:02'),
+('3700000000000000', 'FIRDAUS HAQIQI', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-26 16:50:14', '2021-12-26 16:50:14'),
+('54321', 'FERNANDA SYAH PUTRA', '', '2021-01-01', '', '', '', '-', '-', '-', '-', '', '2021-12-26 17:03:35', '2021-12-26 17:03:35'),
 ('6502004606103062', 'Irsad Widodo', 'Makassar', '2017-10-04', 'P', 'kristen', '(+62) 508 2003 6673', '-', '-', '-', '-', 'Jln. Banda No. 550, Ternate 35601, Sulut', '2021-11-24 15:12:05', '2021-11-24 15:12:05'),
 ('7372874104941893', 'Lili Riyanti', 'Palangka Raya', '1986-11-16', 'L', 'budha', '(+62) 21 9189 587', '-', '-', '-', '-', 'Psr. Agus Salim No. 358, Tual 20319, Bengkulu', '2021-11-24 15:12:01', '2021-11-24 15:12:01'),
 ('7402396103989099', 'Cinta Prastuti', 'Probolinggo', '2009-03-11', 'P', 'hindu', '025 6875 7716', '-', '-', '-', '-', 'Psr. Supono No. 938, Lhokseumawe 79887, NTT', '2021-11-24 15:12:03', '2021-11-24 15:12:03'),
@@ -87453,6 +87468,13 @@ CREATE TABLE `media` (
   `date_update` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `media`
+--
+
+INSERT INTO `media` (`id_media`, `id_entity`, `id_entity_penambah`, `nama_media`, `date_create`, `date_update`) VALUES
+('md61c8898cda523', '1920123321', '37198281900200001', '192012332120211226.png', '2021-12-26 16:26:04', '2021-12-26 16:26:04');
+
 -- --------------------------------------------------------
 
 --
@@ -87479,7 +87501,8 @@ INSERT INTO `pelanggaran` (`id_pelanggaran`, `id_jenis_pelanggaran`, `id_siswa`,
 ('plgrn61c47646835fd', 'jplgrn61c4689086e4e', '1920110001', '3275696001952857', 'sedang', 8, '2021-12-13', '2021-12-23 14:14:46', '2021-12-23 14:14:46'),
 ('plgrn61c47651a0df5', 'jplgrn61c4686fc4a9b', '1920116118', '3275696001952857', 'ringan', 5, '2021-11-29', '2021-12-23 14:14:57', '2021-12-23 14:14:57'),
 ('plgrn61c5c4fb4f582', 'jplgrn61c4686fc4a9b', '1920110001', '3275696001952857', 'sedang', 8, '2021-12-19', '2021-12-24 14:02:51', '2021-12-24 14:02:51'),
-('plgrn61c5efa9c23c0', 'jplgrn61c4689aa1aff', '1920110110', '3275696001952857', 'sedang', 8, '2021-12-10', '2021-12-24 17:04:57', '2021-12-24 17:04:57');
+('plgrn61c5efa9c23c0', 'jplgrn61c4689aa1aff', '1920110110', '3275696001952857', 'sedang', 8, '2021-12-10', '2021-12-24 17:04:57', '2021-12-24 17:04:57'),
+('plgrn61c74d5301d0d', 'jplgrn61c4686fc4a9b', '1920001001', '37198281900200001', 'ringan', 5, '2021-12-16', '2021-12-25 17:56:51', '2021-12-25 17:56:51');
 
 -- --------------------------------------------------------
 
@@ -87493,12 +87516,19 @@ CREATE TABLE `penghargaan` (
   `id_entity_penambah` varchar(255) NOT NULL,
   `nama_penghargaan` varchar(255) NOT NULL,
   `penyelenggara` varchar(255) DEFAULT NULL,
-  `tingkat` enum('kota','provinsi','nasional','international') DEFAULT NULL,
-  `peringkat` varchar(255) NOT NULL,
-  `poin_penambah` int(11) NOT NULL,
+  `tingkat` enum('kota','provinsi','nasional','international','') DEFAULT NULL,
+  `peringkat` varchar(255) DEFAULT NULL,
+  `poin_penambah` int(11) DEFAULT NULL,
   `date_create` datetime NOT NULL DEFAULT current_timestamp(),
   `date_update` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `penghargaan`
+--
+
+INSERT INTO `penghargaan` (`id_penghargaan`, `id_siswa`, `id_entity_penambah`, `nama_penghargaan`, `penyelenggara`, `tingkat`, `peringkat`, `poin_penambah`, `date_create`, `date_update`) VALUES
+('phrgn61c7128dbe599', '1920110001', '37198281900200001', 'Well Done Idea Product For IoT', 'SMK HEBAT', 'kota', 'Harapan Satu', 15, '2021-12-25 13:46:05', '2021-12-25 13:46:05');
 
 -- --------------------------------------------------------
 
@@ -87583,14 +87613,17 @@ CREATE TABLE `siswa` (
 INSERT INTO `siswa` (`id`, `id_kelas`, `nama`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `no_telepon`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`, `id_kelurahan`, `alamat`, `poin`, `date_create`, `date_update`) VALUES
 ('1111450109042731', 'kls619e56460a4a8', 'Gangsa Jumadi Januar', 'Surabaya', '2003-04-11', 'P', 'hindu', '', '-', '-', '-', '-', 'Ds. Yos No. 100, Bitung 16918, DIY', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
 ('1410320902032979', 'kls619e56460a4a8', 'Paulin Ana Rahayu S.T.', 'Cimahi', '2015-09-15', 'P', 'budha', '', '-', '-', '-', '-', 'Ki. Ronggowarsito No. 826, Bengkulu 91591, Sulteng', 100, '2021-11-24 15:12:07', '2021-11-24 15:12:07'),
-('1920001001', '', 'AGNES', '', '2000-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-24 16:09:47', '2021-12-24 16:09:47'),
-('1920110001', 'kls619e6e5813376', 'NDCODER', 'Jakarta', '2021-01-15', 'L', 'islam', '', '-', '-', '-', '-', 'ajlsdlkasjdf', 84, '2021-12-22 07:38:10', '2021-12-22 07:44:50'),
+('1920001001', 'kls619e6e5813376', 'AGNES', 'Aceh', '2000-01-18', 'P', 'hindu', '081922910987', '-', '-', '-', '-', 'Jalan Soekarno Hatta No. 12', 95, '2021-12-24 16:09:47', '2021-12-25 17:56:34'),
+('1920110001', 'kls619e6e5813376', 'NDCODER', 'Jakarta', '2021-01-15', 'L', 'islam', '', '-', '-', '-', '-', 'ajlsdlkasjdf', 99, '2021-12-22 07:38:10', '2021-12-22 07:44:50'),
 ('1920110110', 'kls61c2cebf09e01', 'ELENOIR', 'Solo', '2004-05-19', 'P', 'islam', '089661498686', '-', '-', '-', '-', 'Jalan Supratman', 92, '2021-12-24 16:00:16', '2021-12-24 17:49:14'),
 ('1920116118', 'kls619e56460a4a8', 'ANDREE MEILIO CANIAGO', 'Bandung', '2021-12-13', 'L', 'islam', '', '-', '-', '-', '-', 'fasdfasdf', 95, '2021-12-15 04:47:40', '2021-12-15 04:48:34'),
 ('1920118137', 'kls61b9647be74e0', 'ANDREE MEILIO CANIAGO', 'Bandung', '2009-01-20', 'L', 'islam', '', '-', '-', '-', '-', 'jkasdklfjashdjklfhasd', 100, '2021-12-15 04:46:51', '2021-12-15 04:46:51'),
 ('1920118139', 'kls619e7c8b81368', 'ANDREE MEILIO', 'Bandung', '2004-05-27', 'L', 'islam', '', '-', '-', '-', '-', 'Jalan Cibaduyut Raya Gang Eteh Umi RT 02 RW 01', 100, '2021-11-25 13:23:17', '2021-11-25 15:29:20'),
-('1920999111', '', 'ALEX BONDOC', '', '2000-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-24 16:11:06', '2021-12-24 16:11:06'),
+('1920123321', '', 'ARTHUR LEYWIN', '', '2020-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-26 16:26:04', '2021-12-26 16:26:04'),
+('1920999111', 'kls619e6e5813376', 'ALEX BONDOC', '', '2000-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-24 16:11:06', '2021-12-25 18:08:21'),
 ('1921001001', 'kls61c2d3d30a321', 'LISA', 'Bekasi', '2004-02-02', 'P', 'kristen_protestan', '083722799981', '-', '-', '-', '-', 'Jalan Cibaduyut Raya', 100, '2021-12-24 16:56:01', '2021-12-24 16:57:09'),
+('234234234', '', 'ASDFASDF', '', '2020-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-26 17:10:52', '2021-12-26 17:10:52'),
+('334234', '', 'ASDFASDF', '', '2020-01-01', '', '', '', '-', '-', '-', '-', '', 100, '2021-12-26 17:11:44', '2021-12-26 17:11:44'),
 ('3508874709130529', 'kls619e56460a4a8', 'Bagus Adriansyah', 'Magelang', '1979-03-15', 'L', 'katolik', '', '-', '-', '-', '-', 'Jr. Ir. H. Juanda No. 375, Subulussalam 33164, Sulsel', 100, '2021-11-24 15:12:12', '2021-11-24 15:12:12'),
 ('3512562005211616', 'kls619e56460a4a8', 'Ilsa Victoria Usamah', 'Sawahlunto', '1970-08-11', 'L', 'budha', '', '-', '-', '-', '-', 'Dk. Bagonwoto  No. 562, Pagar Alam 65319, Jateng', 100, '2021-11-24 15:12:13', '2021-11-24 15:12:13'),
 ('3672756706150625', 'kls619e56460a4a8', 'Hardana Maulana', 'Sawahlunto', '2014-03-08', 'L', 'budha', '', '-', '-', '-', '-', 'Dk. Villa No. 673, Solok 53275, Kaltim', 100, '2021-11-24 15:12:09', '2021-11-24 15:12:09'),
