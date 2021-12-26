@@ -63,7 +63,7 @@ if (!empty($id)) $action = 'edit.php'
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <div class="container-fluid">
-                                        <form action="<?= $action ?>" method="POST">
+                                        <form action="<?= $action ?>" method="POST" enctype="multipart/form-data">
                                             <h5 class="text-gray-800 my-3">Required Form </h5>
                                             <div class="mb-3">
                                                 <label for="id" class="form-label">NIP/NUPTK Guru</label>
@@ -129,6 +129,13 @@ if (!empty($id)) $action = 'edit.php'
                                             <div class="mb-3">
                                                 <label for="alamat" class="form-label">Alamat</label>
                                                 <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5" ><?= @$guru['alamat'] ?></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="foto" class="form-label">Foto</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="foto" name="foto" required>
+                                                    <label class="custom-file-label" for="foto">Choose file...</label>
+                                                </div>
                                             </div>
                                             <a class="btn btn-danger px-3" href="./">Back</a>
                                             <button type="submit" class="btn btn-primary float-right">Submit</button>

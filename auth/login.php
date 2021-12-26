@@ -33,25 +33,36 @@
                 $_SESSION['nama_hak_akses'] = $row -> nama_hak_akses;
                 
                 $session_nama = "";
+                $foto = "";
 
                 if ($_SESSION['nama_hak_akses'] === "admin"){
-                    $sql_admin = "SELECT nama FROM admin WHERE id = '". $_SESSION['id_entity']. "';";
+                    $sql_admin = "SELECT admin.nama, media.nama_media FROM admin LEFT JOIN media ON admin.id = media.id_entity WHERE id = '". $_SESSION['id_entity']. "';";
 
                     $query = $mysqli->query($sql_admin) or die($mysqli->error);
-                    $session_nama = $query->fetch_assoc()["nama"];
+
+                    $data_nama_foto = $query->fetch_assoc();
+                    $session_nama = $data_nama_foto["nama"];
+                    $foto = $data_nama_foto["nama_media"] != null ? $data_nama_foto["nama_media"] : "avatar.jpg";
                 } else if ($_SESSION['nama_hak_akses'] === "guru"){
-                    $sql_guru = "SELECT nama FROM guru WHERE id = '". $_SESSION['id_entity']. "';";
+                    $sql_guru = "SELECT guru.nama, media.nama_media FROM guru LEFT JOIN media ON guru.id = media.id_entity WHERE id = '". $_SESSION['id_entity']. "';";
 
                     $query = $mysqli->query($sql_guru) or die($mysqli->error);
-                    $session_nama = $query->fetch_assoc()["nama"];
+
+                    $data_nama_foto = $query->fetch_assoc();
+                    $session_nama = $data_nama_foto["nama"];
+                    $foto = $data_nama_foto["nama_media"] != null ? $data_nama_foto["nama_media"] : "avatar.jpg";
                 } else if ($_SESSION['nama_hak_akses'] === "siswa"){
-                    $sql_guru = "SELECT nama FROM siswa WHERE id = '". $_SESSION['id_entity']. "';";
+                    $sql_guru = "SELECT siswa.nama, media.nama_media FROM siswa LEFT JOIN media ON siswa.id = media.id_entity WHERE id = '". $_SESSION['id_entity']. "';";
 
                     $query = $mysqli->query($sql_guru) or die($mysqli->error);
-                    $session_nama = $query->fetch_assoc()["nama"];
+                    $data_nama_foto = $query->fetch_assoc();
+
+                    $session_nama = $data_nama_foto["nama"];
+                    $foto = $data_nama_foto["nama_media"] != null ? $data_nama_foto["nama_media"] : "avatar.jpg";
                 }
 
                 $_SESSION["nama"] = $session_nama;
+                $_SESSION["foto"] = $foto;
 
                 header('location:../index.php');
             } else {

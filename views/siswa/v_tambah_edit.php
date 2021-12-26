@@ -141,13 +141,13 @@ if (!empty($id)) $action = "edit.php?nis=" . $id;
                                                 <label for="alamat" class="form-label">Alamat</label>
                                                 <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5"><?= @$data_siswa['alamat'] ?></textarea>
                                             </div>
-                                            <!-- <div class="mb-3">
+                                            <div class="mb-3">
                                                 <label for="foto" class="form-label">Foto</label>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="foto" required>
+                                                    <input type="file" class="custom-file-input" id="foto" name="foto" required>
                                                     <label class="custom-file-label" for="foto">Choose file...</label>
                                                 </div>
-                                            </div> -->
+                                            </div>
                                             <a class="btn btn-danger px-3" href="./">Back</a>
                                             <button type="submit" class="btn btn-primary float-right">Submit</button>
                                         </form>

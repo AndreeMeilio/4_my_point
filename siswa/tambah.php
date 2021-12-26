@@ -53,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $datetime       = date('Y-m-d H:i:s');
     $poin           = 100;
 
-
     //Store data siswa ke dalam table siswa
     $sql_siswa = "INSERT INTO siswa VALUES(
         '$id', '$id_kelas', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin',
@@ -77,9 +76,38 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query_akun = $mysqli->query($sql_akun) or die($mysqli->error);
 
-    // //Upload Foto
-    // $target_dir = "../assets/media/";
-    // $target_file = $target_dir. basename($_FILES["foto"]["name"]);
+    if (isset($_FILES["foto"])){
+        //Upload Foto
+        $target_dir = "../assets/image/";
+        $file_ext=strtolower(end(explode('.',$_FILES['foto']['name'])));
+        $file_name = $id. date("Ymd"). ".". $file_ext;
+        $target_file = $target_dir. $file_name;
+        $file_tmp = $_FILES["foto"]["tmp_name"];
+        $file_size = $_FILES["foto"]["size"];
+
+        $extensions= array("jpeg","jpg","png");
+
+        if (in_array($file_ext, $extensions) === true && $file_size < 2097152){
+            $upload = move_uploaded_file($file_tmp, $target_file);
+
+            if ($upload){
+                $id_media = uniqid("md");
+                $id_entity_penambah = $_SESSION['id_entity'];
+
+                $sql_upload_media = "INSERT INTO media VALUES(
+                    '". $id_media ."', '". $id . "', '". $id_entity_penambah ."', '". $file_name ."', '". $datetime ."', '". $datetime ."'
+                )";
+
+                $query_upload_media = $mysqli->query($sql_upload_media) or die($mysqli->error);
+
+            } else {
+                echo "gagal upload file";
+                die();
+            }
+
+        }
+
+    }
 
     header("location:index.php");
     
@@ -89,5 +117,3 @@ $sql_kelas = "SELECT * FROM kelas";
 $data_kelas = $mysqli->query($sql_kelas) or die($mysqli->error);
 
 include '../views/siswa/v_tambah_edit.php';
-
-?>
