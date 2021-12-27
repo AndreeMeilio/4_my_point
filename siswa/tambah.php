@@ -99,12 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 )";
 
                 $query_upload_media = $mysqli->query($sql_upload_media) or die($mysqli->error);
-
             } else {
                 echo "gagal upload file";
                 die();
             }
 
+        } else {
+            echo "format foto harus jpeg, jpg, atau png dan ukurannya harus dibawah 2 mb";
+            die();
         }
 
     }

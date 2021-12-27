@@ -53,7 +53,7 @@ if (!empty($id)) $action = "edit.php?nis=" . $id;
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i> Data Siswa </h3>
+                    <h3><i class="fas fa-fw fa-user-graduate mr-3"></i> Data Siswa </h3>
                     <hr>
                     <div class="col-md-15 p-5 pt-3">
 
@@ -142,10 +142,14 @@ if (!empty($id)) $action = "edit.php?nis=" . $id;
                                                 <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5"><?= @$data_siswa['alamat'] ?></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="foto" class="form-label">Foto</label>
+                                                <label for="foto" class="form-label d-block">Foto</label>
+                                                <?php if (!empty($id)) {?>
+                                                    <img style="width: 15%; height: auto;" src="../assets/image/<?= @$data_siswa["nama_media"] !== null ? @$data_siswa["nama_media"] : "avatar.jpg"?>" alt="">    
+                                                <?php }?>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="foto" name="foto" required>
+                                                    <input type="file" class="custom-file-input" id="foto" name="foto" aria-describedby="fotoHelp" >
                                                     <label class="custom-file-label" for="foto">Choose file...</label>
+                                                    <div id="fotoHelp" class="form-text">Ekstensi file harus jpeg, jpg atau png dan dengan ukuran kurang dari 2 mb</div>
                                                 </div>
                                             </div>
                                             <a class="btn btn-danger px-3" href="./">Back</a>
@@ -174,23 +178,7 @@ if (!empty($id)) $action = "edit.php?nis=" . $id;
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include '../views/logout_modal.html';?>
     <!-- Bootstrap core JavaScript-->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

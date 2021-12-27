@@ -43,7 +43,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i>Profile</h3>
+                    <h3><i class="fas fa-user-alt mr-3"></i>Profile</h3>
                     <hr />
                     <div class="col-md-15 p-5 pt-3">
                         <!-- DataTales Example -->
@@ -53,7 +53,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="container">
-                                    <div class="py-3">
+                                    <div class="py-3 text-center">
+                                        <img class="img-profile rounded-circle mb-3" style="width: 15%; height: auto;" src="../assets/image/<?= @$data_profile["nama_media"] !== null ? @$data_profile["nama_media"] : "avatar.jpg"?>" alt="">
                                         <span class="d-block text-gray-900">
                                             <?= @$data_profile['nama'] . "-" . strtoupper(@$_SESSION["nama_hak_akses"]); ?>
                                         </span>

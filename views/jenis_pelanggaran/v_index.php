@@ -47,7 +47,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i> Data Tata Tertib </h3>
+                    <h3><i class="far fa-address-book mr-3"></i> Data Tata Tertib </h3>
                     <hr>
                     <div class="col-md-15 p-5 pt-3">
 

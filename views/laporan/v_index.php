@@ -49,7 +49,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i>Laporan</h3>
+                    <h3><i class="fas fa-fw fa-download mr-3"></i>Laporan</h3>
                     <hr>
                     <div class="col-md-15 p-5 pt-3">
 

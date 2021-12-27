@@ -10,7 +10,7 @@ if($_SESSION["nama_hak_akses"] === "guru" || $_SESSION["nama_hak_akses"] === "si
 $id = @$_GET['id'];
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $id        = @$_POST['id'];
+    $id_post        = @$_POST['id'];
     $email          = @$_POST['email'];
     $nama           = @$_POST['nama'];
     $tempat_lahir   = @$_POST['tempat_lahir'];
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
-    $id        = $mysqli->escape_string($id);
+    $id_post        = $mysqli->escape_string($id_post);
     $email          = $mysqli->escape_string($email);
     $nama           = strtoupper($mysqli->escape_string($nama));
     $tempat_lahir   = $mysqli->escape_string($tempat_lahir);
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $password       = password_hash($id, PASSWORD_DEFAULT);
 
     $sql_update_guru = "UPDATE guru SET 
-        id         = '$id',
+        id         = '$id_post',
         nama            = '$nama',
         tempat_lahir    = '$tempat_lahir',
         tanggal_lahir   = '$tanggal_lahir',
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $query_update_guru = $mysqli->query($sql_update_guru) or die($mysqli->error);
 
     $sql_update_akun_guru = "UPDATE akun SET 
-        id_entity   = '$id',
+        id_entity   = '$id_post',
         email       = '$email',
         password    = '$password'
         WHERE id_entity = '$id'
@@ -66,12 +66,64 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $query_update_akun_guru = $mysqli->query($sql_update_akun_guru) or die($mysqli->error);
 
+    if (isset($_FILES["foto"])){
+        $target_dir = "../assets/image/";
+
+        //Deleting Current File
+        $sql_media = "SELECT * FROM media where id_entity = '". $id. "'";
+        $query_media = $mysqli->query($sql_media) or die($mysqli->error);
+        $data_media = $query_media->fetch_assoc();
+
+        if ($data_media["nama_media"] !== null){
+            $file_want_to_delete = $target_dir. $data_media["nama_media"];
+            unlink($file_want_to_delete);
+        }
+
+        //Upload Foto
+        
+        $file_ext=strtolower(end(explode('.',$_FILES['foto']['name'])));
+        $file_name = $id_post. date("Ymd"). ".". $file_ext;
+        $target_file = $target_dir. $file_name;
+        $file_tmp = $_FILES["foto"]["tmp_name"];
+        $file_size = $_FILES["foto"]["size"];
+
+        $extensions= array("jpeg","jpg","png");
+
+        if (in_array($file_ext, $extensions) === true && $file_size < 2097152){
+            $upload = move_uploaded_file($file_tmp, $target_file);
+
+            if ($upload){
+                $id_media = uniqid("md");
+                $id_entity_penambah = $_SESSION['id_entity'];
+
+                $sql_delete_media = "DELETE FROM media where id_entity = '". $id. "'";
+                $sql_upload_media = "INSERT INTO media VALUES(
+                    '". $id_media ."', '". $id_post . "', '". $id_entity_penambah ."', '". $file_name ."', '". $datetime ."', '". $datetime ."'
+                )";
+
+                $query_delete_media = $mysqli->query($sql_delete_media) or die($mysqli->error);
+                $query_insert_media = $mysqli->query($sql_upload_media) or die($mysqli->error);
+            } else {
+                echo "gagal upload file";
+                die();
+            }
+
+        } else {
+            echo "format foto harus jpeg, jpg, atau png dan ukurannya harus dibawah 2 mb";
+            die();
+        }
+
+    }
+
     header("location:index.php");
 }
 
 if (empty($id)) header('location: index.php');
 
-$sql = "SELECT guru.*, akun.* FROM guru, akun WHERE guru.id = '$id' AND akun.id_entity = '$id'";
+$sql = "SELECT guru.*, akun.*, media.id_media, media.nama_media FROM guru
+            LEFT JOIN akun ON guru.id = akun.id_entity
+            LEFT JOIN media ON guru.id = media.id_entity
+            WHERE guru.id = '$id'";
 $query = $mysqli->query($sql);
 $guru = $query->fetch_array();
 

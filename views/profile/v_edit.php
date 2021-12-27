@@ -46,7 +46,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i> Profile </h3>
+                    <h3><i class="fas fa-user-alt mr-3"></i> Profile </h3>
                     <hr>
                     <div class="col-md-15 p-5 pt-3">
 
@@ -59,7 +59,7 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <div class="container-fluid">
-                                        <form action="edit.php?id_entity=<?= @$id_entity ?>" method="POST">
+                                        <form action="edit.php?id_entity=<?= @$id_entity ?>" method="POST" enctype="multipart/form-data">
                                             <h5 class="text-gray-800 my-3">Required Form</h5>
                                             <div class="mb-3">
                                                 <label for="id" class="form-label"><?= @$_SESSION["nama_hak_akses"] === "siswa" ? "NIS" : "NIP/NUPK" ?></label>
@@ -135,6 +135,15 @@
                                             <div class="mb-3">
                                                 <label for="alamat" class="form-label">Alamat</label>
                                                 <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="5"><?= @$data_profile['alamat'] ?></textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="foto" class="form-label d-block">Foto</label>
+                                                <img style="width: 15%; height: auto;" src="../assets/image/<?= @$data_profile["nama_media"] !== null ? @$data_profile["nama_media"] : "avatar.jpg"?>" alt="">   
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="foto" name="foto" aria-describedby="fotoHelp" >
+                                                    <label class="custom-file-label" for="foto">Choose file...</label>
+                                                    <div id="fotoHelp" class="form-text">Ekstensi file harus jpeg, jpg atau png dan dengan ukuran kurang dari 2 mb</div>
+                                                </div>
                                             </div>
                                             <a class="btn btn-danger px-3" href="./">Back</a>
                                             <button type="submit" class="btn btn-primary float-right">Submit</button>

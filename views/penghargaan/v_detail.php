@@ -49,7 +49,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h3><i class="far fa-address-book me-2"></i>Data Detail Penghargaan</h3>
+                    <h3><i class="fas fa-fw fa-trophy mr-3"></i>Data Detail Penghargaan</h3>
                     <hr>
                     <div class="col-md-15 py-3 pt-3">
 

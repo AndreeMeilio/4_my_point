@@ -11,7 +11,7 @@
     <i class="fa fa-bars"></i>
   </button>
 
-  <!-- Topbar Search -->
+  <!-- Topbar Search
   <form class="
       d-none d-sm-inline-block
       form-inline
@@ -29,7 +29,9 @@
         </button>
       </div>
     </div>
-  </form>
+  </form> -->
+
+  <span class="ml-2 d-none d-lg-inline text-gray-900 text-center"> WELCOME BACK <?php echo $_SESSION["nama"] ?>, IT'S GOOD TO SEE YOU AGAIN</span>
 
   <!-- Topbar Navbar -->
   <ul class="navbar-nav ml-auto">
