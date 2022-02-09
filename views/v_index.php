@@ -140,67 +140,160 @@
                         <h3><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h3>
                         <hr>
 
-                        <div class="row text-white">
-                            <div class="card bg-primary me-5" style="width: 13rem;">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-user-graduate me-2"></i>
+                        <!-- Jumlah Tiap Data -->
+                        <!-- Content Row -->
+                        <div class="row">
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-4 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Total Data Tata Tertib</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= @$jumlah_tata_tertib ?> Tata Tertib</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-2x fa-book-reader"></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h5 class="card-title">Siswa</h5>
-                                    <div class="display-10">140</div>
                                 </div>
                             </div>
 
-                            <div class="card bg-warning me-5" style="width: 13rem;">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-user me-2"></i>
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-4 col-md-6 mb-4">
+                                <div class="card border-left-danger shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                    Total Data Pelanggaran</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= @$pelanggaran ?> Pelanggaran</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-2x fa-pencil-ruler"> </i>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h5 class="card-title">Admin</h5>
-                                    <div class="display-10">1</div>
                                 </div>
                             </div>
 
-                            <div class="card bg-success me-5" style="width: 13rem;">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-house-user me-2"></i>
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-4 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Data Penghargaan
+                                                </div>
+                                                <div class="row no-gutters align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$penghargaan ?> Penghargaan</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-2x fa-trophy"></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h5 class="card-title me-5">Kelas</h5>
-                                    <div class="display-10">4</div>
-                                </div>
-                            </div>
-
-
-                            <div class="card bg-danger" style="width: 13rem;">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="far fa-address-book me-2"></i>
-                                    </div>
-                                    <h5 class="card-title">Pelanggaran</h5>
-                                    <div class="display-10">20</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-5">
-                            <div class="card me-5 text-center" style="width: 13rem;">
-                                <div class="card-header">
-                                    Ananda Zahira
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">Point Pelanggaran</p>
-                                    <p class="card-text">40</p>
-                                    <a href="#" class="btn btn-primary">Lihat Pelanggaran</a>
+
+                        <div class="row">
+
+                            <!-- Pie Chart -->
+                            <div class="col-xl-6 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Pelanggaran</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4 pb-2">
+                                            <canvas id="myPieChart"></canvas>
+                                        </div>
+                                        <div class="mt-4 text-center small">
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$ringan ?> id="ringan" />
+                                                <i class="fas fa-circle text-success"></i> Ringan
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$sedang ?> id="sedang" />
+                                                <i class="fas fa-circle text-info"></i> Sedang
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
+                            <!-- Pie Chart -->
+                            <div class="col-xl-6 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">Penghargaan</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4 pb-2">
+                                            <canvas id="myPieChart2"></canvas>
+                                        </div>
+                                        <div class="mt-4 text-center small">
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$kota ?> id="kota" />
+                                                <i class="fas fa-circle text-warning"></i> Kota
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$provinsi ?> id="provinsi" />
+                                                <i class="fas fa-circle text-info"></i> Provinsi
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$nasional ?> id="nasional" />
+                                                <i class="fas fa-circle text-primary"></i> Nasional
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$international ?> id="internasional" />
+                                                <i class="fas fa-circle text-success"></i> Internasional
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Kelas Dan Jumlah Pelanggarannya</h6>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Kelas</th>
+                                            <th>Jumlah Pelanggaran</th>
+                                            <th>Jumlah Penghargaan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($item = $query_kelas->fetch_assoc()) { ?>
+                                            <tr>
+                                                <td><?= @$item['tingkatan']. @$item['nama_kelas']?> </td>
+                                                <td><?= @$item['total_pelanggaran']?> Pelanggaran</td>
+                                                <td><?= @$item['total_penghargaan']?> Penghargaan</td>
+                                            </tr>
+                                        <?php } ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-
                     <!-- Content Row -->
-
-
 
                 </div>
 
@@ -265,6 +358,9 @@
     <!-- Page level plugins -->
     <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="assets/vendor/chart.js/Chart.min.js"></script>
+    <script src="assets/js/demo/chart-area-demo.js"></script>
+    <script src="assets/js/demo/chart-pie-demo.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="assets/js/demo/datatables-demo.js"></script>

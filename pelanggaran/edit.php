@@ -23,7 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error);
     $data_pelanggaran = $query_pelanggaran->fetch_assoc();
 
-    $sql_update_poin_siswa = "UPDATE siswa SET poin = ((SELECT poin FROM siswa WHERE id = '". $data_pelanggaran["id_siswa"] ."') + ". $data_pelanggaran["poin_pengurangan"]. ") - " . $poin_pengurangan ." WHERE id = '". $data_pelanggaran["id_siswa"] ."';";
+    $sql_current_poin = "SELECT poin FROM siswa WHERE id = '". $data_pelanggaran["id_siswa"]. "'";
+    $query_current_poin = $mysqli->query($sql_current_poin) or die($mysqli->error);
+    $current_poin = $query_current_poin->fetch_assoc();
+
+    $total_poin = ($current_poin['poin'] + $data_pelanggaran['poin_pengurangan']) - $poin_pengurangan;
+
+    $sql_update_poin_siswa = "UPDATE siswa SET poin = ". $total_poin ." WHERE id = '". $data_pelanggaran["id_siswa"] ."';";
 
     $sql_update_pelanggaran = "UPDATE pelanggaran SET 
                                 tgl_pelanggaran = '". $tgl_pelanggaran. "',
