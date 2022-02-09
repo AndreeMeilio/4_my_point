@@ -29,6 +29,8 @@ if (!empty($id_penghargaan)) $action = "edit.php?id_penghargaan=" . $id_pengharg
 
     <!-- simple datatable -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -135,6 +137,12 @@ if (!empty($id_penghargaan)) $action = "edit.php?id_penghargaan=" . $id_pengharg
 
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> 
+    <script>
+        $(document).ready(() => {
+            $("#id").select2();
+        });
+    </script>
 </body>
 
 </html>

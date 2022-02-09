@@ -29,6 +29,8 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
 
     <!-- simple datatable -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -73,9 +75,9 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                             </div>
                                             <div class="mb-3">
                                                 <label for="id" class="form-label">Nama Siswa</label>
-                                                <select class="form-control" name="id" id="id" <?= !empty(@$id_pelanggaran) ? "disabled" : ""?>>
+                                                <select class="form-control" name="id" id="id" <?= !empty(@$id_pelanggaran) ? "disabled" : "" ?>>
                                                     <?php while ($item = @$data_siswa->fetch_assoc()) { ?>
-                                                        <option <?= @$item['id'] == @$data_pelanggaran['id_siswa'] ? 'selected' : '' 
+                                                        <option <?= @$item['id'] == @$data_pelanggaran['id_siswa'] ? 'selected' : ''
                                                                 ?> value="<?= @$item['id'] ?>"><?= @$item['nama'] ?></option>
                                                     <?php } ?>
                                                 </select>
@@ -84,7 +86,7 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                                 <label for="id_jenis_pelanggaran" class="form-label">Pelanggaran</label>
                                                 <select class="form-control" name="id_jenis_pelanggaran" id="id_jenis_pelanggaran">
                                                     <?php while ($item = $data_jenis_pelanggaran->fetch_assoc()) { ?>
-                                                        <option <?= @$item['id_jenis_pelanggaran'] == @$data_pelanggaran['id_jenis_pelanggaran'] ? 'selected' : '' 
+                                                        <option <?= @$item['id_jenis_pelanggaran'] == @$data_pelanggaran['id_jenis_pelanggaran'] ? 'selected' : ''
                                                                 ?> value="<?= @$item['id_jenis_pelanggaran'] ?>"><?= @$item['desc_pelanggaran'] ?></option>
                                                     <?php } ?>
                                                 </select>
@@ -92,11 +94,11 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                             <div class="mb-3">
                                                 <label for="kategori_pelanggaran" class="form-label">Kategori Pelanggaran</label>
                                                 <select class="form-control" name="kategori_pelanggaran" id="kategori_pelanggaran">
-                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "ringan" ? "selected" : ""?> value="ringan">Ringan</option>
-                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "sedang" ? "selected" : ""?> value="sedang">Sedang</option>
+                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "ringan" ? "selected" : "" ?> value="ringan">Ringan</option>
+                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "sedang" ? "selected" : "" ?> value="sedang">Sedang</option>
                                                 </select>
                                             </div>
-                                            
+
                                             <a class="btn btn-danger px-3" href="./">Back</a>
                                             <button type="submit" class="btn btn-primary float-right">Submit</button>
                                         </form>
@@ -123,7 +125,7 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
     </a>
 
     <!-- Logout Modal-->
-    <?php include '../views/logout_modal.html';?>
+    <?php include '../views/logout_modal.html'; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -133,6 +135,12 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
 
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> 
+    <script>
+        $(document).ready(() => {
+            $("#id").select2();
+        });
+    </script>
 </body>
 
 </html>
