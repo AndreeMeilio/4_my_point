@@ -27,6 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_kelurahan   = '-';
     $alamat         = @$_POST['alamat'];
 
+    // Update Session
+    $_SESSION["id_entity"] = $id;
+
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
     $id             = $mysqli->escape_string($id);
     $email          = $mysqli->escape_string($email);
@@ -98,7 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //update akun
     $sql_update_akun = "UPDATE akun SET 
-                        email = '". $email. "' WHERE id_entity = '". $id_entity. "'";
+                        id_entity   = '$id', 
+                        email       = '". $email. "'
+                        WHERE id_entity = '". $id_entity. "'";
 
     $query_update = $mysqli->query($sql_update) or die($mysqli->error);
     $query_update_akun = $mysqli->query($sql_update_akun) or die($mysqli->error);
