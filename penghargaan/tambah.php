@@ -43,7 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query_penghargaan = $mysqli->query($sql_penghargaan) or die($mysqli->error);
 
-    $sql_update_poin_siswa = "UPDATE siswa SET poin = (SELECT poin FROM siswa WHERE id = '". $id ."') + ". $poin_penambahan ." WHERE id = '". $id ."';";
+    $sql_current_poin = "SELECT poin FROM siswa WHERE id = '". $id. "'";
+    $query_current_poin = $mysqli->query($sql_current_poin) or die($mysqli->error);
+    $current_poin = $query_current_poin->fetch_assoc();
+
+    $total_poin = $current_poin['poin'] + $poin_penambahan;
+
+    $sql_update_poin_siswa = "UPDATE siswa SET poin = ". $total_poin ." WHERE id = '". $id ."';";
 
     $query_update_poin_siswa = $mysqli->query($sql_update_poin_siswa) or die($mysqli->error);
 
