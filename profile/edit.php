@@ -91,13 +91,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 WHERE id        = '$id_entity'";
     }
 
+     //update media id_entity
+    $sql_update_media_siswa = "UPDATE media SET id_entity = '". $id. "' WHERE id_entity = '". $id_entity. "';";
+
+    $query_update_media_siswa = $mysqli->query($sql_update_media_siswa) or die($mysqli->error);
+
+    //update akun
     $sql_update_akun = "UPDATE akun SET 
                         email = '". $email. "' WHERE id_entity = '". $id_entity. "'";
 
     $query_update = $mysqli->query($sql_update) or die($mysqli->error);
     $query_update_akun = $mysqli->query($sql_update_akun) or die($mysqli->error);
 
-    if (isset($_FILES["foto"])){
+    if ($_FILES["foto"]["name"] != "" || $_FILES["foto"]["name"] != null){
         $target_dir = "../assets/image/";
 
         //Deleting Current File
@@ -105,8 +111,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $query_media = $mysqli->query($sql_media) or die($mysqli->error);
         $data_media = $query_media->fetch_assoc();
 
-        $file_want_to_delete = $target_dir. $data_media["nama_media"];
-        unlink($file_want_to_delete);
+        if ($data_media["nama_media"] !== null){
+            $file_want_to_delete = $target_dir. $data_media["nama_media"];
+            unlink($file_want_to_delete);
+        }
 
         //Upload Foto
         

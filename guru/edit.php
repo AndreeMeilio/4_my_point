@@ -57,6 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $query_update_guru = $mysqli->query($sql_update_guru) or die($mysqli->error);
 
+    //update media id_entity
+    $sql_update_media_guru = "UPDATE media SET id_entity = '". $id_post. "' WHERE id_entity = '". $id. "';";
+
+    $query_update_media_guru = $mysqli->query($sql_update_media_guru) or die($mysqli->error);
+
+    //update akun guru
     $sql_update_akun_guru = "UPDATE akun SET 
         id_entity   = '$id_post',
         email       = '$email',
@@ -66,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $query_update_akun_guru = $mysqli->query($sql_update_akun_guru) or die($mysqli->error);
 
-    if (isset($_FILES["foto"])){
+    if ($_FILES["foto"]["name"] != "" || $_FILES["foto"]["name"] != null){
         $target_dir = "../assets/image/";
 
         //Deleting Current File

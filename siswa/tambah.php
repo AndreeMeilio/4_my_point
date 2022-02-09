@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query_akun = $mysqli->query($sql_akun) or die($mysqli->error);
 
-    if (isset($_FILES["foto"])){
+    if ($_FILES["foto"]["name"] != "" || $_FILES["foto"]["name"] != null){
         //Upload Foto
         $target_dir = "../assets/image/";
         $file_ext=strtolower(end(explode('.',$_FILES['foto']['name'])));

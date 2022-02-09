@@ -58,6 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query_update_siswa = $mysqli->query($sql_update_siswa) or die($mysqli->error);
 
+     //update media id_entity
+    $sql_update_media_siswa = "UPDATE media SET id_entity = '". $nis. "' WHERE id_entity = '". $id. "';";
+
+    $query_update_media_siswa = $mysqli->query($sql_update_media_siswa) or die($mysqli->error);
+
+    //update akun
     $sql_update_akun_siswa = "UPDATE akun SET 
         id_entity   = '$nis',
         email       = '$email',
@@ -67,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $query_update_akun_siswa = $mysqli->query($sql_update_akun_siswa) or die($mysqli->error);
 
-    if (isset($_FILES["foto"])){
+    if ($_FILES["foto"]["name"] != "" || $_FILES["foto"]["name"] != null){
         $target_dir = "../assets/image/";
 
         //Deleting Current File

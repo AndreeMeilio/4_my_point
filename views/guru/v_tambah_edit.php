@@ -1,6 +1,6 @@
 <?php
 $action = 'tambah.php';
-if (!empty($id)) $action = 'edit.php'
+if (!empty($id)) $action = 'edit.php?id='. $id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +63,7 @@ if (!empty($id)) $action = 'edit.php'
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <div class="container-fluid">
-                                        <form action="<?= $action ?>" method="POST" enctype="multipart/form-data">
+                                        <form action="<?= @$action ?>" method="POST" enctype="multipart/form-data">
                                             <h5 class="text-gray-800 my-3">Required Form </h5>
                                             <div class="mb-3">
                                                 <label for="id" class="form-label">NIP/NUPTK Guru</label>
