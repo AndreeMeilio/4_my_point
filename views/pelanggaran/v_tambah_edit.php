@@ -57,7 +57,7 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                 <div class="container-fluid">
                     <h3><i class="fas fa-fw fa-pencil-ruler mr-3"> </i> Data Pelanggaran </h3>
                     <hr>
-                    <div class="col-md-15 p-5 pt-3">
+                    <div class="col-md-15">
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">

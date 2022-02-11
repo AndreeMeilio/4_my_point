@@ -51,33 +51,37 @@
                 <div class="container-fluid">
                     <h3><i class="fas fa-fw fa-download mr-3"></i>Laporan</h3>
                     <hr>
-                    <div class="col-md-15 p-5 pt-3">
+                    <div class="col-md-15">
 
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Laporan - <?= date("F", strtotime($tanggal_awal))?></h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Laporan - <?= date("F", strtotime($tanggal_awal)) ?></h5>
                             </div>
                             <div class="card-body">
                                 <form action="index.php">
                                     <label>Pilih Bulan</label>
                                     <div class="row">
-                                        <select name="bulan" aria-controls="dataTable" class="form-control form-control-sm col-4 ml-2 mr-3">
-                                            <option <?= @$bulan == "01" ? "selected" : ""?> value="01">Januari</option>
-                                            <option <?= @$bulan == "02" ? "selected" : ""?> value="02">Februari</option>
-                                            <option <?= @$bulan == "03" ? "selected" : ""?> value="03">Maret</option>
-                                            <option <?= @$bulan == "04" ? "selected" : ""?> value="04">April</option>
-                                            <option <?= @$bulan == "05" ? "selected" : ""?> value="05">Mei</option>
-                                            <option <?= @$bulan == "06" ? "selected" : ""?> value="06">Juni</option>
-                                            <option <?= @$bulan == "07" ? "selected" : ""?> value="07">Juli</option>
-                                            <option <?= @$bulan == "08" ? "selected" : ""?> value="08">Agustus</option>
-                                            <option <?= @$bulan == "09" ? "selected" : ""?> value="09">September</option>
-                                            <option <?= @$bulan == "10" ? "selected" : ""?> value="10">Oktober</option>
-                                            <option <?= @$bulan == "11" ? "selected" : ""?> value="11">November</option>
-                                            <option <?= @$bulan == "12" ? "selected" : ""?> value="12">Desember</option>
-                                        </select>
-                                        <button class="btn btn-success btn-sm col-1">Submit</button>
+                                        <div class="col-9">
+                                            <select name="bulan" aria-controls="dataTable" class="form-control form-control-sm">
+                                                <option <?= @$bulan == "01" ? "selected" : "" ?> value="01">Januari</option>
+                                                <option <?= @$bulan == "02" ? "selected" : "" ?> value="02">Februari</option>
+                                                <option <?= @$bulan == "03" ? "selected" : "" ?> value="03">Maret</option>
+                                                <option <?= @$bulan == "04" ? "selected" : "" ?> value="04">April</option>
+                                                <option <?= @$bulan == "05" ? "selected" : "" ?> value="05">Mei</option>
+                                                <option <?= @$bulan == "06" ? "selected" : "" ?> value="06">Juni</option>
+                                                <option <?= @$bulan == "07" ? "selected" : "" ?> value="07">Juli</option>
+                                                <option <?= @$bulan == "08" ? "selected" : "" ?> value="08">Agustus</option>
+                                                <option <?= @$bulan == "09" ? "selected" : "" ?> value="09">September</option>
+                                                <option <?= @$bulan == "10" ? "selected" : "" ?> value="10">Oktober</option>
+                                                <option <?= @$bulan == "11" ? "selected" : "" ?> value="11">November</option>
+                                                <option <?= @$bulan == "12" ? "selected" : "" ?> value="12">Desember</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-3">
+                                            <button class="btn btn-success btn-sm">Submit</button>
+                                        </div>
                                     </div>
 
                                     <hr>

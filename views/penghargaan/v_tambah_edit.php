@@ -57,7 +57,7 @@ if (!empty($id_penghargaan)) $action = "edit.php?id_penghargaan=" . $id_pengharg
                 <div class="container-fluid">
                     <h3><i class="fas fa-fw fa-trophy mr-3"></i> Data Penghargaan </h3>
                     <hr>
-                    <div class="col-md-15 p-5 pt-3">
+                    <div class="col-md-15">
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">

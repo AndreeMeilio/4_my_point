@@ -23,6 +23,12 @@ $sql_kelas = "SELECT * FROM kelas";
 $data_siswa = $mysqli->query($sql) or die($mysqli->error);
 $data_kelas = $mysqli->query($sql_kelas) or die($mysqli->error);
 
+$result = [];
+
+while($item = $data_siswa->fetch_assoc()){
+    $result[] = $item;
+}
+
 include '../views/siswa/v_index.php';
 
 ?>

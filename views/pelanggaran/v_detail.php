@@ -57,20 +57,27 @@
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Data Detail Pelanggaran</h5>
+                                <span class="h5 m-0 font-weight-bold text-primary">Data Detail Pelanggaran</span>
                                 <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
-                                    <a href="tambah.php" class="btn btn-primary mb-1 mt-1" style="float:right;"><i class="fas fa-plus me-2"></i class="col-10">Tambah Pelanggaran</a>
+                                    <!-- mobile -->
+                                    <div class="d-inline d-sm-none">
+                                        <a href="tambah.php" class="btn btn-primary" style="float:right;"><i class="fas fa-plus me-2"></i></a>
+                                    </div>
+                                    <!-- web -->
+                                    <div class="d-none d-sm-inline">
+                                        <a href="tambah.php" class="btn btn-primary" style="float:right;"><i class="fas fa-plus me-2"> Tambah Pelanggaran</i></a>
+                                    </div>
                                 <?php } ?>
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-12 col-sm-4">
                                         <h5 class="text-gray-900 text-center mt-5"><?= @$data_siswa["nama"] ?></h5>
                                         <h6 class="text-gray-600 text-center"><?= @$data_siswa["tingkatan"] . " " . @$data_siswa["nama_kelas"] ?></h6>
                                         <h6 class="text-gray-600 text-center"><?= @$data_siswa["jenis_kelamin"] === "L" ? "Laki laki" : "Perempuan" ?></h6>
                                         <hr />
 
-                                        <div class="row">
+                                        <div class="row mb-5">
                                             <div class="col-6">Poin Siswa</div>
                                             <div class="col-6"> : <?= @$data_siswa["poin"] ?> POIN</div>
                                             <div class="col-6">Ringan</div>
@@ -82,9 +89,40 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-8">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <div class="col-12 col-sm-8">
+                                        <!-- tampilan mobile -->
+                                        <div class="table-responsive d-block d-sm-none">
+                                            <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="col-10">TGL</th>
+                                                        <th>KATEGORI</th>
+                                                        <th>OPSI</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach ($result_pelanggaran as $item) { ?>
+
+                                                        <tr>
+                                                            <td class="col-6"><?= date("d F Y", strtotime(@$item["tgl_pelanggaran"])) ?></td>
+                                                            <td class="col-4"><?= ucwords(@$item["kategori_pelanggaran"]) ?></td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" 
+                                                                data-idpelanggaran="<?php echo $item['id_pelanggaran'] ?>" 
+                                                                data-tglpelanggaran="<?php echo date("d F Y", strtotime(@$item["tgl_pelanggaran"])) ?>" 
+                                                                data-kategoripelanggaran="<?php echo $item['kategori_pelanggaran'] ?>"
+                                                                data-descpelanggaran="<?php echo $item['desc_pelanggaran'] ?>" data-poinpengurangan="<?php echo $item['poin_pengurangan'] ?>">more</button>
+                                                            </td>
+                                                        </tr>
+
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- tampilan web -->
+                                        <div class="table-responsive d-none d-sm-block">
+                                            <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
                                                         <th class="col-10">TGL</th>
@@ -97,7 +135,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php while ($item = $query_pelanggaran->fetch_assoc()) { ?>
+                                                    <?php foreach ($result_pelanggaran as $item) { ?>
 
                                                         <tr>
                                                             <td class="col-1"><?= date("d F Y", strtotime(@$item["tgl_pelanggaran"])) ?></td>
@@ -150,6 +188,53 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <!-- modal detail for mobile -->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Pelanggaran</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 font-weight-bold">TANGGAL PELANGGARAN</div>
+                        <div class="col-12 mb-2 modal-tglpelanggaran"></div>
+
+                        <div class="col-12 font-weight-bold">KATEGORI PELANGGARAN</div>
+                        <div class="col-12 mb-2 modal-kategoripelanggaran"></div>
+
+                        <div class="col-12 font-weight-bold">POIN PENGURANGAN</div>
+                        <div class="col-12 mb-2 modal-poinpengurangan"></div>
+
+                        <div class="col-12 font-weight-bold">DESKRIPSI PELANGGARAN</div>
+                        <div class="col-12 mb-2 modal-descpelanggaran"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                        <form class="mr-auto">
+                            <button type="button" class="btn btn-danger m1 deleteData modal-delete">
+                                <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
+                                    <path fill="#fff" d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19Z" />
+                                </svg> Delete
+                            </button>
+                        </form>
+                        <a class="btn btn-success m-1 modal-edit px-4">
+                            <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
+                                <path fill="#fff" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" />
+                            </svg> Edit
+                        </a>
+                    <?php } else { ?>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <?php }?>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Logout Modal-->
     <?php include '../views/logout_modal.html'; ?>
 
@@ -183,6 +268,8 @@
 
     <script>
         $(document).ready(() => {
+            $('.dataTable').DataTable();
+
             $(document).on("click", ".deleteData", deleteData);
 
             function deleteData() {
@@ -195,6 +282,24 @@
                     $('#submit_hapus').click();
                 }
             }
+
+            $('#detailModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal
+                var idpelanggaran = button.data('idpelanggaran'); // Extract info from data-* attributes
+                var tglpelanggaran = button.data('tglpelanggaran');
+                var kategoripelanggaran = button.data('kategoripelanggaran');
+                var poinpengurangan = button.data('poinpengurangan');
+                var descpelanggaran = button.data('descpelanggaran') != "" ? button.data('descpelanggaran') : "-";
+
+                var modal = $(this)
+                modal.find('.modal-tglpelanggaran').text(tglpelanggaran);
+                modal.find('.modal-kategoripelanggaran').text(kategoripelanggaran);
+                modal.find('.modal-poinpengurangan').text(poinpengurangan);
+                modal.find('.modal-descpelanggaran').text(descpelanggaran);
+
+                modal.find('.modal-edit').prop('href', 'edit.php?id_pelanggaran=' + idpelanggaran);
+                modal.find('.modal-delete').val(idpelanggaran);
+            })
         });
     </script>
 </body>

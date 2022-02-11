@@ -25,5 +25,9 @@ $sql_jumlah_pelanggaran = "SELECT COUNT(id_siswa) as total_pelanggaran,
 $query_jumlah_pelanggaran = $mysqli->query($sql_jumlah_pelanggaran) or die($mysqli->error);
 $data_jumlah_pelanggaran = $query_jumlah_pelanggaran->fetch_assoc();
 
+$result_pelanggaran = [];
+while ($res = $query_pelanggaran->fetch_assoc()){
+    $result_pelanggaran[] = $res;
+}
 
 include '../views/pelanggaran/v_detail.php';

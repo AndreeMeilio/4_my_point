@@ -53,7 +53,7 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
                 <div class="container-fluid">
                     <h3><i class="far fa-address-book mr-3"></i> Data Tata Tertib </h3>
                     <hr>
-                    <div class="col-md-15 p-5 pt-3">
+                    <div class="col-md-15">
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">

@@ -10,6 +10,12 @@ WHERE siswa.id = penghargaan.id_siswa GROUP BY id;";
 
 $data_penghargaan_siswa = $mysqli->query($sql) or die($mysqli->error);
 
+$result = [];
+
+while ($res = $data_penghargaan_siswa->fetch_assoc()){
+    $result[] = $res;
+}
+
 include '../views/penghargaan/v_index.php';
 
 ?>

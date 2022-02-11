@@ -27,5 +27,9 @@ $sql_jumlah_penghargaan = "SELECT COUNT(id_siswa) as total_penghargaan,
 $query_jumlah_penghargaan = $mysqli->query($sql_jumlah_penghargaan) or die($mysqli->error);
 $data_jumlah_penghargaan = $query_jumlah_penghargaan->fetch_assoc();
 
+$result = [];
+while ($res = $query_penghargaan->fetch_assoc()){
+    $result[] = $res;
+}
 
 include '../views/penghargaan/v_detail.php';

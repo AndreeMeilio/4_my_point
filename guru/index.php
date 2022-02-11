@@ -13,6 +13,12 @@ $sql = " SELECT guru.*
 
 $data_guru = $mysqli->query($sql) or die($mysqli->error);
 
+$result = [];
+
+while($res = $data_guru->fetch_assoc()){
+    $result[] = $res;
+}
+
 include '../views/guru/v_index.php';
 
 ?>

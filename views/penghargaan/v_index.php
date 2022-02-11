@@ -51,20 +51,54 @@
                 <div class="container-fluid">
                     <h3><i class="fas fa-fw fa-trophy mr-3"></i>Data Penghargaan</h3>
                     <hr>
-                    <div class="col-md-15 p-5 pt-3">
-
-
+                    <div class="col-md-15">
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Data Penghargaan</h5>
+                                <span class="h5 m-0 font-weight-bold text-primary">Data Penghargaan</span>
                                 <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
-                                    <a href="tambah.php" class="btn btn-primary mb-1 mt-1" style="float:right;"><i class="fas fa-plus me-2"></i>Tambah Penghargaan</a>
+                                    <!-- mobile -->
+                                    <div class="d-inline d-sm-none">
+                                        <a href="tambah.php" class="btn btn-primary" style="float:right;"><i class="fas fa-plus me-2"></i></a>
+                                    </div>
+                                    <!-- web -->
+                                    <div class="d-none d-sm-inline">
+                                        <a href="tambah.php" class="btn btn-primary" style="float:right;"><i class="fas fa-plus me-2"> Tambah Penghargaan</i></a>
+                                    </div>
                                 <?php } ?>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <!-- tampilan mobile -->
+                                <div class="table-responsive d-block d-sm-none">
+                                    <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>NIS</th>
+                                                <th>NAMA SISWA</th>
+                                                <th>OPSI</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                            foreach($result as $item) { ?>
+                                                <tr>
+                                                    <td class="col-4"><?php echo $item['id'] ?></td>
+                                                    <td class="col-1"><?php echo $item['nama'] ?></td>
+                                                    <td class="col-2">
+                                                        <a href="detail.php?nis=<?php echo $item['id'] ?>" class="btn btn-info m-1">
+                                                            <i class="far fa-fw fa-eye"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- tampilan web -->
+                                <div class="table-responsive d-none d-sm-block">
+                                    <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>NO</th>
@@ -76,7 +110,7 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 0;
-                                            while ($item = $data_penghargaan_siswa->fetch_assoc()) { ?>
+                                            foreach($result as $item) { ?>
                                                 <tr>
                                                     <td class="col-1"><?php echo ++$i ?></td>
                                                     <td class="col-4"><?php echo $item['nama'] ?></td>
@@ -122,7 +156,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <?php include '../views/logout_modal.html';?>
+    <?php include '../views/logout_modal.html'; ?>
 
     <!-- FORM YANG DIPAKAI UNTUK DELETE DATA -->
     <div class="d-none">
@@ -152,22 +186,24 @@
     <!-- simple datatable -->
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 
-    <!-- <script>
+    <script>
         $(document).ready(() => {
-            $(document).on("click", ".deleteData",deleteData);
+            $('.dataTable').DataTable();
 
-            function deleteData() {
-                let id = $(this).val();
-                let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
+            // $(document).on("click", ".deleteData",deleteData);
 
-                console.log(id, yakin_hapus);
-                if (yakin_hapus) {
-                    $('#id').val(id);
-                    $('#submit_hapus').click();
-                }
-            }
+            // function deleteData() {
+            //     let id = $(this).val();
+            //     let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
+
+            //     console.log(id, yakin_hapus);
+            //     if (yakin_hapus) {
+            //         $('#id').val(id);
+            //         $('#submit_hapus').click();
+            //     }
+            // }
         });
-    </script> -->
+    </script>
 </body>
 
 </html>

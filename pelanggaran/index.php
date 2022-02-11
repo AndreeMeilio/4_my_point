@@ -10,6 +10,12 @@ WHERE siswa.id = pelanggaran.id_siswa GROUP BY id;";
 
 $data_pelanggaran_siswa = $mysqli->query($sql) or die($mysqli->error);
 
+$result = [];
+
+while ($res = $data_pelanggaran_siswa->fetch_assoc()){
+    $result[] = $res;
+}
+
 include '../views/pelanggaran/v_index.php';
 
 ?>

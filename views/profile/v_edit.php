@@ -48,7 +48,7 @@
                 <div class="container-fluid">
                     <h3><i class="fas fa-user-alt mr-3"></i> Profile </h3>
                     <hr>
-                    <div class="col-md-15 p-5 pt-3">
+                    <div class="col-md-15">
 
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
