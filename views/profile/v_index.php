@@ -54,7 +54,7 @@
                             <div class="card-body">
                                 <div class="container">
                                     <div class="py-3 text-center">
-                                        <img class="img-profile rounded-circle mb-3" style="width: 15%; height: auto;" src="../assets/image/<?= @$data_profile["nama_media"] !== null ? @$data_profile["nama_media"] : "avatar.jpg"?>" alt="">
+                                        <img class="img-profile rounded-circle mb-3" style="width: 15%; height: auto;" src="../assets/image/<?= @$data_profile["nama_media"] !== null ? @$data_profile["nama_media"] : "avatar.jpg" ?>" alt="">
                                         <span class="d-block text-gray-900">
                                             <?= @$data_profile['nama'] . "-" . strtoupper(@$_SESSION["nama_hak_akses"]); ?>
                                         </span>
@@ -65,16 +65,22 @@
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Email</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= @$data_profile["email"] ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= @$data_profile["email"] ?></span>
                                         </div>
                                         <?php if ($_SESSION['nama_hak_akses'] === "siswa") { ?>
                                             <div class="col-4 mb-2">
                                                 <span class="text-gray-800">Kelas</span>
                                             </div>
-                                            <div class="col-8">
+                                            <div class="">
+                                                <span class="text-gray-800">:</span>
+                                            </div>
+                                            <div class="col-7">
                                                 <span class="text-gray-800">
-                                                    :
+                                                    
                                                     <?= @$data_profile['tingkatan'] . " " . @$data_profile["nama_kelas"] ?>
 
                                                 </span>
@@ -83,38 +89,56 @@
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Tempat Lahir</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= @$data_profile['tempat_lahir'] ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= @$data_profile['tempat_lahir'] ?></span>
                                         </div>
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Tanggal Lahir</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= date("j F Y", strtotime(@$data_profile['tanggal_lahir'])) ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= date("j F Y", strtotime(@$data_profile['tanggal_lahir'])) ?></span>
                                         </div>
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Jenis Kelamin</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= @$data_profile['jenis_kelamin'] === "L" ? "Laki laki" : "Perempuan" ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= @$data_profile['jenis_kelamin'] === "L" ? "Laki laki" : "Perempuan" ?></span>
                                         </div>
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Agama</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= ucwords(@$data_profile["agama"]) ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= ucwords(@$data_profile["agama"]) ?></span>
                                         </div>
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Nomor Telepon</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= @$data_profile["no_telepon"] ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= @$data_profile["no_telepon"] ?></span>
                                         </div>
                                         <div class="col-4 mb-2">
                                             <span class="text-gray-800">Alamat</span>
                                         </div>
-                                        <div class="col-8">
-                                            <span class="text-gray-800"> : <?= @$data_profile["alamat"] ?></span>
+                                        <div class="">
+                                            <span class="text-gray-800">:</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="text-gray-800"><?= @$data_profile["alamat"] ?></span>
                                         </div>
                                     </div>
                                 </div>
