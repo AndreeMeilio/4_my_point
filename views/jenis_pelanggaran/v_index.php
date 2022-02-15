@@ -78,7 +78,7 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 0;
-                                            while ($item = $data_jenis_pelanggaran->fetch_assoc()) { ?>
+                                            foreach ($result as $item) { ?>
                                                 <tr>
                                                     <td class="col-8"><?php echo $item['desc_pelanggaran'] ?></td>
                                                     <td>
@@ -106,7 +106,7 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 0;
-                                            while ($item = $data_jenis_pelanggaran->fetch_assoc()) { ?>
+                                            foreach ($result as $item)  { ?>
                                                 <tr>
                                                     <th class="col-1" scope="row no-gutters m-3"><?php echo ++$i ?></th>
                                                     <td class="col-8"><?php echo $item['desc_pelanggaran'] ?></td>
