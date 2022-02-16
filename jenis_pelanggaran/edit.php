@@ -3,8 +3,9 @@
 include '../lib/library.php';
 cekLogin();
 
-include '../auth/authorization.php';
-
+if($_SESSION["nama_hak_akses"] === "guru" || $_SESSION["nama_hak_akses"] === "siswa"){
+    header("location:index.php");
+}
 $id_jenis_pelanggaran = @$_GET["jenis_pelanggaran"];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){

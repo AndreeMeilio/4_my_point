@@ -57,27 +57,25 @@
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Laporan - <?= date("F", strtotime($tanggal_awal)) ?></h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Laporan</h5>
                             </div>
                             <div class="card-body">
                                 <form action="index.php">
                                     <label>Pilih Bulan</label>
                                     <div class="row">
                                         <div class="col-9">
-                                            <select name="bulan" aria-controls="dataTable" class="form-control form-control-sm">
-                                                <option <?= @$bulan == "01" ? "selected" : "" ?> value="01">Januari</option>
-                                                <option <?= @$bulan == "02" ? "selected" : "" ?> value="02">Februari</option>
-                                                <option <?= @$bulan == "03" ? "selected" : "" ?> value="03">Maret</option>
-                                                <option <?= @$bulan == "04" ? "selected" : "" ?> value="04">April</option>
-                                                <option <?= @$bulan == "05" ? "selected" : "" ?> value="05">Mei</option>
-                                                <option <?= @$bulan == "06" ? "selected" : "" ?> value="06">Juni</option>
-                                                <option <?= @$bulan == "07" ? "selected" : "" ?> value="07">Juli</option>
-                                                <option <?= @$bulan == "08" ? "selected" : "" ?> value="08">Agustus</option>
-                                                <option <?= @$bulan == "09" ? "selected" : "" ?> value="09">September</option>
-                                                <option <?= @$bulan == "10" ? "selected" : "" ?> value="10">Oktober</option>
-                                                <option <?= @$bulan == "11" ? "selected" : "" ?> value="11">November</option>
-                                                <option <?= @$bulan == "12" ? "selected" : "" ?> value="12">Desember</option>
-                                            </select>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <select class="form-control form-control-sm" name="semester" id="semester">
+                                                        <option value="ganjil">Semester Ganjil</option>
+                                                        <option value="genap">Semester Genap</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                                <div class="col-6">
+                                                    <select class="form-control form-control-sm name" name="tahun" id="yearpicker" id="yearpicker"></select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-3">
                                             <button class="btn btn-success btn-sm">Submit</button>
@@ -99,19 +97,19 @@
                                         </thead>
                                         <tbody>
                                             <?php $i = 0;
-                                            while ($item = $query_kelas->fetch_assoc()) { ?>
+                                            //while ($item = $query_kelas->fetch_assoc()) { ?>
                                                 <tr>
-                                                    <td class="col-1"><?php echo ++$i ?></td>
-                                                    <td class="col-4"><?php echo $item['nama_kelas'] ?></td>
-                                                    <td class="col-2"><?php echo $item['total_siswa'] ?> siswa</td>
-                                                    <td class="col-3"><?php echo $item['total_pelanggaran'] ?> pelanggaran</td>
+                                                    <td class="col-1"><?php //echo ++$i ?></td>
+                                                    <td class="col-4"><?php //echo $item['nama_kelas'] ?></td>
+                                                    <td class="col-2"><?php //echo $item['total_siswa'] ?> siswa</td>
+                                                    <td class="col-3"><?php //echo $item['total_pelanggaran'] ?> pelanggaran</td>
                                                     <td class="col-2">
-
-                                                        <a class="btn btn-info" href="download.php?id_kelas=<?= @$item["id_kelas"] ?>"><i class="fas fa-fw fa-file-download"></i> Download</a>
+<!-- 
+                                                        <a class="btn btn-info" href="download.php?id_kelas=<?php //@$item["id_kelas"] ?>"><i class="fas fa-fw fa-file-download"></i> Download</a> -->
                                                     </td>
                                                 </tr>
 
-                                            <?php } ?>
+                                            <?php //} ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -167,22 +165,26 @@
     <!-- simple datatable -->
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 
-    <!-- <script>
+    <script>
         $(document).ready(() => {
-            $(document).on("click", ".deleteData",deleteData);
-
-            function deleteData() {
-                let id = $(this).val();
-                let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
-
-                console.log(id, yakin_hapus);
-                if (yakin_hapus) {
-                    $('#id').val(id);
-                    $('#submit_hapus').click();
-                }
+            for (i = new Date().getFullYear(); i > 2015; i--) {
+                $('#yearpicker').append($('<option />').val(i).html(i));
             }
+
+            // $(document).on("click", ".deleteData",deleteData);
+
+            // function deleteData() {
+            //     let id = $(this).val();
+            //     let yakin_hapus = confirm("Apakah anda yakin ingin menghapus data ini??");
+
+            //     console.log(id, yakin_hapus);
+            //     if (yakin_hapus) {
+            //         $('#id').val(id);
+            //         $('#submit_hapus').click();
+            //     }
+            // }
         });
-    </script> -->
+    </script>
 </body>
 
 </html>

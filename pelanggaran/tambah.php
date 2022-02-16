@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     // $kategori_pelanggaran = @$_POST['kategori_pelanggaran'];
     $id_jenis_pelanggaran   = @$_POST['id_jenis_pelanggaran'];
     $poin_pelanggaran = @$_POST['poin_pelanggaran'];
-
+    
 
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
     $id_pelanggaran = uniqid("plgrn");
@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $id = $mysqli->escape_string($id);
     $id_jenis_pelanggaran = $mysqli->escape_string($id_jenis_pelanggaran);
     // $kategori_pelanggaran = $mysqli->escape_string($kategori_pelanggaran);
-    $poin_pengurangan = $poin_pelanggaran;
+    $poin_pelanggaran = $mysqli->escape_string($poin_pelanggaran);
     $id_entity_penambah = $_SESSION["id_entity"];
     $datetime       = date('Y-m-d H:i:s');
 
     //Store data siswa ke dalam table siswa
     $sql_pelanggaran = "INSERT INTO pelanggaran VALUES(
-        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$poin_pengurangan',
+        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$poin_pelanggaran',
         '$tgl_pelanggaran', '$datetime', '$datetime'
     )";
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $query_current_poin = $mysqli->query($sql_current_poin) or die($mysqli->error);
     $current_poin = $query_current_poin->fetch_assoc();
     
-    $poin_setelah_dikurang = $current_poin['poin'] - $poin_pengurangan;
+    $poin_setelah_dikurang = $current_poin['poin'] - $poin_pelanggaran;
 
     $sql_update_poin_siswa = "UPDATE siswa SET poin = ". $poin_setelah_dikurang ." WHERE id = '". $id ."';";
 

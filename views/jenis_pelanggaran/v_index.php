@@ -55,7 +55,7 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <span class="h5 m-0 font-weight-bold text-primary">Daftar Tata Tertib</span>
-                                <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                                <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
                                     <!-- mobile -->
                                     <div class="d-inline d-sm-none">
                                         <a href="tambah.php" class="btn btn-primary" style="float:right;"><i class="fas fa-plus me-2"></i></a>
@@ -100,7 +100,7 @@
                                                 <th scope="col">No</th>
                                                 <th scope="col">Deskripsi</th>
                                                 <th scope="col">Poin Pelanggaran</th>
-                                                <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                                                <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
                                                     <th colspan="2" scope="col">Opsi</th>
                                                 <?php } ?>
                                             </tr>
@@ -112,7 +112,7 @@
                                                     <th class="col-1" scope="row no-gutters m-3"><?php echo ++$i ?></th>
                                                     <td class="col-8"><?php echo $item['desc_pelanggaran'] ?></td>
                                                     <td class="col-1"><?php echo $item['poin_pelanggaran'] ?> poin</td>
-                                                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                                                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
                                                         <td class="col-3"> <a href="edit.php?jenis_pelanggaran=<?php echo $item['id_jenis_pelanggaran'] ?>" class="btn btn-success px-4">
                                                                 <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
                                                                     <path fill="#fff" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" />
@@ -166,7 +166,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa" && $_SESSION["nama_hak_akses"] !== "guru") { ?>
                         <form class="mr-auto">
                             <button type="button" class="btn btn-danger m1 deleteData modal-delete">
                                 <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">

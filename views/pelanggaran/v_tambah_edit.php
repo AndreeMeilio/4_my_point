@@ -94,7 +94,8 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                             </div>
                                             <div class="mb-3">
                                                 <label for="poin_pelanggaran" class="form-label">Poin Pelanggaran</label>
-                                                <input type="number" class="form-control" name="poin_pelanggaran" id="poin_pelanggaran" data-poin="<?= @$item['poin_pelanggaran'] ?>" value="<?= @$data_pelanggaran['poin_pengurangan'] ?>" disabled required>
+                                                <input type="text" class="form-control" name="poin" id="poin" value="<?= @$data_pelanggaran['poin_pengurangan'] ?>" disabled>
+                                                <input type="text" class="form-control" name="poin_pelanggaran" id="poin_pelanggaran" value="<?= @$data_pelanggaran['poin_pengurangan'] ?>" hidden>
                                             </div>
 
                                             <a class="btn btn-danger px-3" href="./">Back</a>
@@ -115,7 +116,6 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
 
     </div>
     <!-- End of Content Wrapper -->
-
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -142,8 +142,13 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                 var selected_item = $("#id_jenis_pelanggaran option:selected");
 
                 var poin_pelanggaran = selected_item.data("poin");
+                
+                var poin = document.querySelector("#poin_pelanggaran");
+                poin.value = poin_pelanggaran;
 
-                $("#poin_pelanggaran").val(poin_pelanggaran)
+                var poin = document.querySelector("#poin");
+                poin.value = poin_pelanggaran;
+
             })
         });
     </script>
