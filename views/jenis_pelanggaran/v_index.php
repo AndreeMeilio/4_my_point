@@ -99,6 +99,7 @@
                                             <tr>
                                                 <th scope="col">No</th>
                                                 <th scope="col">Deskripsi</th>
+                                                <th scope="col">Poin Pelanggaran</th>
                                                 <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
                                                     <th colspan="2" scope="col">Opsi</th>
                                                 <?php } ?>
@@ -110,6 +111,7 @@
                                                 <tr>
                                                     <th class="col-1" scope="row no-gutters m-3"><?php echo ++$i ?></th>
                                                     <td class="col-8"><?php echo $item['desc_pelanggaran'] ?></td>
+                                                    <td class="col-1"><?php echo $item['poin_pelanggaran'] ?> poin</td>
                                                     <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
                                                         <td class="col-3"> <a href="edit.php?jenis_pelanggaran=<?php echo $item['id_jenis_pelanggaran'] ?>" class="btn btn-success px-4">
                                                                 <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">

@@ -75,7 +75,7 @@
                                     <table class="table table-bordered dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>NIS</th>
+                                                <!-- <th>NIS</th> -->
                                                 <th>NAMA SISWA</th>
                                                 <th>OPSI</th>
                                             </tr>
@@ -84,9 +84,9 @@
                                             <?php
                                             foreach($result as $item) { ?>
                                                 <tr>
-                                                    <td class="col-4"><?php echo $item['id'] ?></td>
-                                                    <td class="col-5"><?php echo $item['nama'] ?></td>
-                                                    <td class="col-3">
+                                                    <!-- <td class="col-4"><?php //echo $item['id'] ?></td> -->
+                                                    <td class="col-9"><?php echo $item['nama'] ?></td>
+                                                    <td class="col-1">
                                                         <a href="detail.php?nis=<?php echo $item['id'] ?>" class="btn btn-info m-1">
                                                             <i class="far fa-fw fa-eye"></i>
                                                         </a>

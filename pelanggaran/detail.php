@@ -18,9 +18,7 @@ $sql_pelanggaran = "SELECT pelanggaran.*, jenis_pelanggaran.* FROM pelanggaran
                     WHERE pelanggaran.id_siswa = '". $id."'";
 $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error);
 
-$sql_jumlah_pelanggaran = "SELECT COUNT(id_siswa) as total_pelanggaran, 
-                        (SELECT COUNT(id_siswa) FROM pelanggaran WHERE kategori_pelanggaran='ringan' AND id_siswa='". $id ."') as pelanggaran_ringan, 
-                        (SELECT COUNT(id_siswa) FROM pelanggaran WHERE kategori_pelanggaran='sedang' AND id_siswa='". $id ."') as pelanggaran_sedang FROM pelanggaran WHERE id_siswa = '". $id ."';";
+$sql_jumlah_pelanggaran = "SELECT COUNT(id_siswa) as total_pelanggaran FROM pelanggaran WHERE id_siswa = '". $id ."';";
 
 $query_jumlah_pelanggaran = $mysqli->query($sql_jumlah_pelanggaran) or die($mysqli->error);
 $data_jumlah_pelanggaran = $query_jumlah_pelanggaran->fetch_assoc();

@@ -8,8 +8,9 @@ include '../auth/authorization.php';
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tgl_pelanggaran = @$_POST['tgl_pelanggaran'];
     $id = @$_POST['id'];
-    $kategori_pelanggaran = @$_POST['kategori_pelanggaran'];
+    // $kategori_pelanggaran = @$_POST['kategori_pelanggaran'];
     $id_jenis_pelanggaran   = @$_POST['id_jenis_pelanggaran'];
+    $poin_pelanggaran = @$_POST['poin_pelanggaran'];
 
 
     // Escape string untuk menghindari terjadinya teknik hacking SQL Injection
@@ -17,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $tgl_pelanggaran = $mysqli->escape_string($tgl_pelanggaran);
     $id = $mysqli->escape_string($id);
     $id_jenis_pelanggaran = $mysqli->escape_string($id_jenis_pelanggaran);
-    $kategori_pelanggaran = $mysqli->escape_string($kategori_pelanggaran);
-    $poin_pengurangan = $kategori_pelanggaran === "ringan" ? 5 : 8;
+    // $kategori_pelanggaran = $mysqli->escape_string($kategori_pelanggaran);
+    $poin_pengurangan = $poin_pelanggaran;
     $id_entity_penambah = $_SESSION["id_entity"];
     $datetime       = date('Y-m-d H:i:s');
 
     //Store data siswa ke dalam table siswa
     $sql_pelanggaran = "INSERT INTO pelanggaran VALUES(
-        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$kategori_pelanggaran', '$poin_pengurangan',
+        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$poin_pengurangan',
         '$tgl_pelanggaran', '$datetime', '$datetime'
     )";
 

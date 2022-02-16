@@ -85,18 +85,16 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
                                             <div class="mb-3">
                                                 <label for="id_jenis_pelanggaran" class="form-label">Pelanggaran</label>
                                                 <select class="form-control" name="id_jenis_pelanggaran" id="id_jenis_pelanggaran">
+                                                    <option value="" selected disabled>-- Pilih Pelanggaran --</option>
                                                     <?php while ($item = $data_jenis_pelanggaran->fetch_assoc()) { ?>
-                                                        <option <?= @$item['id_jenis_pelanggaran'] == @$data_pelanggaran['id_jenis_pelanggaran'] ? 'selected' : ''
-                                                                ?> value="<?= @$item['id_jenis_pelanggaran'] ?>"><?= @$item['desc_pelanggaran'] ?></option>
+                                                        <option data-poin="<?= @$item['poin_pelanggaran'] ?>" <?= @$item['id_jenis_pelanggaran'] == @$data_pelanggaran['id_jenis_pelanggaran'] ? 'selected' : ''
+                                                                                                                ?> value="<?= @$item['id_jenis_pelanggaran'] ?>"><?= @$item['desc_pelanggaran'] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="kategori_pelanggaran" class="form-label">Kategori Pelanggaran</label>
-                                                <select class="form-control" name="kategori_pelanggaran" id="kategori_pelanggaran">
-                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "ringan" ? "selected" : "" ?> value="ringan">Ringan</option>
-                                                    <option <?= @$data_pelanggaran["kategori_pelanggaran"] == "sedang" ? "selected" : "" ?> value="sedang">Sedang</option>
-                                                </select>
+                                                <label for="poin_pelanggaran" class="form-label">Poin Pelanggaran</label>
+                                                <input type="number" class="form-control" name="poin_pelanggaran" id="poin_pelanggaran" data-poin="<?= @$item['poin_pelanggaran'] ?>" value="<?= @$data_pelanggaran['poin_pengurangan'] ?>" disabled required>
                                             </div>
 
                                             <a class="btn btn-danger px-3" href="./">Back</a>
@@ -135,10 +133,18 @@ if (!empty($id_pelanggaran)) $action = "edit.php?id_pelanggaran=" . $id_pelangga
 
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(() => {
             $("#id").select2();
+
+            $("#id_jenis_pelanggaran").on("change", (event) => {
+                var selected_item = $("#id_jenis_pelanggaran option:selected");
+
+                var poin_pelanggaran = selected_item.data("poin");
+
+                $("#poin_pelanggaran").val(poin_pelanggaran)
+            })
         });
     </script>
 </body>

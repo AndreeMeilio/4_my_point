@@ -15,14 +15,58 @@
     $query_penghargaan = $mysqli->query($sql_penghargaan) or die($mysqli->error);
     $penghargaan = $query_penghargaan->fetch_assoc()['jumlah_penghargaan'];
 
-    //Pelanggaran Ringan
-    $sql_ringan = "SELECT COUNT('id_pelanggaran') as jumlah_ringan FROM pelanggaran WHERE kategori_pelanggaran = 'ringan'";
-    $query_ringan = $mysqli->query($sql_ringan) or die($mysqli->error);
-    $ringan = $query_ringan->fetch_assoc()['jumlah_ringan'];
+    //Pelanggaran per bulan
+    $sql_januari = "SELECT COUNT('id_pelanggaran') as januari FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '01'";
+    $query_januari = $mysqli->query($sql_januari) or die($mysqli->error);
+    $januari = $query_januari->fetch_assoc()['januari'];
+
+    $sql_februari = "SELECT COUNT('id_pelanggaran') as februari FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '02'";
+    $query_februari = $mysqli->query($sql_februari) or die($mysqli->error);
+    $februari = $query_februari->fetch_assoc()['februari'];
+
+    $sql_maret = "SELECT COUNT('id_pelanggaran') as maret FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '03'";
+    $query_maret = $mysqli->query($sql_maret) or die($mysqli->error);
+    $maret = $query_maret->fetch_assoc()['maret'];
+
+    $sql_april = "SELECT COUNT('id_pelanggaran') as april FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '04'";
+    $query_april = $mysqli->query($sql_april) or die($mysqli->error);
+    $april = $query_april->fetch_assoc()['april'];
+
+    $sql_mei = "SELECT COUNT('id_pelanggaran') as mei FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '05'";
+    $query_mei = $mysqli->query($sql_mei) or die($mysqli->error);
+    $mei = $query_mei->fetch_assoc()['mei'];
+
+    $sql_juni = "SELECT COUNT('id_pelanggaran') as juni FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '06'";
+    $query_juni = $mysqli->query($sql_juni) or die($mysqli->error);
+    $juni = $query_juni->fetch_assoc()['juni'];
+
+    $sql_juli = "SELECT COUNT('id_pelanggaran') as juli FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '07'";
+    $query_juli = $mysqli->query($sql_juli) or die($mysqli->error);
+    $juli = $query_juli->fetch_assoc()['juli'];
+
+    $sql_agustus = "SELECT COUNT('id_pelanggaran') as agustus FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '08'";
+    $query_agustus = $mysqli->query($sql_agustus) or die($mysqli->error);
+    $agustus = $query_agustus->fetch_assoc()['agustus'];
+
+    $sql_september = "SELECT COUNT('id_pelanggaran') as september FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '09'";
+    $query_september = $mysqli->query($sql_september) or die($mysqli->error);
+    $september = $query_september->fetch_assoc()['september'];
+
+    $sql_oktober = "SELECT COUNT('id_pelanggaran') as oktober FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '10'";
+    $query_oktober = $mysqli->query($sql_oktober) or die($mysqli->error);
+    $oktober = $query_oktober->fetch_assoc()['oktober'];
+
+    $sql_november = "SELECT COUNT('id_pelanggaran') as november FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '11'";
+    $query_november = $mysqli->query($sql_november) or die($mysqli->error);
+    $november = $query_november->fetch_assoc()['november'];
+
+    $sql_desember = "SELECT COUNT('id_pelanggaran') as desember FROM pelanggaran WHERE MONTH(tgl_pelanggaran) = '12'";
+    $query_desember = $mysqli->query($sql_desember) or die($mysqli->error);
+    $desember = $query_desember->fetch_assoc()['desember'];
     //Pelanggaran Sedang
-    $sql_sedang = "SELECT COUNT('id_pelanggaran') as jumlah_sedang FROM pelanggaran WHERE kategori_pelanggaran = 'sedang'";
-    $query_sedang = $mysqli->query($sql_sedang) or die($mysqli->error);
-    $sedang = $query_sedang->fetch_assoc()['jumlah_sedang'];
+    // $sql_sedang = "SELECT COUNT('id_pelanggaran') as jumlah_sedang FROM pelanggaran WHERE kategori_pelanggaran = 'sedang'";
+    // $query_sedang = $mysqli->query($sql_sedang) or die($mysqli->error);
+    // $sedang = $query_sedang->fetch_assoc()['jumlah_sedang'];
 
     //Penghargaan Kota
     $sql_kota = "SELECT COUNT('id_penghargaan') as jumlah_kota FROM penghargaan WHERE tingkat = 'kota'";

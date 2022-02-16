@@ -80,10 +80,6 @@
                                         <div class="row mb-5">
                                             <div class="col-6">Poin Siswa</div>
                                             <div class="col-6"> : <?= @$data_siswa["poin"] ?> POIN</div>
-                                            <div class="col-6">Ringan</div>
-                                            <div class="col-6"> : <?= @$data_jumlah_pelanggaran["pelanggaran_ringan"] ?> Pelanggaran</div>
-                                            <div class="col-6">Sedang</div>
-                                            <div class="col-6"> : <?= @$data_jumlah_pelanggaran["pelanggaran_sedang"] ?> Pelanggaran</div>
                                             <div class="col-6">Total Pelanggaran</div>
                                             <div class="col-6"> : <?= @$data_jumlah_pelanggaran["total_pelanggaran"] ?> Pelanggaran</div>
                                         </div>
@@ -96,7 +92,8 @@
                                                 <thead>
                                                     <tr>
                                                         <th class="col-10">TGL</th>
-                                                        <th>KATEGORI</th>
+                                                        <th class="col-10">DESC</th>
+                                                        <!-- <th>KATEGORI</th> -->
                                                         <th>OPSI</th>
                                                     </tr>
                                                 </thead>
@@ -105,7 +102,8 @@
 
                                                         <tr>
                                                             <td class="col-6"><?= date("d F Y", strtotime(@$item["tgl_pelanggaran"])) ?></td>
-                                                            <td class="col-4"><?= ucwords(@$item["kategori_pelanggaran"]) ?></td>
+                                                            <!-- <td class="col-4"><?= ucwords(@$item["kategori_pelanggaran"]) ?></td> -->
+                                                            <td class="col-4"><?= ucwords(@$item["desc_pelanggaran"]) ?></td>
                                                             <td>
                                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" 
                                                                 data-idpelanggaran="<?php echo $item['id_pelanggaran'] ?>" 
@@ -127,7 +125,7 @@
                                                     <tr>
                                                         <th class="col-10">TGL</th>
                                                         <th>DESC</th>
-                                                        <th>KATEGORI</th>
+                                                        <!-- <th>KATEGORI</th> -->
                                                         <th>POIN</th>
                                                         <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
                                                             <th>OPSI</th>
@@ -140,7 +138,7 @@
                                                         <tr>
                                                             <td class="col-1"><?= date("d F Y", strtotime(@$item["tgl_pelanggaran"])) ?></td>
                                                             <td class="col-9"><?= @$item["desc_pelanggaran"] ?></td>
-                                                            <td class="col-1"><?= ucwords(@$item["kategori_pelanggaran"]) ?></td>
+                                                            <!-- <td class="col-1"><?= ucwords(@$item["kategori_pelanggaran"]) ?></td> -->
                                                             <td><?= @$item["poin_pengurangan"] ?> poin</td>
                                                             <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
                                                                 <td class="col-1">

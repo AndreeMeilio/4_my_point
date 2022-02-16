@@ -1,6 +1,6 @@
 <?php
 $action = "tambah.php";
-if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_jenis_pelanggaran;
+if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=" . $id_jenis_pelanggaran;
 
 ?>
 <!DOCTYPE html>
@@ -64,10 +64,14 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
                             <div class="card-body">
                                 <div class="table-responsive">
 
-                                    <form action="<?= @$action?>" method="POST">
+                                    <form action="<?= @$action ?>" method="POST">
+                                        <div class="mb-3">
+                                            <label for="poin_pelanggaran" class="form-label">Poin Pelanggaran</label>
+                                            <input type="number" min="1" class="form-control" name="poin_pelanggaran" id="poin_pelanggaran" cols="30" rows="15" value="<?= @$data_jenis_pelanggaran['poin_pelanggaran'] ?>" required>
+                                        </div>
                                         <div class="mb-3">
                                             <label for="desc_pelanggaran" class="form-label">Deskripsi Pelanggaran</label>
-                                            <textarea class="form-control" name="desc_pelanggaran" id="desc_pelanggaran" cols="30" rows="15" required><?= @$data_jenis_pelanggaran['desc_pelanggaran']?></textarea>
+                                            <textarea class="form-control" name="desc_pelanggaran" id="desc_pelanggaran" cols="30" rows="15" required><?= @$data_jenis_pelanggaran['desc_pelanggaran'] ?></textarea>
                                         </div>
                                         <a class="btn btn-danger float-start px-3" href="./">Back</a>
                                         <button type="submit" class="btn btn-primary float-right">Submit</button>
@@ -94,7 +98,7 @@ if (!empty($id_jenis_pelanggaran)) $action = "edit.php?jenis_pelanggaran=". $id_
     </a>
 
     <!-- Logout Modal-->
-    <?php include '../views/logout_modal.html';?>
+    <?php include '../views/logout_modal.html'; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="../assets/vendor/jquery/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

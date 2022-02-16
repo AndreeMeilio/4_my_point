@@ -213,17 +213,57 @@
                                     </div>
                                     <!-- Card Body -->
                                     <div class="card-body">
-                                        <div class="chart-pie pt-4 pb-2">
-                                            <canvas id="myPieChart"></canvas>
+                                        <div class="chart-line pt-4 pb-2">
+                                            <canvas id="myLineChart" height="133"></canvas>
                                         </div>
                                         <div class="mt-4 text-center small">
                                             <span class="mr-2">
-                                                <input type="number" class="d-none" value=<?= @$ringan ?> id="ringan" />
-                                                <i class="fas fa-circle text-success"></i> Ringan
+                                                <input type="number" class="d-none" value=<?= @$januari ?> id="januari" />
+                                                <!-- <i class="fas fa-circle text-success"></i> Januari -->
                                             </span>
                                             <span class="mr-2">
-                                                <input type="number" class="d-none" value=<?= @$sedang ?> id="sedang" />
-                                                <i class="fas fa-circle text-info"></i> Sedang
+                                                <input type="number" class="d-none" value=<?= @$februari ?> id="februari" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Februari -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$maret ?> id="maret" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Maret -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$april ?> id="april" />
+                                                <!-- <i class="fas fa-circle text-info"></i> April -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$mei ?> id="mei" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Mei -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$juni ?> id="juni" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Juni -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$juli ?> id="juli" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Juli -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$agustus ?> id="agustus" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Agustus -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$september ?> id="september" />
+                                                <!-- <i class="fas fa-circle text-info"></i> September -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$oktober ?> id="oktober" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Oktober -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$november ?> id="november" />
+                                                <!-- <i class="fas fa-circle text-info"></i> November -->
+                                            </span>
+                                            <span class="mr-2">
+                                                <input type="number" class="d-none" value=<?= @$desember ?> id="desember" />
+                                                <!-- <i class="fas fa-circle text-info"></i> Desember -->
                                             </span>
                                         </div>
                                     </div>
@@ -361,6 +401,7 @@
     <script src="assets/vendor/chart.js/Chart.min.js"></script>
     <script src="assets/js/demo/chart-area-demo.js"></script>
     <script src="assets/js/demo/chart-pie-demo.js"></script>
+    <script src="assets/js/demo/chart-line-demo.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="assets/js/demo/datatables-demo.js"></script>
