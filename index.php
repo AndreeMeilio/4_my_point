@@ -2,7 +2,47 @@
     include 'lib/library.php';
 
     cekLogin();
+    if ($_SESSION['nama_hak_akses'] === "siswa") {
+        //menghitung jumlah poin
+        $sql_jumlah_poin = "SELECT poin FROM siswa WHERE id =".$_SESSION['id_entity'];
+        $query_jumlah_poin = $mysqli->query($sql_jumlah_poin) or die($mysqli->error);
+        $jumlah_poin = $query_jumlah_poin->fetch_assoc()['poin'];
 
+        //menghitung jumlah pelanggaran
+        $sql_jumlah_pelanggaran = "SELECT COUNT('id_siswa') as jumlah_pelanggaran FROM pelanggaran WHERE id_siswa =".$_SESSION['id_entity'];
+        $query_jumlah_pelanggaran = $mysqli->query($sql_jumlah_pelanggaran) or die($mysqli->error);
+        $jumlah_pelanggaran = $query_jumlah_pelanggaran->fetch_assoc()['jumlah_pelanggaran'];
+
+        //menghitung total poin yang berkurang
+        $sql_jumlah_poin_berkurang = "SELECT SUM(poin_pengurangan) as jumlah_poin_berkurang FROM pelanggaran WHERE id_siswa =".$_SESSION['id_entity'];
+        $query_jumlah_poin_berkurang = $mysqli->query($sql_jumlah_poin_berkurang) or die($mysqli->error);
+        $jumlah_poin_berkurang = $query_jumlah_poin_berkurang->fetch_assoc()['jumlah_poin_berkurang'];
+
+        if ($jumlah_poin_berkurang == NULL) {
+            $jumlah_poin_berkurang = 0;
+        }
+
+        //menghitung jumlah penghargaan
+        $sql_jumlah_penghargaan = "SELECT COUNT('id_siswa') as jumlah_penghargaan FROM penghargaan WHERE id_siswa =".$_SESSION['id_entity'];
+        $query_jumlah_penghargaan = $mysqli->query($sql_jumlah_penghargaan) or die($mysqli->error);
+        $jumlah_penghargaan = $query_jumlah_penghargaan->fetch_assoc()['jumlah_penghargaan'];
+
+        //menghitung total poin yang bertambah
+        $sql_jumlah_poin_bertambah = "SELECT SUM(poin_penambah) as jumlah_poin_bertambah FROM penghargaan WHERE id_siswa =".$_SESSION['id_entity'];
+        $query_jumlah_poin_bertambah = $mysqli->query($sql_jumlah_poin_bertambah) or die($mysqli->error);
+        $jumlah_poin_bertambah = $query_jumlah_poin_bertambah->fetch_assoc()['jumlah_poin_bertambah'];
+
+        //untuk menampilkan data tata tertib di dashboard
+        $sql_tatib    = "SELECT * FROM jenis_pelanggaran";
+        $data_jenis_pelanggaran  = $mysqli->query($sql_tatib) or die($sql_tatib);
+
+        $result = [];
+
+        while ($res = $data_jenis_pelanggaran->fetch_assoc()){
+            $result[] = $res;
+        }
+    }
+    
     $sql_jumlah_tata_tertib = "SELECT COUNT('id_jenis_pelanggaran') as jumlah_tata_tertib FROM jenis_pelanggaran";
     $query_jumlah_tata_tertib = $mysqli->query($sql_jumlah_tata_tertib) or die($mysqli->error);
     $jumlah_tata_tertib = $query_jumlah_tata_tertib->fetch_assoc()['jumlah_tata_tertib'];

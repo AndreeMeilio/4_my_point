@@ -43,93 +43,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="
-    navbar navbar-expand navbar-light
-    bg-white
-    topbar
-    mb-4
-    static-top
-    shadow
-  ">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search -->
-                    <form class="
-      d-none d-sm-inline-block
-      form-inline
-      mr-auto
-      ml-md-3
-      my-2 my-md-0
-      mw-100
-      navbar-search
-    ">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-900 small"><?php echo $_SESSION["nama"] ?></span>
-                                <img class="img-profile rounded-circle" src="./assets/image/<?= @$_SESSION["foto"] ?>">
-                                <!-- <img class="img-profile rounded-circle" src="../assets/image/undraw_profile.svg" /> -->
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="/4_my_point/profile/index.php">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <!-- <a class="dropdown-item" href="#">
-          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-          Settings
-        </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-          Activity Log
-        </a> -->
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php' ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -139,68 +53,185 @@
                     <div class="col-md-15">
                         <h3><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h3>
                         <hr>
-
                         <!-- Jumlah Tiap Data -->
                         <!-- Content Row -->
                         <div class="row">
-                            <!-- Earnings (Monthly) Card Example -->
-                            <div class="col-xl-4 col-md-6 mb-4">
-                                <div class="card border-left-primary shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Total Data Tata Tertib</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= @$jumlah_tata_tertib ?> Tata Tertib</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-2x fa-book-reader"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- Earnings (Monthly) Card Example -->
-                            <div class="col-xl-4 col-md-6 mb-4">
-                                <div class="card border-left-danger shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                    Total Data Pelanggaran</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= @$pelanggaran ?> Pelanggaran</div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-2x fa-pencil-ruler"> </i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Earnings (Monthly) Card Example -->
-                            <div class="col-xl-4 col-md-6 mb-4">
-                                <div class="card border-left-info shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Data Penghargaan
+                            <?php if ($_SESSION['nama_hak_akses'] === "admin" || $_SESSION['nama_hak_akses'] === "guru") { ?>
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                        Total Data Tata Tertib</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= @$jumlah_tata_tertib ?> Tata Tertib</div>
                                                 </div>
-                                                <div class="row no-gutters align-items-center">
-                                                    <div class="col-auto">
-                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$penghargaan ?> Penghargaan</div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-book-reader"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                        Total Pelanggaran Seluruh Siswa</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?= @$pelanggaran ?> Pelanggaran</div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-pencil-ruler"> </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Penghargaan Seluruh Siswa
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$penghargaan ?> Penghargaan</div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-2x fa-trophy"></i>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-trophy"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
+                            <?php } ?>
+
+                            <?php if ($_SESSION['nama_hak_akses'] === "siswa") { ?>
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Poin Anda Saat Ini
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$jumlah_poin ?> Poin</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-coins"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Pelanggaran Anda
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$jumlah_pelanggaran ?> Pelanggaran</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-times"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Poin yang Berkurang
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$jumlah_poin_berkurang ?> Poin</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-minus"></i>&nbsp;<i class="fas fa-2x fa-coins"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Penghargaan Anda
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$jumlah_penghargaan ?> Penghargaan</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-trophy"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Earnings (Monthly) Card Example -->
+                                <div class="col-xl-4 col-md-6 mb-4">
+                                    <div class="card border-left-info shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Poin yang Bertambah
+                                                    </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= @$jumlah_poin_bertambah ?> Poin</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-2x fa-plus"></i>&nbsp;<i class="fas fa-2x fa-coins"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
                         </div>
+
 
                         <div class="row">
 
@@ -305,33 +336,107 @@
                             </div>
                         </div>
 
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Kelas Dan Jumlah Pelanggarannya</h6>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Nama Kelas</th>
-                                            <th>Jumlah Pelanggaran</th>
-                                            <th>Jumlah Penghargaan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php while ($item = $query_kelas->fetch_assoc()) { ?>
-                                            <tr>
-                                                <td><?= @$item['tingkatan'] . @$item['nama_kelas'] ?> </td>
-                                                <td><?= @$item['total_pelanggaran'] ?> Pelanggaran</td>
-                                                <td><?= @$item['total_penghargaan'] ?> Penghargaan</td>
-                                            </tr>
-                                        <?php } ?>
+                        <?php if ($_SESSION['nama_hak_akses'] === "admin" || $_SESSION['nama_hak_akses'] === "guru") { ?>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Kelas Dan Jumlah Pelanggarannya</h6>
+                                </div>
 
-                                    </tbody>
-                                </table>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Kelas</th>
+                                                <th>Jumlah Pelanggaran</th>
+                                                <th>Jumlah Penghargaan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php while ($item = $query_kelas->fetch_assoc()) { ?>
+                                                <tr>
+                                                    <td><?= @$item['tingkatan'] . @$item['nama_kelas'] ?> </td>
+                                                    <td><?= @$item['total_pelanggaran'] ?> Pelanggaran</td>
+                                                    <td><?= @$item['total_penghargaan'] ?> Penghargaan</td>
+                                                </tr>
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['nama_hak_akses'] === 'siswa') { ?>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tata Tertib Siswa</h6>
+                                </div>
+
+                                <div class="card-body">
+                                    <!-- tampilan mobile -->
+                                    <div class="table-responsive d-block d-sm-none">
+                                        <table class="table table-striped table-bordered dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Deskripsi</th>
+                                                    <th colspan="2" scope="col">Opsi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $i = 0;
+                                                foreach ($result as $item) { ?>
+                                                    <tr>
+                                                        <td class="col-8"><?php echo $item['desc_pelanggaran'] ?></td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal" data-idjenispelanggaran="<?php echo $item['id_jenis_pelanggaran'] ?>" data-descpelanggaran="<?php echo $item['desc_pelanggaran'] ?>">more</button>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- tampilan web -->
+                                    <div class="table-responsive d-none d-sm-block">
+                                        <table class="table table-striped table-bordered dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Deskripsi</th>
+                                                    <th scope="col">Poin Pelanggaran</th>
+                                                    <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                                                        <th colspan="2" scope="col">Opsi</th>
+                                                    <?php } ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $i = 0;
+                                                foreach ($result as $item) { ?>
+                                                    <tr>
+                                                        <th class="col-1" scope="row no-gutters m-3"><?php echo ++$i ?></th>
+                                                        <td class="col-8"><?php echo $item['desc_pelanggaran'] ?></td>
+                                                        <td class="col-1"><?php echo $item['poin_pelanggaran'] ?> poin</td>
+                                                        <?php if ($_SESSION["nama_hak_akses"] !== "siswa") { ?>
+                                                            <td class="col-3"> <a href="edit.php?jenis_pelanggaran=<?php echo $item['id_jenis_pelanggaran'] ?>" class="btn btn-success px-4">
+                                                                    <svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
+                                                                        <path fill="#fff" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12H20A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4V2M18.78,3C18.61,3 18.43,3.07 18.3,3.2L17.08,4.41L19.58,6.91L20.8,5.7C21.06,5.44 21.06,5 20.8,4.75L19.25,3.2C19.12,3.07 18.95,3 18.78,3M16.37,5.12L9,12.5V15H11.5L18.87,7.62L16.37,5.12Z" />
+                                                                    </svg>Edit </a>
+                                                                <form class="d-inline">
+                                                                    <button type="button" class="btn btn-danger deleteData" value="<?php echo $item['id_jenis_pelanggaran'] ?>"><svg style="width:20px;height:20px" viewBox="0 0 24 24" class="mb-1">
+                                                                            <path fill="#fff" d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19Z" />
+                                                                        </svg> Delete</button>
+                                                                </form>
+                                                            </td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+
                     </div>
                     <!-- Content Row -->
 
