@@ -60,59 +60,30 @@
                                 <h5 class="m-0 font-weight-bold text-primary">Laporan</h5>
                             </div>
                             <div class="card-body">
-                                <form action="index.php">
-                                    <label>Pilih Bulan</label>
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <select class="form-control form-control-sm" name="semester" id="semester">
-                                                        <option value="ganjil">Semester Ganjil</option>
-                                                        <option value="genap">Semester Genap</option>
-                                                        
-                                                    </select>
-                                                </div>
-                                                <div class="col-6">
-                                                    <select class="form-control form-control-sm name" name="tahun" id="yearpicker" id="yearpicker"></select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <button class="btn btn-success btn-sm">Submit</button>
-                                        </div>
+                                <form action="download.php">
+                                    <div class="mb-3">
+                                        <label for="id_kelas" class="form-label">Nama Kelas</label>
+                                        <select class="form-control form-control-sm name" name="id_kelas" id="id_kelas" id="id_kelas">
+                                            <?php while ($item = $query_kelas->fetch_assoc()) { ?>
+                                                <option value="<?php echo $item['id_kelas'] ?>"><?php echo $item['tingkatan'] . ' ' . $item['nama_kelas'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="semester" class="form-label">Semester</label>
+                                        <select class="form-control form-control-sm" name="semester" id="semester">
+                                            <option value="ganjil">Semester Ganjil</option>
+                                            <option value="genap">Semester Genap</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="yearpicker" class="form-label">Tahun</label>
+                                        <select class="form-control form-control-sm name" name="tahun" id="yearpicker" id="yearpicker"></select>
                                     </div>
 
-                                    <hr>
+                                    <button class="btn btn-success btn-sm float-right">Download Laporan</button>
                                 </form>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>NO</th>
-                                                <th>NAMA KELAS</th>
-                                                <th>TOTAL SISWA</th>
-                                                <th>TOTAL PELANGGARAN</th>
-                                                <th>OPSI</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $i = 0;
-                                            //while ($item = $query_kelas->fetch_assoc()) { ?>
-                                                <tr>
-                                                    <td class="col-1"><?php //echo ++$i ?></td>
-                                                    <td class="col-4"><?php //echo $item['nama_kelas'] ?></td>
-                                                    <td class="col-2"><?php //echo $item['total_siswa'] ?> siswa</td>
-                                                    <td class="col-3"><?php //echo $item['total_pelanggaran'] ?> pelanggaran</td>
-                                                    <td class="col-2">
-<!-- 
-                                                        <a class="btn btn-info" href="download.php?id_kelas=<?php //@$item["id_kelas"] ?>"><i class="fas fa-fw fa-file-download"></i> Download</a> -->
-                                                    </td>
-                                                </tr>
 
-                                            <?php //} ?>
-                                        </tbody>
-                                    </table>
-                                </div>
                             </div>
                         </div>
                     </div>

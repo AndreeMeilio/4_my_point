@@ -18,17 +18,17 @@
         <tr>
             <td>Tingkatan</td>
             <td> : </td>
-            <td><?= @$data_kelas["tingkatan"]?></td>
+            <td><?= @$data_kelas["tingkatan"] ?></td>
         </tr>
         <tr>
             <td>Kelas</td>
             <td> : </td>
-            <td><?= @$data_kelas["nama_kelas"]?></td>
+            <td><?= @$data_kelas["nama_kelas"] ?></td>
         </tr>
         <tr>
             <td>Tahun Ajaran</td>
             <td> : </td>
-            <td><?= @$data_kelas["awal_tahun_ajaran"]. " / ". @$data_kelas["akhir_tahun_ajaran"]?></td>
+            <td><?= @$data_kelas["awal_tahun_ajaran"] . " / " . @$data_kelas["akhir_tahun_ajaran"] ?></td>
         </tr>
     </table>
     <br>
@@ -46,16 +46,32 @@
             </tr>
         </thead>
         <tbody>
-            <?php $i = 0; while ($item = $query_pelanggaran->fetch_assoc()) { ++$i?>
+            <?php $i = 0;
+            foreach ($hasil as $item) {
+                ++$i ?>
                 <tr>
-                    <td><?= @$i?></td>
-                    <td><?= @$item["id"]?></td>
-                    <td><?= @$item["nama"]?></td>
-                    <td><?= @$item["total_pelanggaran"]?></td>
-                    <td><?= @$item["poin"]?></td>
+                    <td><strong><?= @$i ?></strong></td>
+                    <td><strong><?= @$item["nis"] ?></strong></td>
+                    <td><strong><?= @$item["nama"] ?></strong></td>
+                    <td><strong><?= count(@$item["detail_pelanggaran"]) ?></strong></td>
+                    <td><strong><?= @$item["poin"] ?></strong></td>
                     <!-- <td>2</td> -->
                     <!-- <td>2</td> -->
                 </tr>
+                <hr>
+                <tr>
+                    <td>Tanggal</td>
+                    <td colspan="2">Deskripsi</td>
+                    <td>Poin Pengurangan</td>
+                </tr>
+                <?php foreach ($item['detail_pelanggaran'] as $item_pelanggaran) { ?>
+                    <tr>
+                        <td><?= @$item_pelanggaran['tgl_pelanggaran'] ?></td>
+                        <td  colspan="2"><?= @$item_pelanggaran["desc_pelanggaran"] ?></td>
+                        <td><?= @$item_pelanggaran["poin_pengurangan"] ?> poin</td>
+                    </tr>
+                <?php } ?>
+                <hr>
             <?php } ?>
 
         </tbody>
