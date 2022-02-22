@@ -23,26 +23,37 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $id_entity_penambah = $_SESSION["id_entity"];
     $datetime       = date('Y-m-d H:i:s');
 
-    //Store data siswa ke dalam table siswa
-    $sql_pelanggaran = "INSERT INTO pelanggaran VALUES(
-        '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$poin_pelanggaran',
-        '$tgl_pelanggaran', '$datetime', '$datetime'
-    )";
+    //
+    $query_cek_pelanggaran = "SELECT * FROM pelanggaran WHERE id_jenis_pelanggaran = '$id_jenis_pelanggaran' AND id_siswa = $id AND tgl_pelanggaran = '$tgl_pelanggaran'";
+    $cek_pelanggaran = mysqli_num_rows($mysqli->query($query_cek_pelanggaran));
 
-    $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error);
+    if ($cek_pelanggaran > 0) {
+        echo '<script language="javascript">
+        alert ("Siswa Sudah Dicatat Pada Tanggal yang Dipilih");
+        window.location="index.php";
+        </script>';
+    } else {
 
-    $sql_current_poin = "SELECT poin FROM siswa WHERE id = '". $id. "'";
-    $query_current_poin = $mysqli->query($sql_current_poin) or die($mysqli->error);
-    $current_poin = $query_current_poin->fetch_assoc();
-    
-    $poin_setelah_dikurang = $current_poin['poin'] - $poin_pelanggaran;
+        //Store data siswa ke dalam table siswa
+        $sql_pelanggaran = "INSERT INTO pelanggaran VALUES(
+            '$id_pelanggaran', '$id_jenis_pelanggaran', '$id', '$id_entity_penambah', '$poin_pelanggaran',
+            '$tgl_pelanggaran', '$datetime', '$datetime'
+        )";
 
-    $sql_update_poin_siswa = "UPDATE siswa SET poin = ". $poin_setelah_dikurang ." WHERE id = '". $id ."';";
+        $query_pelanggaran = $mysqli->query($sql_pelanggaran) or die($mysqli->error);
 
-    $query_update_poin_siswa = $mysqli->query($sql_update_poin_siswa) or die($mysqli->error);
+        $sql_current_poin = "SELECT poin FROM siswa WHERE id = '". $id. "'";
+        $query_current_poin = $mysqli->query($sql_current_poin) or die($mysqli->error);
+        $current_poin = $query_current_poin->fetch_assoc();
+        
+        $poin_setelah_dikurang = $current_poin['poin'] - $poin_pelanggaran;
 
-    header("location:index.php");
-    
+        $sql_update_poin_siswa = "UPDATE siswa SET poin = ". $poin_setelah_dikurang ." WHERE id = '". $id ."';";
+
+        $query_update_poin_siswa = $mysqli->query($sql_update_poin_siswa) or die($mysqli->error);
+
+        header("location:index.php");
+    }
 }
 
 $sql_jenis_pelanggaran = "SELECT * FROM jenis_pelanggaran";
